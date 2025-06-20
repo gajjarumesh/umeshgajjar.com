@@ -7,6 +7,7 @@ import { HiOutlineSlash } from "react-icons/hi2";
 import Link from "next/link";
 import Footer from "@/components/layouts/footer";
 import React, { useState } from "react";
+import { Analytics } from "@vercel/analytics/next";
 
 const App = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,6 +31,7 @@ const App = ({ children }) => {
           Ig
         </Link>
       </div> */}
+      <Analytics />
     </body>
   );
 };
