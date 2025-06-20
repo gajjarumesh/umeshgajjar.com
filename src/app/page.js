@@ -74,7 +74,7 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://umeshgajjar.com/og-image.jpg"
+          content="https://umeshgajjar.com/banner.png"
         />
 
         {/* Twitter Meta Tags */}
@@ -90,11 +90,11 @@ export default function Home() {
         />
         <meta
           name="twitter:image"
-          content="https://umeshgajjar.com/og-image.jpg"
+          content="https://umeshgajjar.com/banner.png"
         />
 
         {/* Optional Favicon */}
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
 
       {/* Vertical Navigator for Desktop */}
