@@ -174,21 +174,21 @@ export default function Home() {
             <section id="about">
               <h2 className="text-3xl ug-playfair-bold mb-4">About Me</h2>
               <p className="text-lg leading-relaxed text-gray-700">
-                I'm <span className="ug-raleway-bold">Umesh Gajjar</span>, a
-                passionate Full Stack Developer based in Gandhinagar, India with
-                over 6 years of experience crafting robust, scalable web
+                I&apos;m <span className="ug-raleway-bold">Umesh Gajjar</span>,
+                a passionate Full Stack Developer based in Gandhinagar, India
+                with over 6 years of experience crafting robust, scalable web
                 solutions. I specialize in technologies like{" "}
                 <span className="ug-raleway-bold">
                   React.js, Laravel, Node.js, Vue.js,
                 </span>{" "}
                 and <span className="ug-raleway-bold">Next.js</span>, and have
                 led high-performing development teams that deliver full-cycle
-                digital products. I’m highly collaborative, deadline-oriented,
-                and thrive in remote-first environments. I’ve built HRMS
-                systems, CRMs, SaaS platforms, and high-performance backend
-                services with clean architecture and user-centric design in
-                mind. My goal is always to blend technical excellence with
-                business impact.
+                digital products. I&apos;m highly collaborative,
+                deadline-oriented, and thrive in remote-first environments.
+                I&apos;ve built HRMS systems, CRMs, SaaS platforms, and
+                high-performance backend services with clean architecture and
+                user-centric design in mind. My goal is always to blend
+                technical excellence with business impact.
               </p>
             </section>
 
@@ -380,7 +380,7 @@ export default function Home() {
 
             {/* Contact */}
             <section className="text-center space-y-3" id="contact">
-              <h2 className="text-3xl ug-playfair-bold">Let’s Connect</h2>
+              <h2 className="text-3xl ug-playfair-bold">Let&apos;s Connect</h2>
               <p className="text-gray-600">
                 Open to freelance, remote roles, and collaborative tech
                 initiatives worldwide.
