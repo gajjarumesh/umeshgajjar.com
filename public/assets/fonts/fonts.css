@@ -1,0 +1,104 @@
+@font-face {
+    font-family: 'playfair';
+    src: url('../fonts/Playfair_Display/PlayfairDisplay-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'playfair-medium';
+    src: url('../fonts/Playfair_Display/PlayfairDisplay-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'playfair-semi-bold';
+    src: url('../fonts/Playfair_Display/PlayfairDisplay-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'playfair-bold';
+    src: url('../fonts/Playfair_Display/PlayfairDisplay-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'playfair-black';
+    src: url('../fonts/Playfair_Display/PlayfairDisplay-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'raleway';
+    src: url('../fonts/Raleway/Raleway-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'raleway-medium';
+    src: url('../fonts/Raleway/Raleway-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'raleway-medium-italic';
+    src: url('../fonts/Raleway/Raleway-MediumItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'raleway-bold';
+    src: url('../fonts/Raleway/Raleway-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'raleway-semi-bold';
+    src: url('../fonts/Raleway/Raleway-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'raleway-bolder';
+    src: url('../fonts/Raleway/Raleway-ExtraBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    font-family: 'raleway-medium';
+}
+.ug-playfair {
+    font-family: 'playfair';
+}
+.ug-playfair-medium {
+    font-family: 'playfair-medium';
+}
+.ug-playfair-semi-bold {
+    font-family: 'playfair-semi-bold';
+}
+.ug-playfair-bold {
+    font-family: 'playfair-bold';
+}
+.ug-playfair-black {
+    font-family: 'playfair-black';
+}
+.ug-raleway {
+    font-family: 'raleway';
+}
+.ug-raleway-medium {
+    font-family: 'raleway-medium';
+}
+.ug-raleway-medium-italic {
+    font-family: 'raleway-medium-italic';
+}
+.ug-raleway-bold {
+    font-family: 'raleway-bold';
+}
+.ug-raleway-semi-bold {
+    font-family: 'raleway-semi-bold';
+}
+.ug-raleway-bolder {
+    font-family: 'raleway-bolder';
+}
