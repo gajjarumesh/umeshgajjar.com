@@ -70,8 +70,8 @@ export default function ContactForm() {
         <div
           className={`p-4 rounded-lg flex items-start gap-3 ${
             submitStatus.type === "success"
-              ? "bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-300"
-              : "bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-300"
+              ? "bg-green-50 text-green-800"
+              : "bg-red-50 text-red-800"
           }`}
         >
           {submitStatus.type === "success" ? (
