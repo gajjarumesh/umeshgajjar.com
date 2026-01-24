@@ -1,86 +1,157 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { constants } from "../../../config/constants";
-import { FiAtSign } from "react-icons/fi";
-import { RiNumber2, RiNumber0, RiNumber5 } from "react-icons/ri";
+import React from "react";
+import { motion } from "framer-motion";
 import {
-  BsFacebook,
-  BsLinkedin,
-  BsInstagram,
-  BsTwitterX,
-} from "react-icons/bs";
-import { menu } from "./header";
+  FaGithub,
+  FaLinkedin,
+  FaTwitter,
+  FaEnvelope,
+  FaHeart,
+} from "react-icons/fa";
+import { SITE_CONFIG, SOCIAL_LINKS, FOOTER_LINKS } from "@/lib/constants";
+import Newsletter from "../Newsletter";
 
 const Footer = () => {
-  const [newsLetterEmail, setNewsLetterEmail] = useState("");
-  const [newsLetterIsCheck, setNewsLetterIsCheck] = useState(false);
+  const currentYear = new Date().getFullYear();
 
-  const setCheck = (check) => {
-    setNewsLetterIsCheck(!check);
+  const socialIcons = {
+    github: <FaGithub className="text-xl" />,
+    linkedin: <FaLinkedin className="text-xl" />,
+    twitter: <FaTwitter className="text-xl" />,
+    email: <FaEnvelope className="text-xl" />,
   };
 
-  useEffect(() => {
-    console.log(newsLetterIsCheck);
-  }, [newsLetterIsCheck]);
-
   return (
-    <footer className="bg-slate-800">
-      <div className="container m-auto flex items-center flex-col">
-        <div className="w-full flex flex-col items-center justify-between md:p-10 px-5 py-10 text-center text-white">
-          <div className="flex flex-wrap md:gap-20 gap-5 justify-center">
-            {menu.map((item, index) => {
-              return (
+    <footer className="bg-slate-800 text-white">
+      <div className="container mx-auto px-4 xl:px-0">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 py-12 lg:py-16">
+          {/* Column 1: About/Bio */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="space-y-4"
+          >
+            <h3 className="text-2xl font-bold">{SITE_CONFIG.name}</h3>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              Full Stack Developer specializing in building exceptional digital
+              experiences. Transforming ideas into scalable, high-performance
+              web solutions.
+            </p>
+            <div className="flex gap-4 pt-2">
+              {Object.entries(SOCIAL_LINKS).map(([platform, url]) => (
                 <Link
-                  key={index}
-                  href={item.href}
-                  className="uppercase tracking-wider"
+                  key={platform}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-indigo-400 transition-colors duration-300"
+                  aria-label={`Visit ${platform}`}
                 >
-                  {item.label}
+                  {socialIcons[platform]}
                 </Link>
-              );
-            })}
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Column 2: Services */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="space-y-4"
+          >
+            <h4 className="text-lg font-semibold">Services</h4>
+            <ul className="space-y-2">
+              {FOOTER_LINKS.services.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-300 text-sm hover:text-indigo-400 transition-colors duration-300 inline-block"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Column 3: Company */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="space-y-4"
+          >
+            <h4 className="text-lg font-semibold">Company</h4>
+            <ul className="space-y-2">
+              {FOOTER_LINKS.company.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-300 text-sm hover:text-indigo-400 transition-colors duration-300 inline-block"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="pt-4 space-y-2">
+              <h5 className="text-sm font-medium">Legal</h5>
+              <ul className="space-y-2">
+                {FOOTER_LINKS.resources.map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      href={link.href}
+                      className="text-gray-300 text-sm hover:text-indigo-400 transition-colors duration-300 inline-block"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+
+          {/* Column 4: Newsletter */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="space-y-4"
+          >
+            <h4 className="text-lg font-semibold">Stay Updated</h4>
+            <p className="text-gray-300 text-sm">
+              Subscribe to get the latest articles, project updates, and web
+              development tips.
+            </p>
+            <Newsletter />
+          </motion.div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-700 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-400 text-sm text-center md:text-left flex items-center gap-2">
+              © {currentYear} {SITE_CONFIG.name}. Crafted with
+              <FaHeart className="text-red-500 animate-pulse" /> All rights
+              reserved.
+            </p>
+            <p className="text-gray-400 text-sm">
+              <Link
+                href={SITE_CONFIG.email}
+                className="hover:text-indigo-400 transition-colors"
+              >
+                {SITE_CONFIG.email}
+              </Link>
+            </p>
           </div>
-          <div className="social-media-link text-2xl leading-[25.72px] font-bold flex py-10">
-            <Link
-              href={constants.SOCIAL_MEDIA.X}
-              className="mx-3 hover:text-indigo-800 transition ease-in-out delay-100"
-            >
-              <BsTwitterX />
-            </Link>
-            <Link
-              href={constants.SOCIAL_MEDIA.LINKEDIN}
-              className="mx-3 hover:text-indigo-800 transition ease-in-out delay-100"
-            >
-              <BsLinkedin />
-            </Link>
-            <Link
-              href={constants.SOCIAL_MEDIA.INSTAGRAM}
-              className="mx-3 hover:text-indigo-800 transition ease-in-out delay-100"
-            >
-              <BsInstagram />
-            </Link>
-            <Link
-              href={constants.SOCIAL_MEDIA.FACEBOOK}
-              className="mx-3 hover:text-indigo-800 transition ease-in-out delay-100"
-            >
-              <BsFacebook />
-            </Link>
-          </div>
-          <p className="md:text-[15px] xs:text-[15px] ug-raleway-medium flex flex-wrap items-center justify-center tracking-wider">
-            <FiAtSign />
-            <span className="text-white/40 mx-1 flex">
-              <RiNumber2 />
-              <RiNumber0 />
-              <RiNumber2 />
-              <RiNumber5 />
-            </span>
-            Crafted
-            <span className="text-indigo-400 mx-1">by</span>Umesh Gajjar.
-            <span className="text-indigo-400 mx-1">All</span>
-            rights reserved.
-          </p>
         </div>
       </div>
     </footer>
