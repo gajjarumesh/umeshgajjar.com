@@ -96,7 +96,14 @@ export default function Hero() {
               6+ years of experience
             </span>{" "}
             specializing in React.js, Laravel, Node.js, and scalable SaaS
-            applications
+            applications. Read our{" "}
+            <Link href="/blog" className="text-blue-600 dark:text-blue-400 hover:underline font-semibold">
+              engineering blog
+            </Link>{" "}
+            or{" "}
+            <Link href="/contact" className="text-blue-600 dark:text-blue-400 hover:underline font-semibold">
+              start a conversation
+            </Link>
           </motion.p>
 
           <motion.div

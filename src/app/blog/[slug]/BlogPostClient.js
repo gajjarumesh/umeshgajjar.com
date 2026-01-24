@@ -231,7 +231,15 @@ export default function BlogPostClient({ post, relatedPosts }) {
               Want More Content Like This?
             </h2>
             <p className="text-lg mb-8 text-white/90">
-              Subscribe to my newsletter for weekly insights on web development, best practices, and industry trends.
+              Subscribe to my newsletter for weekly insights on web development, best practices, and industry trends. Or{" "}
+              <Link href="/services" className="underline font-semibold hover:text-white">
+                explore our services
+              </Link>{" "}
+              to see how these insights translate to real projects, or{" "}
+              <Link href="/contact" className="underline font-semibold hover:text-white">
+                start a conversation
+              </Link>{" "}
+              about your next project.
             </p>
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8">
               <Newsletter variant="inline" />
