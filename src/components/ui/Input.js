@@ -44,8 +44,8 @@ const Input = ({
 
   const inputClasses = `
     w-full px-4 py-2.5 rounded-lg border-2 transition-all duration-200
-    focus:outline-none focus:ring-2 focus:ring-purple-500/20
-    ${error ? "border-red-500 focus:border-red-500" : "border-gray-300 focus:border-purple-500"}
+    focus:outline-none focus:ring-2 focus:ring-blue-500/20
+    ${error ? "border-red-500 focus:border-red-500" : "border-gray-300 focus:border-blue-500"}
     ${leftIcon ? "pl-10" : ""}
     ${rightIcon ? "pr-10" : ""}
     ${floatingLabel ? "pt-6 pb-2" : ""}
@@ -74,7 +74,7 @@ const Input = ({
               absolute left-4 transition-all duration-200 pointer-events-none
               ${
                 showFloatingLabel
-                  ? "text-xs top-2 text-purple-600"
+                  ? "text-xs top-2 text-blue-600"
                   : "text-base top-3 text-gray-500"
               }
             `}

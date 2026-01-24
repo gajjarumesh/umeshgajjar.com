@@ -12,6 +12,46 @@
   --accent-teal: #14b8a6;
   --accent-pink: #ec4899;
   
+  /* Neutral Colors */
+  --neutral-50: #fafafa;
+  --neutral-100: #f5f5f5;
+  --neutral-200: #e5e5e5;
+  --neutral-300: #d4d4d4;
+  --neutral-400: #a3a3a3;
+  --neutral-500: #737373;
+  --neutral-600: #525252;
+  --neutral-700: #404040;
+  --neutral-800: #262626;
+  --neutral-900: #171717;
+  
+  /* Surface Colors */
+  --surface: #ffffff;
+  --surface-secondary: #f9fafb;
+  
+  /* Border Colors */
+  --border: #e5e7eb;
+  --border-muted: #f3f4f6;
+  --border-focus: #3b82f6;
+  
+  /* Text Colors */
+  --text-primary: #283742;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  
+  /* Focus Ring */
+  --ring-focus: rgba(59, 130, 246, 0.2);
+  
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
   /* Glassmorphism */
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(255, 255, 255, 0.3);
@@ -121,7 +161,8 @@ html {
 
 body {
   user-select: none;
-  color: #283742;
+  background: var(--background);
+  color: var(--foreground);
 }
 
 * {
@@ -134,7 +175,7 @@ body {
 
 /* Blog Content Styles */
 .blog-content {
-  @apply text-gray-700 dark:text-gray-300;
+  @apply text-gray-700;
 }
 
 .blog-content h1,
@@ -143,7 +184,7 @@ body {
 .blog-content h4,
 .blog-content h5,
 .blog-content h6 {
-  @apply font-bold text-gray-900 dark:text-white mt-8 mb-4;
+  @apply font-bold text-gray-900 mt-8 mb-4;
 }
 
 .blog-content h1 {
@@ -167,7 +208,7 @@ body {
 }
 
 .blog-content a {
-  @apply text-blue-600 dark:text-blue-400 hover:underline;
+  @apply text-blue-600 hover:underline;
 }
 
 .blog-content ul,
@@ -188,15 +229,15 @@ body {
 }
 
 .blog-content blockquote {
-  @apply border-l-4 border-blue-600 dark:border-blue-400 pl-4 italic my-6 text-gray-600 dark:text-gray-400;
+  @apply border-l-4 border-blue-600 pl-4 italic my-6 text-gray-600;
 }
 
 .blog-content code {
-  @apply bg-gray-100 dark:bg-gray-800 rounded px-2 py-1 text-sm font-mono;
+  @apply bg-gray-100 rounded px-2 py-1 text-sm font-mono;
 }
 
 .blog-content pre {
-  @apply bg-gray-100 dark:bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6;
+  @apply bg-gray-100 rounded-lg p-4 overflow-x-auto mb-6;
 }
 
 .blog-content pre code {
@@ -208,7 +249,7 @@ body {
 }
 
 .blog-content strong {
-  @apply font-bold text-gray-900 dark:text-white;
+  @apply font-bold text-gray-900;
 }
 
 .blog-content em {
@@ -216,5 +257,5 @@ body {
 }
 
 .blog-content hr {
-  @apply my-8 border-gray-200 dark:border-gray-700;
+  @apply my-8 border-gray-200;
 }
