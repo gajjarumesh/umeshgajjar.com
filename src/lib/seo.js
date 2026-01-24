@@ -11,13 +11,13 @@ export const generateMetadata = ({
   modifiedTime,
   author = "Umesh Gajjar",
 }) => {
-  const baseUrl = "https://umeshgajjar.com";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://umeshgajjar.com";
   const fullTitle = title
-    ? `${title} | Umesh Gajjar`
-    : "Umesh Gajjar | Full Stack Developer | React, Node.js, Laravel Expert";
+    ? `${title} | Paravix`
+    : "Paravix — Engineering Systems That Scale";
   const fullDescription =
     description ||
-    "Expert Full Stack Developer specializing in React.js, Laravel, Node.js, and scalable SaaS applications. 6+ years of experience building high-performance web solutions.";
+    "Paravix helps founders and teams build software that works—today, tomorrow, and in production. Expert engineering consulting for scalable systems.";
   const fullCanonicalUrl = canonicalUrl || baseUrl;
   const fullOgImage = ogImage || `${baseUrl}/og-image.jpg`;
 
@@ -47,7 +47,7 @@ export const generateMetadata = ({
       url: fullCanonicalUrl,
       title: fullTitle,
       description: fullDescription,
-      siteName: "Umesh Gajjar Portfolio",
+      siteName: "Paravix",
       images: [
         {
           url: fullOgImage,
@@ -79,7 +79,7 @@ export const generatePersonSchema = () => {
     image: "https://umeshgajjar.com/profile.jpg",
     jobTitle: "Full Stack Developer",
     description:
-      "Expert Full Stack Developer with 6+ years of experience in React.js, Laravel, Node.js, and scalable SaaS applications.",
+      "Full Stack Engineer with 6+ years of experience building scalable systems. Founder of Paravix, specializing in backend architecture, system design, and production engineering.",
     email: "hello@umeshgajjar.com",
     sameAs: [
       "https://github.com/gajjarumesh",
@@ -110,11 +110,16 @@ export const generateOrganizationSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Umesh Gajjar",
+    name: "Paravix",
     url: "https://umeshgajjar.com",
     logo: "https://umeshgajjar.com/logo.png",
     description:
-      "Professional Full Stack Development Services specializing in React, Laravel, Node.js, and SaaS applications.",
+      "Engineering systems that scale. Paravix helps founders and teams build software that works—today, tomorrow, and in production.",
+    founder: {
+      "@type": "Person",
+      name: "Umesh Gajjar",
+      url: "https://umeshgajjar.com",
+    },
     contactPoint: {
       "@type": "ContactPoint",
       email: "hello@umeshgajjar.com",

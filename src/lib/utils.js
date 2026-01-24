@@ -353,3 +353,124 @@ export const storage = {
     }
   },
 };
+
+/**
+ * Hash an IP address for privacy
+ */
+export const hashIP = (ip) => {
+  let hash = 0;
+  for (let i = 0; i < ip.length; i++) {
+    const char = ip.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash;
+  }
+  return hash.toString(36);
+};
+
+/**
+ * Get client IP from request headers
+ */
+export const getClientIP = (request) => {
+  const forwarded = request.headers.get('x-forwarded-for');
+  const realIP = request.headers.get('x-real-ip');
+  
+  if (forwarded) {
+    return forwarded.split(',')[0].trim();
+  }
+  
+  if (realIP) {
+    return realIP;
+  }
+  
+  return 'unknown';
+};
+
+/**
+ * Sanitize user input
+ */
+export const sanitizeInput = (input) => {
+  if (typeof input !== 'string') return input;
+  return input.trim().replace(/[<>]/g, '');
+};
+
+/**
+ * Generate excerpt from content
+ */
+export const generateExcerpt = (content, length = 160) => {
+  const text = content
+    .replace(/#{1,6}\s+/g, '')
+    .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1')
+    .replace(/[*_~`]/g, '')
+    .replace(/\n+/g, ' ')
+    .trim();
+  
+  if (text.length <= length) return text;
+  return text.substring(0, length).trim() + '...';
+};
+
+/**
+ * Get related items based on tags
+ */
+export const getRelatedItems = (currentItem, allItems, limit = 3) => {
+  if (!currentItem.tags || currentItem.tags.length === 0) {
+    return allItems
+      .filter(item => item._id?.toString() !== currentItem._id?.toString())
+      .slice(0, limit);
+  }
+  
+  const scored = allItems
+    .filter(item => item._id?.toString() !== currentItem._id?.toString())
+    .map(item => {
+      const commonTags = item.tags?.filter(tag => 
+        currentItem.tags.includes(tag)
+      ).length || 0;
+      
+      return { item, score: commonTags };
+    })
+    .filter(({ score }) => score > 0)
+    .sort((a, b) => b.score - a.score);
+  
+  const related = scored.slice(0, limit).map(({ item }) => item);
+  
+  if (related.length < limit) {
+    const remaining = allItems
+      .filter(item => 
+        item._id?.toString() !== currentItem._id?.toString() && 
+        !related.find(r => r._id?.toString() === item._id?.toString())
+      )
+      .slice(0, limit - related.length);
+    
+    related.push(...remaining);
+  }
+  
+  return related;
+};
+
+/**
+ * Parse pagination parameters
+ */
+export const parsePagination = (searchParams) => {
+  const page = parseInt(searchParams.get?.('page')) || 1;
+  const perPage = Math.min(parseInt(searchParams.get?.('perPage')) || 30, 100);
+  const skip = (page - 1) * perPage;
+  
+  return { page, perPage, skip };
+};
+
+/**
+ * Create pagination metadata
+ */
+export const createPaginationMeta = (total, page, perPage) => {
+  const totalPages = Math.ceil(total / perPage);
+  const hasNext = page < totalPages;
+  const hasPrev = page > 1;
+  
+  return {
+    total,
+    page,
+    perPage,
+    totalPages,
+    hasNext,
+    hasPrev,
+  };
+};
