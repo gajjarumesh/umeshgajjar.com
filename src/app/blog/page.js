@@ -1,180 +1,163 @@
-"use client";
+import Link from "next/link";
+import { getCollection, COLLECTIONS } from "@/lib/db";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { PageHero, Section, Container } from "@/components/layouts";
-import BlogCard from "@/components/BlogCard";
-import { blogPosts, getAllCategories } from "@/data/blog";
-import { ANIMATION_VARIANTS } from "@/lib/constants";
-import { FaFilter, FaRss } from "react-icons/fa";
+export const metadata = {
+  title: "Engineering Blog | Paravix",
+  description: "Practical engineering insights and real-world system design lessons.",
+};
 
-export default function BlogPage() {
-  const [filter, setFilter] = useState("all");
+async function getBlogs(tag = null) {
+  try {
+    const blogs = await getCollection(COLLECTIONS.BLOGS);
+    let query = { published: true };
+    
+    if (tag) {
+      query.tags = tag;
+    }
+    
+    return await blogs
+      .find(query)
+      .sort({ createdAt: -1 })
+      .toArray();
+  } catch (error) {
+    console.error("Error fetching blogs:", error);
+    return [];
+  }
+}
 
-  const categories = ["all", ...getAllCategories()];
-
-  // Filter blog posts
-  const filteredPosts =
-    filter === "all"
-      ? blogPosts
-      : blogPosts.filter((post) => post.category === filter);
+export default async function BlogListing({ searchParams }) {
+  const { tag } = await searchParams || {};
+  const blogs = await getBlogs(tag);
+  
+  // Get unique tags from all blogs
+  const allTags = blogs.reduce((tags, blog) => {
+    if (blog.tags) {
+      blog.tags.forEach(t => {
+        if (!tags.includes(t)) tags.push(t);
+      });
+    }
+    return tags;
+  }, []);
 
   return (
-    <>
-      {/* Hero Section */}
-      <PageHero
-        title="Blog"
-        description="Insights, tutorials, and thoughts on web development, best practices, and technology trends."
-        breadcrumbs={[{ label: "Blog", href: null }]}
-      />
+    <div className="min-h-screen py-20">
+      <div className="container mx-auto px-4">
+        <div className="max-w-5xl mx-auto">
+          {/* Header */}
+          <div className="mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Engineering Blog
+            </h1>
+            <p className="text-xl text-gray-700 leading-relaxed">
+              This blog documents engineering thinking from real projects,
+              focusing on decisions, tradeoffs, and lessons learned.
+            </p>
+          </div>
 
-      {/* Blog Section */}
-      <Section className="bg-white dark:bg-gray-900">
-        <Container>
-          {/* Filter Buttons */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={ANIMATION_VARIANTS.fadeIn}
-            className="flex flex-wrap items-center justify-center gap-3 mb-12"
-          >
-            <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
-              <FaFilter />
-              <span className="font-semibold">Category:</span>
+          {/* Tag Filter */}
+          {allTags.length > 0 && (
+            <div className="mb-8">
+              <div className="flex flex-wrap gap-2">
+                <Link
+                  href="/blog"
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    !tag
+                      ? "bg-indigo-600 text-white"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  }`}
+                >
+                  All Posts
+                </Link>
+                {allTags.map((t) => (
+                  <Link
+                    key={t}
+                    href={`/blog?tag=${encodeURIComponent(t)}`}
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      tag === t
+                        ? "bg-indigo-600 text-white"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    }`}
+                  >
+                    {t}
+                  </Link>
+                ))}
+              </div>
             </div>
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setFilter(category)}
-                className={`px-4 py-2 rounded-full font-medium transition-all duration-300 ${
-                  filter === category
-                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
-                    : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
-                }`}
-              >
-                {category === "all" ? "All Posts" : category}
-              </button>
-            ))}
-          </motion.div>
-
-          {/* Results Count */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="mb-6 text-center text-gray-600 dark:text-gray-400"
-          >
-            Showing {filteredPosts.length} of {blogPosts.length} posts
-          </motion.div>
-
-          {/* Blog Grid */}
-          {filteredPosts.length > 0 ? (
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={ANIMATION_VARIANTS.staggerContainer}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-            >
-              {filteredPosts.map((post, index) => (
-                <BlogCard key={post.id} post={post} index={index} />
-              ))}
-            </motion.div>
-          ) : (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center py-16"
-            >
-              <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
-                No posts found in this category
-              </p>
-              <button
-                onClick={() => setFilter("all")}
-                className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
-              >
-                View All Posts
-              </button>
-            </motion.div>
           )}
 
-          {/* Newsletter Subscription */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={ANIMATION_VARIANTS.fadeIn}
-            className="mt-20 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-800 p-8 md:p-12 rounded-2xl text-center"
-          >
-            <div className="max-w-2xl mx-auto">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mx-auto mb-6">
-                <FaRss className="text-white text-2xl" />
-              </div>
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
-                Subscribe to the Newsletter
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-8">
-                Get the latest articles, tutorials, and insights delivered to your
-                inbox. No spam, unsubscribe anytime.
+          {/* Blog Grid */}
+          {blogs.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-gray-600 text-lg">
+                {tag ? `No blog posts found with tag "${tag}".` : "No blog posts available yet."}
               </p>
-              <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-lg hover:shadow-lg transition-all duration-300"
+              {tag && (
+                <Link
+                  href="/blog"
+                  className="inline-block mt-4 text-indigo-600 font-medium hover:text-indigo-700"
                 >
-                  Subscribe
-                </button>
-              </form>
+                  View all posts →
+                </Link>
+              )}
             </div>
-          </motion.div>
-        </Container>
-      </Section>
-
-      {/* Topics Section */}
-      <Section className="bg-gray-50 dark:bg-gray-800">
-        <Container>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={ANIMATION_VARIANTS.fadeIn}
-            className="text-center"
-          >
-            <h3 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900 dark:text-white">
-              Popular Topics
-            </h3>
-            <div className="flex flex-wrap justify-center gap-3">
-              {[
-                "React.js",
-                "Next.js",
-                "Laravel",
-                "Node.js",
-                "SaaS Development",
-                "API Development",
-                "DevOps",
-                "Performance",
-                "Security",
-                "Best Practices",
-                "Architecture",
-                "TypeScript",
-              ].map((topic) => (
-                <span
-                  key={topic}
-                  className="px-4 py-2 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 cursor-pointer"
+          ) : (
+            <div className="grid gap-8">
+              {blogs.map((blog) => (
+                <article
+                  key={blog.slug}
+                  className="border border-gray-200 rounded-lg p-8 hover:border-indigo-300 hover:shadow-lg transition-all"
                 >
-                  {topic}
-                </span>
+                  <Link href={`/blog/${blog.slug}`}>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-3 hover:text-indigo-600 transition-colors">
+                      {blog.title}
+                    </h2>
+                  </Link>
+                  
+                  <p className="text-gray-600 mb-4 leading-relaxed">
+                    {blog.excerpt}
+                  </p>
+                  
+                  <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+                    {blog.viewCount !== undefined && (
+                      <span>{blog.viewCount} views</span>
+                    )}
+                    {blog.createdAt && (
+                      <span>
+                        {new Date(blog.createdAt).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                        })}
+                      </span>
+                    )}
+                  </div>
+                  
+                  {blog.tags && blog.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {blog.tags.map((t) => (
+                        <Link
+                          key={t}
+                          href={`/blog?tag=${encodeURIComponent(t)}`}
+                          className="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full hover:bg-indigo-200 transition-colors"
+                        >
+                          {t}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                  
+                  <Link
+                    href={`/blog/${blog.slug}`}
+                    className="inline-block mt-4 text-indigo-600 font-medium hover:text-indigo-700"
+                  >
+                    Read article →
+                  </Link>
+                </article>
               ))}
             </div>
-          </motion.div>
-        </Container>
-      </Section>
-    </>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }

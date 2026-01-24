@@ -1,58 +1,93 @@
 import { notFound } from "next/navigation";
-import { getBlogPostBySlug, blogPosts, getBlogPostsByCategory } from "@/data/blog";
-import { generateMetadata as generateSEOMetadata, generateArticleSchema, injectStructuredData } from "@/lib/seo";
+import Link from "next/link";
+import { getCollection, COLLECTIONS } from "@/lib/db";
 import BlogPostClient from "./BlogPostClient";
 
-export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
-    slug: post.slug,
-  }));
+async function getBlogPost(slug) {
+  try {
+    const blogs = await getCollection(COLLECTIONS.BLOGS);
+    const blog = await blogs.findOne({ slug, published: true });
+    
+    if (!blog) {
+      return null;
+    }
+    
+    // Convert MongoDB _id to string
+    return { ...blog, _id: blog._id.toString() };
+  } catch (error) {
+    console.error("Error fetching blog post:", error);
+    return null;
+  }
+}
+
+async function getRelatedBlogs(currentSlug, tags = []) {
+  try {
+    const blogs = await getCollection(COLLECTIONS.BLOGS);
+    
+    // Find blogs with matching tags
+    const related = await blogs
+      .find({
+        slug: { $ne: currentSlug },
+        published: true,
+        tags: { $in: tags },
+      })
+      .limit(3)
+      .toArray();
+    
+    return related.map(blog => ({ ...blog, _id: blog._id.toString() }));
+  } catch (error) {
+    console.error("Error fetching related blogs:", error);
+    return [];
+  }
+}
+
+async function getApprovedComments(slug) {
+  try {
+    const comments = await getCollection(COLLECTIONS.COMMENTS);
+    const commentList = await comments
+      .find({ blogSlug: slug, approved: true })
+      .sort({ createdAt: -1 })
+      .toArray();
+    
+    return commentList.map(c => ({ ...c, _id: c._id.toString() }));
+  } catch (error) {
+    console.error("Error fetching comments:", error);
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }) {
-  const post = getBlogPostBySlug(params.slug);
+  const { slug } = await params;
+  const blog = await getBlogPost(slug);
   
-  if (!post) {
-    return {};
+  if (!blog) {
+    return {
+      title: "Blog Post Not Found",
+    };
   }
-
-  return generateSEOMetadata({
-    title: post.title,
-    description: post.excerpt,
-    keywords: post.tags.join(", "),
-    canonicalUrl: `https://umeshgajjar.com/blog/${post.slug}`,
-    ogType: "article",
-    ogImage: `https://umeshgajjar.com${post.image}`,
-    publishedTime: new Date(post.date).toISOString(),
-    modifiedTime: new Date(post.date).toISOString(),
-    author: post.author,
-  });
+  
+  return {
+    title: blog.title,
+    description: blog.excerpt || blog.description,
+  };
 }
 
-export default function BlogPostPage({ params }) {
-  const post = getBlogPostBySlug(params.slug);
-
-  if (!post) {
+export default async function BlogPost({ params }) {
+  const { slug } = await params;
+  const blog = await getBlogPost(slug);
+  
+  if (!blog) {
     notFound();
   }
-
-  // Get related posts from the same category
-  const relatedPosts = getBlogPostsByCategory(post.category)
-    .filter((p) => p.id !== post.id)
-    .slice(0, 3);
-
-  // Generate structured data
-  const articleSchema = generateArticleSchema(post);
-
+  
+  const relatedBlogs = await getRelatedBlogs(slug, blog.tags || []);
+  const comments = await getApprovedComments(slug);
+  
   return (
-    <>
-      {/* JSON-LD Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={injectStructuredData(articleSchema)}
-      />
-
-      <BlogPostClient post={post} relatedPosts={relatedPosts} />
-    </>
+    <BlogPostClient
+      blog={blog}
+      relatedBlogs={relatedBlogs}
+      initialComments={comments}
+    />
   );
 }
