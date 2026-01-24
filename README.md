@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Umesh Gajjar Portfolio
 
-## Getting Started
+Modern, professional portfolio showcasing full-stack development expertise in React.js, Laravel, Node.js, and scalable SaaS applications.
 
-First, run the development server:
+## 🚀 Features
+
+- ✅ **41 Pre-rendered Pages** - Services (8), Projects (15), Blog (5)
+- ✅ **SEO Optimized** - Meta tags, structured data, sitemap
+- ✅ **Fully Responsive** - Mobile, tablet, desktop
+- ✅ **Contact & Newsletter APIs** - Form validation
+- ✅ **Framer Motion** - Smooth animations
+
+## 🛠️ Tech Stack
+
+Next.js 15 | React 19 | Tailwind CSS 4 | Framer Motion | Formik + Yup
+
+## 📦 Quick Start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # Development: http://localhost:3000
+npm run build    # Production build + sitemap
+npm start        # Production server
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📁 Structure
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- `src/app/` - Pages and API routes
+- `src/components/` - UI components, sections, layouts
+- `src/data/` - Content (services, projects, testimonials, blog)
+- `src/lib/` - Utilities (SEO, constants, helpers)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📝 Content Management
 
-## Learn More
+Edit these files to update content:
+- `src/data/services.js` - 8 services
+- `src/data/projects.js` - 15+ projects  
+- `src/data/blog.js` - 5 blog posts
+- `src/lib/constants.js` - Site config, skills, experience
 
-To learn more about Next.js, take a look at the following resources:
+## 📧 API Endpoints
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `POST /api/contact` - Contact form submission
+- `POST /api/newsletter` - Newsletter subscription
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Deploy
 
-## Deploy on Vercel
+```bash
+vercel  # Deploy to Vercel
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built with ❤️ by Umesh Gajjar | [umeshgajjar.com](https://umeshgajjar.com)
