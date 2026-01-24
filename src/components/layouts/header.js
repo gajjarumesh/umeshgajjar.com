@@ -79,7 +79,7 @@ const Header = ({ isModalOpen, setIsModalOpen }) => {
                   href="/"
                   className="text-2xl tracking-wider font-bold leading-normal hover:text-indigo-600 transition-colors"
                 >
-                  {SITE_CONFIG.name.split(" ")[0]}
+                  {SITE_CONFIG.name?.split(" ")[0] || "Umesh"}
                 </Link>
               </div>
 
