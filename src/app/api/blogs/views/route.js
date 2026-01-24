@@ -3,6 +3,8 @@ import { getCollection, COLLECTIONS } from '@/lib/db';
 import { getClientIP, hashIP } from '@/lib/utils';
 import { getAuthUser } from '@/lib/auth';
 
+const HOURS_24_IN_MS = 24 * 60 * 60 * 1000;
+
 export async function POST(request) {
   try {
     const { slug } = await request.json();
@@ -26,7 +28,7 @@ export async function POST(request) {
     
     // Check if this IP has viewed this blog in the last 24 hours
     const views = await getCollection(COLLECTIONS.BLOG_VIEWS);
-    const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
+    const oneDayAgo = new Date(Date.now() - HOURS_24_IN_MS);
     
     const existingView = await views.findOne({
       slug,

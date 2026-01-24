@@ -17,7 +17,7 @@ export default function About() {
             </h1>
             <div className="text-lg text-gray-700 leading-relaxed space-y-4 mb-8">
               <p>
-                I'm Umesh Gajjar, a full-stack developer with over seven years of experience
+                I&apos;m Umesh Gajjar, a full-stack developer with over seven years of experience
                 building and maintaining web applications, backend systems, and internal tools.
               </p>
               <p>

@@ -9,6 +9,7 @@ export default function AdminComments() {
 
   useEffect(() => {
     fetchComments();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
   const fetchComments = async () => {

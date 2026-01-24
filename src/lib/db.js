@@ -1,6 +1,6 @@
 import clientPromise from './mongodb';
 
-const DB_NAME = 'umeshgajjar_db';
+const DB_NAME = process.env.MONGODB_DB_NAME || 'paravix_db';
 
 export async function getDb() {
   const client = await clientPromise;

@@ -2,8 +2,13 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { cookies } from 'next/headers';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'fallback-secret-change-in-production';
+const JWT_SECRET = process.env.JWT_SECRET;
 const COOKIE_NAME = 'admin_token';
+
+// Ensure JWT_SECRET is set
+if (!JWT_SECRET) {
+  throw new Error('JWT_SECRET environment variable is required for admin authentication');
+}
 
 export async function hashPassword(password) {
   return bcrypt.hash(password, 10);
