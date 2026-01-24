@@ -139,15 +139,12 @@ export default function ContactForm() {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.projectType && formik.errors.projectType}
+            options={CONTACT_OPTIONS.projectTypes.map((type) => ({
+              value: type,
+              label: type,
+            }))}
             required
-          >
-            <option value="">Select a project type</option>
-            {CONTACT_OPTIONS.projectTypes.map((type) => (
-              <option key={type} value={type}>
-                {type}
-              </option>
-            ))}
-          </Select>
+          />
         </div>
 
         {/* Budget Range */}
@@ -159,15 +156,12 @@ export default function ContactForm() {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.budgetRange && formik.errors.budgetRange}
+            options={CONTACT_OPTIONS.budgetRanges.map((range) => ({
+              value: range,
+              label: range,
+            }))}
             required
-          >
-            <option value="">Select a budget range</option>
-            {CONTACT_OPTIONS.budgetRanges.map((range) => (
-              <option key={range} value={range}>
-                {range}
-              </option>
-            ))}
-          </Select>
+          />
         </div>
       </div>
 

@@ -83,7 +83,7 @@ export default function CTASection() {
             </Link>
             <Link href="/projects">
               <Button
-                variant="outline"
+                variant="secondary"
                 size="lg"
                 className="min-w-[200px] bg-transparent text-white border-white hover:bg-white/10"
               >

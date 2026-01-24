@@ -38,7 +38,7 @@ export default function ProjectCard({ project, index = 0 }) {
       {/* Project Content */}
       <div className="p-6">
         {/* Category Badge */}
-        <Badge variant="secondary" className="mb-3">
+        <Badge color="purple" className="mb-3">
           {project.category}
         </Badge>
 
@@ -55,12 +55,12 @@ export default function ProjectCard({ project, index = 0 }) {
         {/* Tech Stack */}
         <div className="flex flex-wrap gap-2">
           {project.tech.slice(0, 4).map((tech) => (
-            <Badge key={tech} variant="outline" className="text-xs">
+            <Badge key={tech} color="gray" className="text-xs border border-gray-300 dark:border-gray-600">
               {tech}
             </Badge>
           ))}
           {project.tech.length > 4 && (
-            <Badge variant="outline" className="text-xs">
+            <Badge color="gray" className="text-xs border border-gray-300 dark:border-gray-600">
               +{project.tech.length - 4}
             </Badge>
           )}
@@ -70,7 +70,7 @@ export default function ProjectCard({ project, index = 0 }) {
       {/* Featured Badge */}
       {project.featured && (
         <div className="absolute top-4 right-4">
-          <Badge className="bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0">
+          <Badge className="bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0" color="blue">
             Featured
           </Badge>
         </div>

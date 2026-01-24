@@ -45,7 +45,7 @@ export default function FeaturedProjects() {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <Link href="/projects">
-            <Button size="lg" variant="outline">
+            <Button size="lg" variant="secondary">
               View All Projects
             </Button>
           </Link>

@@ -45,7 +45,7 @@ export default function ServicesOverview() {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <Link href="/services">
-            <Button size="lg" variant="outline">
+            <Button size="lg" variant="secondary">
               View All Services
             </Button>
           </Link>

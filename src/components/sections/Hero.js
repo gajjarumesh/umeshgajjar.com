@@ -111,7 +111,7 @@ export default function Hero() {
               </Button>
             </Link>
             <Link href="/contact">
-              <Button variant="outline" size="lg" className="min-w-[180px]">
+              <Button variant="secondary" size="lg" className="min-w-[180px]">
                 Get In Touch
               </Button>
             </Link>
