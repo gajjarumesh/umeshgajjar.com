@@ -1,36 +1,39 @@
-import App from "./app";
 import "./globals.css";
+import Header from "@/components/layouts/header";
+import Footer from "@/components/layouts/footer";
+import { Analytics } from "@vercel/analytics/next";
+
 export const metadata = {
-  title: "Umesh Gajjar | Full Stack Developer | React, Node.js, Laravel Expert",
+  title: "Paravix | Engineering Systems That Scale",
   description:
-    "Explore Umesh Gajjar's full stack development portfolio. Expert in React.js, Laravel, Node.js, Vue.js, and scalable SaaS architecture. 6+ years of experience in building high-performance applications, remote team leadership, and DevOps delivery.",
+    "Paravix builds scalable, maintainable web applications and backend systems, led by senior engineer Umesh Gajjar.",
   icons: {
-    icon: "/favicon.png",
+    icon: "/favicon.ico",
   },
   keywords:
-    "Umesh Gajjar, Full Stack Developer, React Developer, Laravel Developer, Node.js, Vue.js, SaaS Developer, Web App Development, Remote Developer, Freelance Developer India, DevOps, PostgreSQL, AWS",
+    "Paravix, Umesh Gajjar, Engineering, Full Stack Developer, React, Node.js, MongoDB, System Design, Backend Architecture",
   authors: [{ name: "Umesh Gajjar" }],
   robots: "index, follow",
   openGraph: {
     type: "website",
     url: "https://umeshgajjar.com/",
-    title: "Umesh Gajjar | Full Stack Developer Portfolio",
+    title: "Paravix | Engineering Systems That Scale",
     description:
-      "Experienced Full Stack Developer with expertise in React.js, Laravel, Node.js, and scalable SaaS applications. View Umesh Gajjar's portfolio and projects.",
+      "Paravix builds scalable, maintainable web applications and backend systems, led by senior engineer Umesh Gajjar.",
     images: [
       {
         url: "https://umeshgajjar.com/banner.png",
         width: 1200,
         height: 630,
-        alt: "Umesh Gajjar Portfolio",
+        alt: "Paravix Engineering",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Umesh Gajjar | Full Stack Developer Portfolio",
+    title: "Paravix | Engineering Systems That Scale",
     description:
-      "Experienced Full Stack Developer | React.js, Laravel, Node.js, Vue.js | Explore my projects and services",
+      "Engineering-focused brand dedicated to building maintainable software systems",
     images: ["https://umeshgajjar.com/banner.png"],
   },
 };
@@ -38,7 +41,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <App>{children}</App>
+      <body>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+        <Analytics />
+      </body>
     </html>
   );
 }
