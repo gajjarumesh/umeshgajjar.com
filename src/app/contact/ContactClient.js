@@ -1,13 +1,8 @@
-import ContactClient from "./ContactClient";
+"use client";
+import { useState } from "react";
+import Link from "next/link";
 
-export const metadata = {
-  title: "Contact Paravix",
-  description: "Discuss engineering challenges or system design.",
-};
-
-export default function Contact() {
-  return <ContactClient />;
-}
+export default function ContactClient() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
