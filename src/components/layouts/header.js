@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { RiMenu4Line } from "react-icons/ri";
 import { motion, AnimatePresence } from "framer-motion";
@@ -7,10 +8,10 @@ import { NAVIGATION_LINKS, SITE_CONFIG } from "@/lib/constants";
 import FullScreenModal from "../fullMenu";
 
 const Header = ({ isModalOpen, setIsModalOpen }) => {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     let ticking = false;
@@ -30,31 +31,10 @@ const Header = ({ isModalOpen, setIsModalOpen }) => {
           
           setPrevScrollPos(currentScrollPos);
           
-          // Update active section
-          updateActiveSection();
-          
           ticking = false;
         });
         ticking = true;
       }
-    };
-
-    const updateActiveSection = () => {
-      const sections = NAVIGATION_LINKS.filter(link => !link.external && link.href.startsWith('/#'));
-      let currentSection = "";
-
-      sections.forEach(({ href }) => {
-        const sectionId = href.replace("/#", "");
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            currentSection = href;
-          }
-        }
-      });
-
-      setActiveSection(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -106,7 +86,7 @@ const Header = ({ isModalOpen, setIsModalOpen }) => {
               {/* Center: Desktop Navigation */}
               <nav className="gap-8 lg:flex hidden" aria-label="Main navigation">
                 {NAVIGATION_LINKS.map((item, index) => {
-                  const isActive = activeSection === item.href;
+                  const isActive = pathname === item.href;
                   return (
                     <Link
                       key={index}
