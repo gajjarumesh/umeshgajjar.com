@@ -13,6 +13,7 @@ import {
   ContactForm,
   ScrollToTop,
 } from "@/components";
+import FeaturedBlog from "@/components/sections/FeaturedBlog";
 import Section from "@/components/layouts/Section";
 
 export default function Home() {
@@ -37,25 +38,28 @@ export default function Home() {
         {/* 4. Featured Projects */}
         <FeaturedProjects />
 
-        {/* 5. Process Section */}
+        {/* 5. Featured Blog Posts */}
+        <FeaturedBlog />
+
+        {/* 6. Process Section */}
         <Process />
 
-        {/* 6. Stats Counter */}
+        {/* 7. Stats Counter */}
         <Stats />
 
-        {/* 7. Testimonials */}
+        {/* 8. Testimonials */}
         <Testimonials />
 
-        {/* 8. CTA Section */}
+        {/* 9. CTA Section */}
         <CTASection />
 
-        {/* 9. Contact Form */}
+        {/* 10. Contact Form */}
         <Section id="contact" background="gradient">
           <ContactForm />
         </Section>
       </motion.div>
 
-      {/* 10. Scroll To Top Button */}
+      {/* 11. Scroll To Top Button */}
       <ScrollToTop />
     </>
   );

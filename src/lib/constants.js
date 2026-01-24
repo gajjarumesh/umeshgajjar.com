@@ -22,7 +22,9 @@ export const SOCIAL_LINKS = {
 export const NAVIGATION_LINKS = [
   { label: "Home", href: "/", external: false },
   { label: "About", href: "/about", external: false },
+  { label: "Paravix", href: "/paravix", external: false },
   { label: "Services", href: "/services", external: false },
+  { label: "Work", href: "/work", external: false },
   { label: "Projects", href: "/projects", external: false },
   { label: "Blog", href: "/blog", external: false },
   { label: "Contact", href: "/contact", external: false },
@@ -37,6 +39,8 @@ export const FOOTER_LINKS = {
   ],
   company: [
     { label: "About", href: "/about" },
+    { label: "Paravix", href: "/paravix" },
+    { label: "Work", href: "/work" },
     { label: "Projects", href: "/projects" },
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },

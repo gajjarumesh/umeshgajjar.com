@@ -25,7 +25,14 @@ export default function ServicesOverview() {
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Comprehensive full-stack development services to bring your ideas to
-            life
+            life. Every project follows the{" "}
+            <Link
+              href="/paravix"
+              className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+            >
+              Paravix engineering approach
+            </Link>{" "}
+            for building systems that are simple, maintainable, and scalable.
           </p>
         </motion.div>
 

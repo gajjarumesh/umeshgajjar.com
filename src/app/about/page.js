@@ -50,14 +50,36 @@ export default function AboutPage() {
                 platforms, and enterprise solutions. My expertise spans modern
                 JavaScript frameworks (React.js, Next.js, Vue.js) and powerful
                 backend technologies (Laravel, Node.js), enabling me to craft
-                end-to-end solutions that deliver real business value.
+                end-to-end solutions that deliver real business value. Every
+                project follows the{" "}
+                <Link
+                  href="/paravix"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                >
+                  Paravix engineering brand
+                </Link>{" "}
+                principles of simplicity, maintainability, and scalability.
               </p>
               <p className="mb-4">
                 Throughout my career, I&apos;ve had the privilege of working with
                 clients across various industries—from healthcare and fintech to
                 e-commerce and enterprise software. I thrive on solving complex
                 technical challenges and transforming ideas into production-ready
-                applications that users love.
+                applications that users love. You can read about{" "}
+                <Link
+                  href="/blog"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                >
+                  engineering decisions and lessons
+                </Link>{" "}
+                I&apos;ve learned, or explore{" "}
+                <Link
+                  href="/work"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                >
+                  case studies from real projects
+                </Link>
+                .
               </p>
               <p>
                 My approach combines technical excellence with business acumen. I
