@@ -353,3 +353,39 @@ export const storage = {
     }
   },
 };
+
+// Server-side utilities for backend
+import crypto from 'crypto';
+
+export function hashIP(ip) {
+  // Create a hash of the IP address for privacy
+  return crypto.createHash('sha256').update(ip).digest('hex');
+}
+
+export function getClientIP(request) {
+  // Try to get IP from various headers (for proxies/load balancers)
+  const forwarded = request.headers.get('x-forwarded-for');
+  if (forwarded) {
+    return forwarded.split(',')[0].trim();
+  }
+  
+  const realIP = request.headers.get('x-real-ip');
+  if (realIP) {
+    return realIP;
+  }
+  
+  // Fallback
+  return request.ip || 'unknown';
+}
+
+export function sanitizeText(text) {
+  // Remove any HTML tags and encode special characters
+  return text
+    .replace(/<[^>]*>/g, '') // Remove HTML tags
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;')
+    .trim();
+}
