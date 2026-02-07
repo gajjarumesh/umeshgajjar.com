@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import { getCollection, COLLECTIONS } from '@/lib/db';
 import { sanitizeText, isValidEmail } from '@/lib/utils';
 
 export async function POST(request) {
@@ -25,22 +24,19 @@ export async function POST(request) {
     const sanitizedSubject = subject ? sanitizeText(subject) : '';
     const sanitizedMessage = sanitizeText(message);
     
-    const messages = await getCollection(COLLECTIONS.CONTACT_MESSAGES);
-    
-    const contactMessage = {
+    // Log the contact message (since we removed MongoDB)
+    console.log('Contact message received:', {
       name: sanitizedName,
       email,
       subject: sanitizedSubject,
       message: sanitizedMessage,
       createdAt: new Date(),
-      read: false,
-    };
+    });
     
-    const result = await messages.insertOne(contactMessage);
+    // TODO: Integrate with email service or other storage solution
     
     return NextResponse.json({
       success: true,
-      id: result.insertedId.toString(),
       message: 'Message sent successfully',
     });
   } catch (error) {

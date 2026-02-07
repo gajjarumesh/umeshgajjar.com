@@ -33,10 +33,10 @@ export default function About() {
                 Learn about Paravix →
               </Link>
               <Link
-                href="/work"
+                href="/contact"
                 className="text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
               >
-                View case studies →
+                Get in touch →
               </Link>
             </div>
           </section>
@@ -54,10 +54,10 @@ export default function About() {
               </p>
             </div>
             <Link
-              href="/blog"
+              href="/services"
               className="text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
             >
-              Read engineering insights →
+              View our services →
             </Link>
           </section>
         </div>
