@@ -95,6 +95,33 @@
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-20px); }
   }
+
+  /* Glass Morphism Utilities */
+  .glass {
+    @apply bg-gradient-to-br from-white/60 to-blue-50/40 backdrop-blur-md border border-white/40 ring-1 ring-white/30 shadow-lg shadow-blue-200/40;
+  }
+  
+  .glass-navbar {
+    @apply bg-white/70 backdrop-blur-md border-b border-white/40 shadow-md shadow-blue-100/30;
+  }
+  
+  .glass-card {
+    @apply bg-gradient-to-br from-white/50 to-blue-50/30 backdrop-blur-sm border border-white/50 ring-1 ring-blue-100/20 shadow-xl shadow-blue-200/30 rounded-2xl;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-2xl hover:shadow-blue-300/40 hover:scale-[1.02];
+  }
+  
+  .glass-button {
+    @apply bg-gradient-to-r from-blue-400/80 to-indigo-400/80 backdrop-blur-sm text-white border border-blue-300/40 shadow-md shadow-blue-300/50;
+    @apply hover:from-blue-500/90 hover:to-indigo-500/90 hover:shadow-lg hover:shadow-blue-400/60;
+    @apply transition-all duration-300;
+  }
+  
+  .glass-input {
+    @apply bg-white/60 backdrop-blur-sm border border-blue-200/40 ring-1 ring-blue-100/20 shadow-sm shadow-blue-100/30;
+    @apply focus:border-blue-400/60 focus:ring-2 focus:ring-blue-300/40 focus:shadow-md focus:shadow-blue-200/50;
+    @apply transition-all duration-200;
+  }
 }
 
 html {
@@ -102,7 +129,8 @@ html {
 }
 
 body {
-  background: var(--background);
+  @apply bg-gradient-to-br from-white via-blue-50 to-sky-100;
+  min-height: 100vh;
   color: var(--foreground);
   font-feature-settings: "kern" 1, "liga" 1;
   -webkit-font-smoothing: antialiased;
