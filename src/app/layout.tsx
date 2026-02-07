@@ -5,11 +5,12 @@ import ThreeBackground from '@/components/ThreeBackground';
 import { Analytics } from '@vercel/analytics/next';
 import { generatePageMetadata, generatePersonSchema, generateWebsiteSchema, injectStructuredData } from '@/lib/seo';
 
-export const metadata = generatePageMetadata({
+export const metadata = {
+  ...generatePageMetadata(),
   icons: {
     icon: '/favicon.png',
   },
-});
+};
 
 export default function RootLayout({
   children,
