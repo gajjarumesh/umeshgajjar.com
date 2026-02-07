@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
@@ -24,13 +23,13 @@ export function Header() {
   }
 
   return (
-    <header className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50 transition-colors">
+    <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
-            className="text-2xl font-bold text-gray-900 dark:text-gray-100 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+            className="text-2xl font-bold text-gray-800 hover:text-indigo-600 transition-colors"
           >
             Umesh Gajjar
           </Link>
@@ -43,26 +42,24 @@ export function Header() {
                 href={link.href}
                 className={`text-sm font-medium transition-colors ${
                   pathname === link.href
-                    ? 'text-indigo-600 dark:text-indigo-400'
-                    : 'text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400'
+                    ? 'text-indigo-600'
+                    : 'text-gray-600 hover:text-indigo-600'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <ThemeToggle />
           </div>
 
-          {/* Mobile Menu Button and Theme Toggle */}
-          <div className="flex items-center gap-2 md:hidden">
-            <ThemeToggle />
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
             <button
               className="p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
               <svg
-                className="w-6 h-6 text-gray-900 dark:text-gray-100"
+                className="w-6 h-6 text-gray-800"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -89,8 +86,8 @@ export function Header() {
                 href={link.href}
                 className={`block py-2 text-sm font-medium ${
                   pathname === link.href
-                    ? 'text-indigo-600 dark:text-indigo-400'
-                    : 'text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400'
+                    ? 'text-indigo-600'
+                    : 'text-gray-600 hover:text-indigo-600'
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >

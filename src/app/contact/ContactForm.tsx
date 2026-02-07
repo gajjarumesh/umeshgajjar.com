@@ -76,10 +76,10 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
       {/* Contact Information */}
       <div className="lg:col-span-1 space-y-8">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Get in Touch
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+          <p className="text-gray-600 leading-relaxed mb-6">
             Whether you have a project in mind, need technical consulting, or
             just want to say hello, I'd love to hear from you.
           </p>
@@ -88,16 +88,16 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
         {/* Contact Details */}
         <div className="space-y-6">
           <div className="flex items-start gap-4">
-            <div className="p-3 bg-indigo-100 dark:bg-indigo-900 rounded-lg">
-              <FiMail className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+            <div className="p-3 bg-indigo-100 rounded-lg">
+              <FiMail className="w-5 h-5 text-indigo-600" />
             </div>
             <div>
-              <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+              <h3 className="font-semibold text-gray-900 mb-1">
                 Email
               </h3>
               <a
                 href="mailto:hello@umeshgajjar.com"
-                className="text-indigo-600 dark:text-indigo-400 hover:underline"
+                className="text-indigo-600 hover:underline"
               >
                 hello@umeshgajjar.com
               </a>
@@ -105,28 +105,28 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
           </div>
 
           <div className="flex items-start gap-4">
-            <div className="p-3 bg-indigo-100 dark:bg-indigo-900 rounded-lg">
-              <FiMapPin className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+            <div className="p-3 bg-indigo-100 rounded-lg">
+              <FiMapPin className="w-5 h-5 text-indigo-600" />
             </div>
             <div>
-              <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+              <h3 className="font-semibold text-gray-900 mb-1">
                 Location
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600">
                 Pune, Maharashtra, India
               </p>
             </div>
           </div>
 
           <div className="flex items-start gap-4">
-            <div className="p-3 bg-indigo-100 dark:bg-indigo-900 rounded-lg">
-              <FiClock className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+            <div className="p-3 bg-indigo-100 rounded-lg">
+              <FiClock className="w-5 h-5 text-indigo-600" />
             </div>
             <div>
-              <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+              <h3 className="font-semibold text-gray-900 mb-1">
                 Availability
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600">
                 Available for freelance projects and full-time opportunities
               </p>
             </div>
@@ -134,8 +134,8 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
         </div>
 
         {/* Response Time */}
-        <div className="p-4 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 rounded-lg">
-          <p className="text-sm text-indigo-900 dark:text-indigo-300">
+        <div className="p-4 bg-indigo-50 border border-indigo-200 rounded-lg">
+          <p className="text-sm text-indigo-900">
             <strong>Response Time:</strong> I typically respond to all
             inquiries within 24-48 hours during business days.
           </p>
@@ -146,12 +146,12 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
       <div className="lg:col-span-2">
         <form
           onSubmit={handleSubmit}
-          className="space-y-6 p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg"
+          className="space-y-6 p-8 bg-white border border-gray-200 rounded-lg"
         >
           <div>
             <label
               htmlFor="name"
-              className="block text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2"
+              className="block text-sm font-semibold text-gray-900 mb-2"
             >
               Your Name *
             </label>
@@ -162,7 +162,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
               required
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 dark:text-gray-100 transition-colors"
+              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 transition-colors"
               placeholder="John Doe"
             />
           </div>
@@ -170,7 +170,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2"
+              className="block text-sm font-semibold text-gray-900 mb-2"
             >
               Email Address *
             </label>
@@ -181,7 +181,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
               required
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 dark:text-gray-100 transition-colors"
+              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 transition-colors"
               placeholder="john@example.com"
             />
           </div>
@@ -189,7 +189,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
           <div>
             <label
               htmlFor="subject"
-              className="block text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2"
+              className="block text-sm font-semibold text-gray-900 mb-2"
             >
               Subject
             </label>
@@ -199,7 +199,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
               name="subject"
               value={formData.subject}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 dark:text-gray-100 transition-colors"
+              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 transition-colors"
               placeholder="Project Inquiry / Consultation / General Question"
             />
           </div>
@@ -207,7 +207,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
           <div>
             <label
               htmlFor="message"
-              className="block text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2"
+              className="block text-sm font-semibold text-gray-900 mb-2"
             >
               Message *
             </label>
@@ -218,7 +218,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
               rows={6}
               value={formData.message}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 dark:text-gray-100 transition-colors resize-none"
+              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 transition-colors resize-none"
               placeholder="Tell me about your project, timeline, and any specific requirements..."
             />
           </div>
@@ -228,8 +228,8 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
             <div
               className={`p-4 rounded-lg border ${
                 status.type === 'success'
-                  ? 'bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-300 border-green-200 dark:border-green-800'
-                  : 'bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-300 border-red-200 dark:border-red-800'
+                  ? 'bg-green-50 text-green-800 border-green-200'
+                  : 'bg-red-50 text-red-800 border-red-200'
               }`}
             >
               {status.message}
@@ -274,7 +274,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
             )}
           </button>
 
-          <p className="text-sm text-gray-500 dark:text-gray-500 text-center">
+          <p className="text-sm text-gray-500 text-center">
             By submitting this form, you agree to be contacted regarding your
             inquiry.
           </p>
