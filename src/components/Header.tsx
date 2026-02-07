@@ -23,13 +23,13 @@ export function Header() {
   }
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <header className="glass-navbar sticky top-0 z-50 transition-all duration-300">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
-            className="text-2xl font-bold text-gray-800 hover:text-indigo-600 transition-colors"
+            className="text-2xl font-bold text-gray-800 hover:text-blue-600 transition-colors duration-300"
           >
             Umesh Gajjar
           </Link>
@@ -40,10 +40,10 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-sm font-medium transition-all duration-300 ${
                   pathname === link.href
-                    ? 'text-indigo-600'
-                    : 'text-gray-600 hover:text-indigo-600'
+                    ? 'text-blue-600 font-semibold'
+                    : 'text-gray-700 hover:text-blue-600'
                 }`}
               >
                 {link.label}
@@ -54,7 +54,7 @@ export function Header() {
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
-              className="p-2"
+              className="p-2 rounded-lg hover:bg-blue-100/50 transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -77,17 +77,17 @@ export function Header() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation with glass effect */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-2">
+          <div className="md:hidden mt-4 pb-4 space-y-2 glass-card p-4">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block py-2 text-sm font-medium ${
+                className={`block py-2 px-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                   pathname === link.href
-                    ? 'text-indigo-600'
-                    : 'text-gray-600 hover:text-indigo-600'
+                    ? 'text-blue-600 bg-blue-50/60 font-semibold'
+                    : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50/30'
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >

@@ -64,14 +64,14 @@ export default function ContactForm() {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit} className="space-y-6">
+    <form onSubmit={formik.handleSubmit} className="space-y-6 glass-card p-8">
       {/* Success/Error Message */}
       {submitStatus && (
         <div
           className={`p-4 rounded-lg flex items-start gap-3 ${
             submitStatus.type === "success"
-              ? "bg-green-50 text-green-800"
-              : "bg-red-50 text-red-800"
+              ? "bg-green-50 text-green-800 border border-green-200/40"
+              : "bg-red-50 text-red-800 border border-red-200/40"
           }`}
         >
           {submitStatus.type === "success" ? (
@@ -96,6 +96,7 @@ export default function ContactForm() {
             onBlur={formik.handleBlur}
             error={formik.touched.name && formik.errors.name}
             required
+            className="glass-input"
           />
         </div>
 
@@ -111,6 +112,7 @@ export default function ContactForm() {
             onBlur={formik.handleBlur}
             error={formik.touched.email && formik.errors.email}
             required
+            className="glass-input"
           />
         </div>
       </div>
@@ -126,6 +128,7 @@ export default function ContactForm() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           error={formik.touched.phone && formik.errors.phone}
+          className="glass-input"
         />
       </div>
 
@@ -144,6 +147,7 @@ export default function ContactForm() {
               label: type,
             }))}
             required
+            className="glass-input"
           />
         </div>
 
@@ -161,6 +165,7 @@ export default function ContactForm() {
               label: range,
             }))}
             required
+            className="glass-input"
           />
         </div>
       </div>
@@ -177,6 +182,7 @@ export default function ContactForm() {
           onBlur={formik.handleBlur}
           error={formik.touched.message && formik.errors.message}
           required
+          className="glass-input"
         />
       </div>
 
@@ -185,7 +191,7 @@ export default function ContactForm() {
         type="submit"
         size="lg"
         disabled={formik.isSubmitting}
-        className="w-full"
+        className="glass-button w-full py-3 rounded-xl font-semibold"
       >
         {formik.isSubmitting ? "Sending..." : "Send Message"}
       </Button>

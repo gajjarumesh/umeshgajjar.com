@@ -41,7 +41,7 @@ export default function ScrollToTop() {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 flex items-center justify-center transition-colors duration-300"
+          className="glass-button fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full flex items-center justify-center"
           aria-label="Scroll to top"
         >
           <FaArrowUp className="text-xl" />
