@@ -1,17 +1,10 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import ThreeBackground from '@/components/ThreeBackground';
 import { Analytics } from '@vercel/analytics/next';
 import { generatePageMetadata, generatePersonSchema, generateWebsiteSchema, injectStructuredData } from '@/lib/seo';
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-});
 
 export const metadata = generatePageMetadata();
 
@@ -24,7 +17,7 @@ export default function RootLayout({
   const websiteSchema = generateWebsiteSchema();
 
   return (
-    <html lang="en" suppressHydrationWarning className={inter.variable}>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"

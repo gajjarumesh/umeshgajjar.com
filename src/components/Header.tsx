@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { ThemeToggle } from '../ui/ThemeToggle';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
