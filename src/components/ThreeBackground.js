@@ -80,10 +80,11 @@ export default function ThreeBackground() {
     // Create glass panels
     const glassPanels = [];
     
-    // Hero section - Large floating glass panel
+    // Hero section - Large floating glass panel with pulsing animation
     const heroPanel = createGlassPanel(8, 6, 'hero');
     heroPanel.position.set(0, 0, 0);
     scene.add(heroPanel);
+    // Only hero panel gets pulsing animation per design requirements
     glassPanels.push({ mesh: heroPanel, animate: true, baseScale: { x: 8, y: 6 } });
     
     // Skills section - Layered cards
