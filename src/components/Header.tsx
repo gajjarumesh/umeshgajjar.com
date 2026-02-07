@@ -23,13 +23,13 @@ export function Header() {
   }
 
   return (
-    <header className="glass-navbar sticky top-0 z-50 transition-all duration-300">
+    <header className="bg-white border-b border-gray-200 sticky top-0 z-50 transition-all duration-300">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
-            className="text-2xl font-bold text-gray-800 hover:text-blue-600 transition-colors duration-300"
+            className="text-2xl font-bold text-secondary hover:text-primary transition-colors duration-300"
           >
             Umesh Gajjar
           </Link>
@@ -42,8 +42,8 @@ export function Header() {
                 href={link.href}
                 className={`text-sm font-medium transition-all duration-300 ${
                   pathname === link.href
-                    ? 'text-blue-600 font-semibold'
-                    : 'text-gray-700 hover:text-blue-600'
+                    ? 'text-primary font-semibold'
+                    : 'text-secondary hover:text-primary'
                 }`}
               >
                 {link.label}
@@ -54,12 +54,12 @@ export function Header() {
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
-              className="p-2 rounded-lg hover:bg-blue-100/50 transition-colors"
+              className="p-2 rounded-lg hover:bg-primary-50 transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
               <svg
-                className="w-6 h-6 text-gray-800"
+                className="w-6 h-6 text-secondary"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -77,17 +77,17 @@ export function Header() {
           </div>
         </div>
 
-        {/* Mobile Navigation with glass effect */}
+        {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-2 glass-card p-4">
+          <div className="md:hidden mt-4 pb-4 space-y-2 bg-white border border-gray-200 rounded-lg p-4">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={`block py-2 px-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                   pathname === link.href
-                    ? 'text-blue-600 bg-blue-50/60 font-semibold'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50/30'
+                    ? 'text-primary bg-primary-50 font-semibold'
+                    : 'text-secondary hover:text-primary hover:bg-primary-50'
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
