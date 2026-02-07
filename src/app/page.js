@@ -1,28 +1,11 @@
 import Link from "next/link";
-import { getCollection, COLLECTIONS } from "@/lib/db";
 
 export const metadata = {
   title: "Paravix | Engineering Systems That Scale",
   description: "Paravix builds scalable, maintainable web applications and backend systems, led by senior engineer Umesh Gajjar.",
 };
 
-async function getLatestBlogs() {
-  try {
-    const blogs = await getCollection(COLLECTIONS.BLOGS);
-    return await blogs
-      .find({ published: true })
-      .sort({ createdAt: -1 })
-      .limit(2)
-      .toArray();
-  } catch (error) {
-    console.error("Error fetching blogs:", error);
-    return [];
-  }
-}
-
 export default async function Home() {
-  const latestBlogs = await getLatestBlogs();
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -46,10 +29,10 @@ export default async function Home() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/blog"
+                href="/services"
                 className="inline-block bg-indigo-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors"
               >
-                Engineering blog
+                View services
               </Link>
               <Link
                 href="/contact"
@@ -120,68 +103,41 @@ export default async function Home() {
               </p>
             </div>
             <Link
-              href="/blog"
+              href="/about"
               className="text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
             >
-              Read engineering insights →
+              Learn more about our approach →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Content Intro */}
+      {/* Call to Action */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Thoughts From Real Projects
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed mb-12">
-              The Paravix Engineering Blog documents real production decisions,
-              tradeoffs, and lessons learned over time.
-            </p>
-
-            {/* Latest Blog Posts */}
-            {latestBlogs.length > 0 && (
-              <div className="grid md:grid-cols-2 gap-8 mb-8">
-                {latestBlogs.map((blog) => (
-                  <Link
-                    key={blog.slug}
-                    href={`/blog/${blog.slug}`}
-                    className="border border-gray-200 rounded-lg p-6 hover:border-indigo-300 hover:shadow-lg transition-all"
-                  >
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
-                      {blog.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4 line-clamp-2">
-                      {blog.excerpt}
-                    </p>
-                    {blog.tags && blog.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mb-3">
-                        {blog.tags.slice(0, 3).map((tag) => (
-                          <span
-                            key={tag}
-                            className="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                    <span className="text-indigo-600 text-sm font-medium">
-                      Read article →
-                    </span>
-                  </Link>
-                ))}
+            <div className="bg-indigo-50 rounded-lg p-8 md:p-12 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Ready to Build Something That Lasts?
+              </h2>
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                If you have a technical problem or system to improve, let's discuss it clearly.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/contact"
+                  className="inline-block bg-indigo-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors"
+                >
+                  Get in touch
+                </Link>
+                <Link
+                  href="/paravix"
+                  className="inline-block bg-white text-indigo-600 border-2 border-indigo-600 px-8 py-3 rounded-lg font-medium hover:bg-indigo-50 transition-colors"
+                >
+                  Learn about Paravix
+                </Link>
               </div>
-            )}
-
-            <Link
-              href="/blog"
-              className="inline-block bg-indigo-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors"
-            >
-              View all blog posts
-            </Link>
+            </div>
           </div>
         </div>
       </section>

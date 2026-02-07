@@ -5,32 +5,27 @@ export const metadata = {
   description: "Paravix is an engineering-focused brand dedicated to clarity and maintainability.",
 };
 
-// Placeholder for blog posts - in production these would be fetched from DB
+// Placeholder for engineering principles
 const ENGINEERING_PRINCIPLES = [
   {
     title: "Simplicity before abstraction",
     description: "Start simple, add complexity only when proven necessary",
-    blogSlug: "simplicity-over-abstraction", // Link to relevant blog
   },
   {
     title: "Clarity over cleverness",
     description: "Code that's easy to understand beats code that's impressive",
-    blogSlug: "clarity-over-cleverness",
   },
   {
     title: "Security by design",
     description: "Build security into the foundation, not as an afterthought",
-    blogSlug: "security-by-design",
   },
   {
     title: "Decisions documented",
     description: "Record the why, not just the what",
-    blogSlug: "documenting-decisions",
   },
   {
     title: "Systems built for humans",
     description: "Code is read far more than it's written",
-    blogSlug: "systems-for-humans",
   },
 ];
 
@@ -59,10 +54,10 @@ export default function Paravix() {
                 View services →
               </Link>
               <Link
-                href="/work"
+                href="/contact"
                 className="text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
               >
-                See case studies →
+                Get in touch →
               </Link>
             </div>
           </section>
@@ -76,32 +71,27 @@ export default function Paravix() {
               {ENGINEERING_PRINCIPLES.map((principle, index) => (
                 <div
                   key={index}
-                  className="border-l-4 border-indigo-600 bg-gray-50 p-6 rounded-r-lg hover:bg-indigo-50 transition-colors"
+                  className="border-l-4 border-indigo-600 bg-gray-50 p-6 rounded-r-lg"
                 >
-                  <Link href={`/blog/${principle.blogSlug}`} className="block">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      {principle.title}
-                    </h3>
-                    <p className="text-gray-600 mb-3">
-                      {principle.description}
-                    </p>
-                    <span className="text-indigo-600 text-sm font-medium hover:text-indigo-700">
-                      Read more →
-                    </span>
-                  </Link>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    {principle.title}
+                  </h3>
+                  <p className="text-gray-600">
+                    {principle.description}
+                  </p>
                 </div>
               ))}
             </div>
 
-            <div className="mt-12 p-6 bg-indigo-50 rounded-lg">
+            <div className="mt-12 p-6 bg-indigo-50 rounded-lg text-center">
               <p className="text-gray-700 mb-4">
-                Each principle is explored in depth through real-world examples and practical guidance.
+                These principles guide how we build software systems that last.
               </p>
               <Link
-                href="/blog"
+                href="/contact"
                 className="inline-block text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
               >
-                Browse all engineering content →
+                Discuss your project →
               </Link>
             </div>
           </section>

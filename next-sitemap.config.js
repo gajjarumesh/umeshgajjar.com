@@ -40,9 +40,6 @@ module.exports = {
     } else if (path.startsWith('/projects')) {
       priority = 0.8;
       changefreq = 'monthly';
-    } else if (path.startsWith('/blog')) {
-      priority = 0.8;
-      changefreq = 'weekly';
     } else if (path === '/about' || path === '/contact') {
       priority = 0.9;
       changefreq = 'monthly';
