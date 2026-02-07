@@ -9,14 +9,14 @@ export const updateCameraFromScroll = (camera, scrollProgress) => {
   ];
   
   // Calculate current section and interpolation
-  const sectionIndex = Math.min(Math.floor(scrollProgress * sections.length), sections.length - 2);
-  const sectionProgress = (scrollProgress * sections.length) % 1;
+  const sectionIndex = Math.min(Math.floor(scrollProgress * (sections.length - 1)), sections.length - 2);
+  const localProgress = (scrollProgress * (sections.length - 1)) - sectionIndex;
   
   const current = sections[sectionIndex];
   const next = sections[sectionIndex + 1];
   
   // Smooth interpolation
-  camera.position.z = current.z + (next.z - current.z) * sectionProgress;
-  camera.position.y = current.y + (next.y - current.y) * sectionProgress;
-  camera.rotation.x = current.rotationX + (next.rotationX - current.rotationX) * sectionProgress;
+  camera.position.z = current.z + (next.z - current.z) * localProgress;
+  camera.position.y = current.y + (next.y - current.y) * localProgress;
+  camera.rotation.x = current.rotationX + (next.rotationX - current.rotationX) * localProgress;
 };

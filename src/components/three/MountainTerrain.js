@@ -1,5 +1,11 @@
 import * as THREE from 'three';
 
+// Simple seeded pseudo-random number generator for reproducible terrain
+function seededRandom(seed) {
+  const x = Math.sin(seed++) * 10000;
+  return x - Math.floor(x);
+}
+
 export const createMountainTerrain = () => {
   // Low-poly plane for performance
   const geometry = new THREE.PlaneGeometry(200, 400, 50, 100);
@@ -10,8 +16,9 @@ export const createMountainTerrain = () => {
     const x = vertices[i];
     const y = vertices[i + 1];
     
-    // Procedural height using noise-like function
-    vertices[i + 2] = Math.sin(x * 0.1) * Math.cos(y * 0.05) * 15 + Math.random() * 3;
+    // Procedural height using noise-like function with seeded randomness
+    const seed = x * 100 + y * 1000; // Create seed from position
+    vertices[i + 2] = Math.sin(x * 0.1) * Math.cos(y * 0.05) * 15 + seededRandom(seed) * 3;
   }
   
   geometry.computeVertexNormals();

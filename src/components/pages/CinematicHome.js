@@ -15,7 +15,8 @@ export default function CinematicHome() {
     setWebGLSupported(detectWebGL());
     
     const handleScroll = () => {
-      const progress = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+      const maxScroll = Math.max(1, document.body.scrollHeight - window.innerHeight);
+      const progress = window.scrollY / maxScroll;
       setScrollProgress(progress);
     };
     

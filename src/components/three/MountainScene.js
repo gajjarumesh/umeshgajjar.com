@@ -27,15 +27,17 @@ export default function MountainScene() {
     container.appendChild(renderer.domElement);
     
     // Animation loop
+    let animationId;
     const animate = () => {
-      requestAnimationFrame(animate);
+      animationId = requestAnimationFrame(animate);
       renderer.render(scene, camera);
     };
     animate();
     
     // Scroll handler
     const handleScroll = () => {
-      const scrollProgress = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+      const maxScroll = Math.max(1, document.body.scrollHeight - window.innerHeight);
+      const scrollProgress = window.scrollY / maxScroll;
       updateCameraFromScroll(camera, scrollProgress);
     };
     
@@ -53,7 +55,17 @@ export default function MountainScene() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
+      
+      // Cancel animation frame
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+      
+      // Dispose of Three.js resources
+      terrain.geometry.dispose();
+      terrain.material.dispose();
       renderer.dispose();
+      
       if (container && container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);
       }
