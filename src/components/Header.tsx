@@ -54,7 +54,7 @@ export function Header() {
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
-              className="p-2 rounded-lg hover:bg-primary-50 transition-colors"
+              className="p-2 rounded-lg hover:bg-primary/10 transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -86,8 +86,8 @@ export function Header() {
                 href={link.href}
                 className={`block py-2 px-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                   pathname === link.href
-                    ? 'text-primary bg-primary-50 font-semibold'
-                    : 'text-secondary hover:text-primary hover:bg-primary-50'
+                    ? 'text-primary bg-primary/10 font-semibold'
+                    : 'text-secondary hover:text-primary hover:bg-primary/10'
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >

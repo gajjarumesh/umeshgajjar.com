@@ -1,10 +1,4 @@
 /* Font-face declarations (PP Radio Grotesk) */
-/* TODO: Download PP Radio Grotesk font files and place in public/fonts/
- * Required files:
- * - PPRadioGrotesk-Regular.woff2
- * - PPRadioGrotesk-Medium.woff2
- * - PPRadioGrotesk-Bold.woff2
- */
 @font-face {
   font-family: 'PP Radio Grotesk';
   src: url('/fonts/PPRadioGrotesk-Regular.woff2') format('woff2');
