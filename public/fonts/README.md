@@ -1,34 +1,40 @@
-# PP Radio Grotesk Font Files
+# Font Files
 
-## Required Font Files
+## Current Font: Inter (Open Source)
 
-To complete the typography system, please add the following PP Radio Grotesk font files to this directory:
+This project uses **Inter** - a modern, professional, open-source typeface designed for digital interfaces.
 
-### Required Files:
-- PPRadioGrotesk-Regular.woff2 (Regular weight - 400)
-- PPRadioGrotesk-Medium.woff2 (Medium weight - 500)
-- PPRadioGrotesk-Bold.woff2 (Bold weight - 700)
+### Installed Files:
+- `Inter-Regular.woff2` (Regular weight - 400)
+- `Inter-Medium.woff2` (Medium weight - 500)  
+- `Inter-Bold.woff2` (Bold weight - 700)
 
-### Optional Files (for better browser support):
-- PPRadioGrotesk-Regular.woff
-- PPRadioGrotesk-Medium.woff
-- PPRadioGrotesk-Bold.woff
+### Why Inter?
 
-## How to Add Font Files
+Inter is an excellent choice for this editorial design system because:
+- **Open Source**: Free to use with SIL Open Font License
+- **Professional**: Designed specifically for computer screens and UI
+- **Editorial Quality**: Clean, readable, and modern
+- **Performance**: Optimized WOFF2 files for fast loading
+- **Highly Legible**: Excellent at all sizes and weights
 
-1. Purchase or obtain PP Radio Grotesk font files from a licensed source
-2. Convert to WOFF2 format for optimal web performance (if not already in WOFF2)
-3. Place the files in this directory (public/fonts/)
-4. The font-face declarations are already configured in src/app/globals.css
+### Font Source
 
-## Font Sources
+The Inter font files were sourced from the existing repository assets and converted to WOFF2 format for optimal web performance.
 
-PP Radio Grotesk is a commercial typeface by Pangram Pangram Foundry.
+Original Inter font: https://rsms.me/inter/
 
-## Alternative Options
+## Alternative: PP Radio Grotesk
 
-If you don't have access to PP Radio Grotesk, the site will fall back to system fonts.
+If you want to use the commercial PP Radio Grotesk font instead:
 
-## License Note
+1. Purchase from: https://pangrampangram.com/
+2. Add these files to this directory:
+   - `PPRadioGrotesk-Regular.woff2`
+   - `PPRadioGrotesk-Medium.woff2`
+   - `PPRadioGrotesk-Bold.woff2`
+3. Update `src/app/globals.css` font-family references from 'Inter' to 'PP Radio Grotesk'
 
-Important: Ensure you have the proper license to use PP Radio Grotesk on your website before adding the font files.
+## License
+
+Inter is licensed under the SIL Open Font License 1.1.
