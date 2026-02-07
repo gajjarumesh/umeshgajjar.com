@@ -42,3 +42,4 @@ next-env.d.ts
 
 # Generated sitemap
 public/sitemap.xml
+.env.local

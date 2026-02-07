@@ -1,6 +1,7 @@
 import "./globals.css";
 import Header from "@/components/layouts/header";
 import Footer from "@/components/layouts/footer";
+import ThreeBackgroundWrapper from "@/components/ThreeBackgroundWrapper";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <ThreeBackgroundWrapper />
         <Header />
         <main>{children}</main>
         <Footer />
