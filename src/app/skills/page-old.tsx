@@ -254,78 +254,94 @@ export default function SkillsPage() {
         dangerouslySetInnerHTML={injectStructuredData(breadcrumbSchema)}
       />
 
-      {/* NEW Hero Section - Simpler layout */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-6xl font-bold text-secondary mb-6">
+      {/* Hero Section */}
+      <Section className="bg-gradient-to-b from-white via-gray-50/30 to-white">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary tracking-tight">
             Technical Skills & Expertise
           </h1>
-          <p className="text-xl text-secondary/60 max-w-3xl">
-            Comprehensive full-stack development capabilities built over 7+ years of hands-on experience
+          <p className="text-lg md:text-xl text-secondary/70 leading-relaxed max-w-3xl mx-auto">
+            Comprehensive full-stack development capabilities built over 7+
+            years of hands-on experience
           </p>
         </div>
-      </section>
+      </Section>
 
-      {/* NEW Skills - 3 Column Grid with all skills visible */}
-      <section className="bg-gray-50 py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            {skillCategories.map((category, categoryIndex) => {
-              const Icon = category.icon;
-              return (
-                <div key={categoryIndex} className="space-y-6">
-                  {/* Category header with icon */}
-                  <div className="bg-primary p-6 rounded-lg text-white">
-                    <Icon className="w-10 h-10 mb-3" />
-                    <h2 className="text-2xl font-bold mb-2">{category.title}</h2>
-                    <p className="text-white/90 text-sm">{category.description}</p>
-                  </div>
-                  
-                  {/* Skills list */}
-                  <div className="space-y-4">
-                    {category.skills.map((skill, skillIndex) => (
-                      <div key={skillIndex} className="bg-white p-4 rounded-lg border-l-4 border-primary">
-                        <h3 className="font-bold text-secondary mb-1">{skill.name}</h3>
-                        <p className="text-sm text-secondary/70">{skill.description}</p>
-                      </div>
-                    ))}
-                  </div>
+      {/* Skills Categories */}
+      {skillCategories.map((category, categoryIndex) => {
+        const Icon = category.icon;
+        return (
+          <Section
+            key={categoryIndex}
+            className={
+              categoryIndex % 2 === 0
+                ? 'bg-white'
+                : 'bg-gray-50/50'
+            }
+          >
+            <div className="max-w-7xl mx-auto">
+              {/* Category Header */}
+              <div className="flex items-center gap-5 mb-12">
+                <div className="p-4 bg-primary/5 rounded-2xl flex-shrink-0 border-2 border-primary/10">
+                  <Icon className="w-8 h-8 text-primary" />
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+                <div className="space-y-2">
+                  <h2 className="text-3xl md:text-4xl font-bold text-secondary">
+                    {category.title}
+                  </h2>
+                  <p className="text-base md:text-lg text-secondary/60">
+                    {category.description}
+                  </p>
+                </div>
+              </div>
 
-      {/* NEW CTA Section - Different layout */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-secondary text-white p-12 md:p-16 rounded-lg">
-            <div className="max-w-3xl">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Ready to Put These Skills to Work?
-              </h2>
-              <p className="text-xl text-white/90 mb-8">
-                Let's discuss how my technical expertise can help bring your project to life.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="/contact"
-                  className="inline-block bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold transition-colors"
-                >
-                  Get in Touch
-                </a>
-                <a
-                  href="/projects"
-                  className="inline-block border-2 border-white text-white hover:bg-white hover:text-secondary px-8 py-4 rounded-lg font-semibold transition-colors"
-                >
-                  View Projects
-                </a>
+              {/* Skills Grid */}
+              <div className="grid md:grid-cols-2 gap-6">
+                {category.skills.map((skill, skillIndex) => (
+                  <div
+                    key={skillIndex}
+                    className="group p-8 bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 space-y-3"
+                  >
+                    <h3 className="text-xl md:text-2xl font-semibold text-secondary group-hover:text-primary transition-colors duration-300">
+                      {skill.name}
+                    </h3>
+                    <p className="text-base text-secondary/70 leading-relaxed">
+                      {skill.description}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
+          </Section>
+        );
+      })}
+
+      {/* CTA Section */}
+      <Section className="bg-primary text-white">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+            Ready to Put These Skills to Work?
+          </h2>
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+            Let's discuss how my technical expertise can help bring your project
+            to life.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 bg-white text-primary hover:bg-gray-100 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            >
+              Get in Touch
+            </a>
+            <a
+              href="/projects"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 border-2 border-white text-white hover:bg-white hover:text-primary transform hover:-translate-y-0.5"
+            >
+              View Projects
+            </a>
           </div>
         </div>
-      </section>
+      </Section>
     </>
   );
 }

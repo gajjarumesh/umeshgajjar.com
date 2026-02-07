@@ -20,7 +20,7 @@ export function Section({
   );
 
   return (
-    <section id={id} className={`py-20 md:py-24 ${className}`}>
+    <section id={id} className={`py-16 md:py-24 lg:py-28 ${className}`}>
       {content}
     </section>
   );

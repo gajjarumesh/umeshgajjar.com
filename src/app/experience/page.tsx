@@ -204,33 +204,35 @@ export default function ExperiencePage() {
       />
 
       {/* Hero Section */}
-      <Section className="bg-white">
+      <Section className="bg-gradient-to-b from-white via-gray-50/30 to-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-secondary mb-6 tracking-tight">
-            Professional Experience
-          </h1>
-          <p className="text-xl md:text-2xl text-secondary/80 mb-4 leading-relaxed">
-            7+ years of full-stack development experience building scalable web
-            applications
-          </p>
-          <p className="text-lg md:text-xl text-secondary/70 leading-relaxed">
-            From WordPress developer to leading enterprise teams at Infosys
-          </p>
+          <div className="space-y-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary tracking-tight">
+              Professional Experience
+            </h1>
+            <p className="text-lg md:text-xl text-secondary/70 leading-relaxed">
+              7+ years of full-stack development experience building scalable web
+              applications
+            </p>
+            <p className="text-base md:text-lg text-secondary/60 leading-relaxed">
+              From WordPress developer to leading enterprise teams at Infosys
+            </p>
+          </div>
         </div>
       </Section>
 
       {/* Career Timeline */}
-      <Section className="bg-gray-50">
+      <Section className="bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="space-y-8">
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-8"
+                className="bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 p-8 group"
               >
                 {/* Header */}
                 <div className="mb-6">
-                  <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">
+                  <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3 group-hover:text-primary transition-colors duration-300">
                     {exp.position}
                   </h2>
                   <div className="flex flex-col md:flex-row md:items-center md:gap-6 mb-3">
@@ -271,7 +273,7 @@ export default function ExperiencePage() {
                           key={i}
                           className="flex items-start gap-3 text-base text-secondary/80"
                         >
-                          <span className="text-primary mt-1 flex-shrink-0">
+                          <span className="text-primary mt-1 flex-shrink-0 font-bold">
                             •
                           </span>
                           <span>{resp}</span>
@@ -293,7 +295,7 @@ export default function ExperiencePage() {
                           key={i}
                           className="flex items-start gap-3 text-base text-secondary/80"
                         >
-                          <span className="text-green-600 mt-1 flex-shrink-0">
+                          <span className="text-green-600 mt-1 flex-shrink-0 font-bold">
                             ✓
                           </span>
                           <span>{achievement}</span>
@@ -315,7 +317,7 @@ export default function ExperiencePage() {
                           key={i}
                           className="flex items-start gap-3 text-base text-secondary/80"
                         >
-                          <span className="text-primary mt-1 flex-shrink-0">
+                          <span className="text-primary mt-1 flex-shrink-0 font-bold">
                             →
                           </span>
                           <span>{project}</span>
@@ -334,7 +336,7 @@ export default function ExperiencePage() {
                     {exp.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full"
+                        className="px-3 py-1.5 text-xs font-semibold bg-primary/5 text-primary rounded-lg border border-primary/10"
                       >
                         {tech}
                       </span>

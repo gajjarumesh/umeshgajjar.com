@@ -92,12 +92,12 @@ export default function AboutPage() {
       />
 
       {/* Hero Section */}
-      <Section className="bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-secondary mb-6 tracking-tight">
+      <Section className="bg-gradient-to-b from-white via-gray-50/30 to-white">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary tracking-tight">
             About Me
           </h1>
-          <p className="text-xl md:text-2xl text-secondary/80 leading-relaxed">
+          <p className="text-lg md:text-xl text-secondary/70 leading-relaxed max-w-3xl mx-auto">
             Senior Full Stack Developer passionate about building scalable,
             maintainable web applications
           </p>
@@ -105,10 +105,10 @@ export default function AboutPage() {
       </Section>
 
       {/* Professional Summary */}
-      <Section className="bg-gray-50">
+      <Section className="bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="prose prose-lg max-w-none">
-            <p className="text-lg text-secondary/80 leading-relaxed mb-6">
+          <div className="prose prose-lg max-w-none space-y-6">
+            <p className="text-base md:text-lg text-secondary/70 leading-relaxed">
               I'm Umesh Gajjar, a Senior Full Stack Developer based in Pune,
               Maharashtra, India, with over 7 years of experience in building
               scalable web applications. My journey in software development has
@@ -116,14 +116,14 @@ export default function AboutPage() {
               enterprise-level SaaS platforms, always with a focus on delivering
               high-quality, maintainable solutions.
             </p>
-            <p className="text-lg text-secondary/80 leading-relaxed mb-6">
+            <p className="text-base md:text-lg text-secondary/70 leading-relaxed">
               Currently, I'm working as a Senior Associate Consultant at
               Infosys, where I lead development teams in building enterprise
               applications for global clients. Alongside my corporate role, I
               continue to work as a freelance developer, helping startups and
               agencies bring their ideas to life with modern web technologies.
             </p>
-            <p className="text-lg text-secondary/80 leading-relaxed mb-6">
+            <p className="text-base md:text-lg text-secondary/70 leading-relaxed">
               My expertise spans the full stack—from crafting pixel-perfect user
               interfaces with React.js and Next.js to building robust backend
               systems with Node.js and Laravel. I'm particularly passionate
@@ -132,7 +132,7 @@ export default function AboutPage() {
               SaaS platform, an e-commerce solution, or a custom CMS, I approach
               every project with the same commitment to excellence.
             </p>
-            <p className="text-lg text-secondary/80 leading-relaxed">
+            <p className="text-base md:text-lg text-secondary/70 leading-relaxed">
               Beyond coding, I believe in the power of collaboration and
               continuous learning. I've mentored junior developers, led
               technical discussions, and always stay updated with the latest
@@ -145,13 +145,13 @@ export default function AboutPage() {
       </Section>
 
       {/* Career Journey */}
-      <Section className="bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+      <Section className="bg-gray-50/50">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary">
               Career Journey
             </h2>
-            <p className="text-lg md:text-xl text-secondary/80 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-secondary/60">
               From WordPress developer to enterprise architect
             </p>
           </div>
@@ -163,18 +163,18 @@ export default function AboutPage() {
                 className="flex flex-col md:flex-row gap-6 items-start"
               >
                 <div className="min-w-[120px]">
-                  <div className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-lg font-semibold">
+                  <div className="inline-block px-5 py-2.5 bg-primary/5 text-primary rounded-xl font-semibold border-2 border-primary/10">
                     {item.year}
                   </div>
                 </div>
-                <div className="flex-1 p-8 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300">
-                  <h3 className="text-xl md:text-2xl font-bold text-secondary mb-2">
+                <div className="group flex-1 p-8 bg-white rounded-2xl border-2 border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                  <h3 className="text-xl md:text-2xl font-bold text-secondary mb-2 group-hover:text-primary transition-colors duration-300">
                     {item.title}
                   </h3>
-                  <p className="text-lg text-primary font-medium mb-3">
+                  <p className="text-base md:text-lg text-primary font-semibold mb-3">
                     {item.company}
                   </p>
-                  <p className="text-base text-secondary/80 leading-relaxed">
+                  <p className="text-base text-secondary/70 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -185,22 +185,22 @@ export default function AboutPage() {
       </Section>
 
       {/* Leadership & Team Management */}
-      <Section className="bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8">
+      <Section className="bg-white">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-secondary">
             Leadership & Team Management
           </h2>
           <div className="space-y-6">
-            <p className="text-base md:text-lg text-secondary/80 leading-relaxed">
+            <p className="text-base md:text-lg text-secondary/70 leading-relaxed">
               With over 6 years of experience in team leadership, I've had the
               privilege of managing development teams, mentoring junior
               developers, and driving technical excellence across multiple
               projects. My leadership philosophy centers on empowerment,
               collaboration, and continuous improvement.
             </p>
-            <ul className="space-y-4 text-base text-secondary/80">
+            <ul className="space-y-4 text-base text-secondary/70">
               <li className="flex items-start gap-3">
-                <span className="text-primary mt-1">
+                <span className="text-primary mt-1 font-bold">
                   •
                 </span>
                 <span>
@@ -210,7 +210,7 @@ export default function AboutPage() {
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-primary mt-1">
+                <span className="text-primary mt-1 font-bold">
                   •
                 </span>
                 <span>
@@ -220,7 +220,7 @@ export default function AboutPage() {
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-primary mt-1">
+                <span className="text-primary mt-1 font-bold">
                   •
                 </span>
                 <span>
@@ -230,7 +230,7 @@ export default function AboutPage() {
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-primary mt-1">
+                <span className="text-primary mt-1 font-bold">
                   •
                 </span>
                 <span>
@@ -240,11 +240,11 @@ export default function AboutPage() {
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-primary mt-1">
+                <span className="text-primary mt-1 font-bold">
                   •
                 </span>
                 <span>
-                  <strong>Quality Assurance:</strong> Implementing best
+                  <strong className="font-semibold text-secondary">Quality Assurance:</strong> Implementing best
                   practices, code standards, and testing strategies to maintain
                   code quality.
                 </span>
@@ -255,13 +255,13 @@ export default function AboutPage() {
       </Section>
 
       {/* Values & Work Philosophy */}
-      <Section className="bg-white">
+      <Section className="bg-gray-50/50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary">
               Values & Work Philosophy
             </h2>
-            <p className="text-lg md:text-xl text-secondary/80 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-secondary/60 max-w-3xl mx-auto">
               Principles that guide my approach to software development
             </p>
           </div>
@@ -272,17 +272,17 @@ export default function AboutPage() {
               return (
                 <div
                   key={index}
-                  className="p-8 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
+                  className="group p-8 bg-white rounded-2xl border-2 border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0">
-                      <Icon className="w-6 h-6 text-primary" />
+                  <div className="flex items-start gap-5">
+                    <div className="p-4 bg-primary/5 rounded-xl flex-shrink-0 group-hover:bg-primary/10 transition-colors duration-300">
+                      <Icon className="w-7 h-7 text-primary" />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl md:text-2xl font-semibold text-secondary mb-3">
+                    <div className="flex-1 space-y-3">
+                      <h3 className="text-xl md:text-2xl font-semibold text-secondary group-hover:text-primary transition-colors duration-300">
                         {value.title}
                       </h3>
-                      <p className="text-base text-secondary/80 leading-relaxed">
+                      <p className="text-base text-secondary/70 leading-relaxed">
                         {value.description}
                       </p>
                     </div>
@@ -296,20 +296,20 @@ export default function AboutPage() {
 
       {/* CTA Section */}
       <Section className="bg-primary text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
             Ready to Work Together?
           </h2>
-          <p className="text-xl mb-8 text-white/90">
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
             I'm always interested in hearing about new projects and
             opportunities.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Button
               href="/contact"
               variant="secondary"
               size="lg"
-              className="bg-white text-primary hover:bg-gray-100"
+              className="bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
             >
               Get in Touch
             </Button>
@@ -317,7 +317,7 @@ export default function AboutPage() {
               href="/experience"
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-primary"
+              className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-0.5"
             >
               View Experience
             </Button>
