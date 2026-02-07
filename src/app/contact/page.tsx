@@ -84,13 +84,13 @@ export default function ContactPage() {
       {/* Hero Section */}
       <Section className="bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-secondary mb-6 tracking-tight">
             Let's Work Together
           </h1>
-          <p className="text-xl text-secondary/80 mb-4">
+          <p className="text-xl md:text-2xl text-secondary/80 mb-4 leading-relaxed">
             Have a project in mind? Need technical expertise? I'm here to help.
           </p>
-          <p className="text-lg text-secondary/80">
+          <p className="text-lg md:text-xl text-secondary/70 leading-relaxed">
             Available for freelance projects, full-time opportunities, and
             technical consulting
           </p>
@@ -99,12 +99,12 @@ export default function ContactPage() {
 
       {/* Services Overview */}
       <Section className="bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
               How I Can Help
             </h2>
-            <p className="text-lg text-secondary/80 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-secondary/80 max-w-2xl mx-auto">
               Professional web development services tailored to your needs
             </p>
           </div>
@@ -115,17 +115,17 @@ export default function ContactPage() {
               return (
                 <div
                   key={index}
-                  className="p-6 bg-white rounded-lg border border-gray-200"
+                  className="p-8 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-primary/10 rounded-lg">
+                    <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0">
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-secondary mb-2">
+                      <h3 className="text-xl md:text-2xl font-semibold text-secondary mb-3">
                         {service.title}
                       </h3>
-                      <p className="text-secondary/80">
+                      <p className="text-base text-secondary/80 leading-relaxed">
                         {service.description}
                       </p>
                     </div>
@@ -139,7 +139,7 @@ export default function ContactPage() {
 
       {/* Contact Form Section */}
       <Section className="bg-white">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <ContactForm />
         </div>
       </Section>

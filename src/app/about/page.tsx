@@ -94,10 +94,10 @@ export default function AboutPage() {
       {/* Hero Section */}
       <Section className="bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-secondary mb-6 tracking-tight">
             About Me
           </h1>
-          <p className="text-xl text-secondary/80">
+          <p className="text-xl md:text-2xl text-secondary/80 leading-relaxed">
             Senior Full Stack Developer passionate about building scalable,
             maintainable web applications
           </p>
@@ -146,35 +146,35 @@ export default function AboutPage() {
 
       {/* Career Journey */}
       <Section className="bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
               Career Journey
             </h2>
-            <p className="text-lg text-secondary/80 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-secondary/80 max-w-2xl mx-auto">
               From WordPress developer to enterprise architect
             </p>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-6">
             {timeline.map((item, index) => (
               <div
                 key={index}
                 className="flex flex-col md:flex-row gap-6 items-start"
               >
                 <div className="min-w-[120px]">
-                  <div className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-lg font-bold">
+                  <div className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-lg font-semibold">
                     {item.year}
                   </div>
                 </div>
-                <div className="flex-1 p-6 bg-white rounded-lg border border-gray-200">
-                  <h3 className="text-xl font-bold text-secondary mb-2">
+                <div className="flex-1 p-8 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300">
+                  <h3 className="text-xl md:text-2xl font-bold text-secondary mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-primary mb-3">
+                  <p className="text-lg text-primary font-medium mb-3">
                     {item.company}
                   </p>
-                  <p className="text-secondary/80">
+                  <p className="text-base text-secondary/80 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -187,24 +187,24 @@ export default function AboutPage() {
       {/* Leadership & Team Management */}
       <Section className="bg-gray-50">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8">
             Leadership & Team Management
           </h2>
-          <div className="prose prose-lg max-w-none">
-            <p className="text-lg text-secondary/80 leading-relaxed mb-6">
+          <div className="space-y-6">
+            <p className="text-base md:text-lg text-secondary/80 leading-relaxed">
               With over 6 years of experience in team leadership, I've had the
               privilege of managing development teams, mentoring junior
               developers, and driving technical excellence across multiple
               projects. My leadership philosophy centers on empowerment,
               collaboration, and continuous improvement.
             </p>
-            <ul className="space-y-3 text-secondary/80 mb-6">
+            <ul className="space-y-4 text-base text-secondary/80">
               <li className="flex items-start gap-3">
                 <span className="text-primary mt-1">
                   •
                 </span>
                 <span>
-                  <strong>Team Management:</strong> Leading cross-functional
+                  <strong className="font-semibold text-secondary">Team Management:</strong> Leading cross-functional
                   teams of 5-10 developers, coordinating sprint planning, and
                   ensuring timely delivery of high-quality features.
                 </span>
@@ -214,7 +214,7 @@ export default function AboutPage() {
                   •
                 </span>
                 <span>
-                  <strong>Client Communication:</strong> Gathering requirements,
+                  <strong className="font-semibold text-secondary">Client Communication:</strong> Gathering requirements,
                   managing expectations, and maintaining transparent
                   communication throughout project lifecycle.
                 </span>
@@ -224,7 +224,7 @@ export default function AboutPage() {
                   •
                 </span>
                 <span>
-                  <strong>Technical Architecture:</strong> Making key decisions
+                  <strong className="font-semibold text-secondary">Technical Architecture:</strong> Making key decisions
                   on technology stack, system design, and development patterns
                   for scalable solutions.
                 </span>
@@ -234,7 +234,7 @@ export default function AboutPage() {
                   •
                 </span>
                 <span>
-                  <strong>Mentorship:</strong> Conducting code reviews, pair
+                  <strong className="font-semibold text-secondary">Mentorship:</strong> Conducting code reviews, pair
                   programming sessions, and knowledge-sharing workshops to
                   elevate team skills.
                 </span>
@@ -256,12 +256,12 @@ export default function AboutPage() {
 
       {/* Values & Work Philosophy */}
       <Section className="bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
               Values & Work Philosophy
             </h2>
-            <p className="text-lg text-secondary/80 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-secondary/80 max-w-2xl mx-auto">
               Principles that guide my approach to software development
             </p>
           </div>
@@ -272,17 +272,17 @@ export default function AboutPage() {
               return (
                 <div
                   key={index}
-                  className="p-6 bg-white rounded-lg border border-gray-200"
+                  className="p-8 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-primary/10 rounded-lg">
+                    <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0">
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-secondary mb-2">
+                      <h3 className="text-xl md:text-2xl font-semibold text-secondary mb-3">
                         {value.title}
                       </h3>
-                      <p className="text-secondary/80">
+                      <p className="text-base text-secondary/80 leading-relaxed">
                         {value.description}
                       </p>
                     </div>
