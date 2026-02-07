@@ -92,30 +92,30 @@ export default function HomePage() {
       />
 
       {/* Hero Section */}
-      <Section className="bg-transparent">
+      <Section className="bg-white">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="glass-card p-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <div className="bg-white border border-gray-200 shadow-sm p-12">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-6 leading-tight">
               Senior Full Stack Developer Building{' '}
-              <span className="text-blue-600">
+              <span className="text-primary">
                 Scalable Web Applications
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 mb-6">
+            <p className="text-xl md:text-2xl text-secondary/80 mb-6">
               7+ years of experience leading development teams and delivering
               high-performance web solutions
             </p>
-            <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">
+            <p className="text-lg text-secondary/70 mb-8 max-w-3xl mx-auto">
               Specializing in React.js, Next.js, Vue.js, Node.js, Laravel, and
               WordPress. I help startups, agencies, and SaaS companies build
               robust, maintainable applications that scale with their business
               needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="/projects" size="lg" className="glass-button">
+              <Button href="/projects" size="lg" className="bg-primary hover:bg-primary-600">
                 View Projects
               </Button>
-              <Button href="/contact" variant="outline" size="lg" className="glass-card hover:shadow-xl">
+              <Button href="/contact" variant="outline" size="lg" className="bg-white border border-gray-200 shadow-sm hover:shadow-xl">
                 Hire Me
               </Button>
             </div>
@@ -124,13 +124,13 @@ export default function HomePage() {
       </Section>
 
       {/* Expertise Overview */}
-      <Section className="bg-transparent">
+      <Section className="bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
               Technical Expertise
             </h2>
-            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+            <p className="text-lg text-secondary/80 max-w-2xl mx-auto">
               Full-stack development services focused on building scalable,
               maintainable applications
             </p>
@@ -142,17 +142,17 @@ export default function HomePage() {
               return (
                 <div
                   key={index}
-                  className="glass-card p-8"
+                  className="bg-white border border-gray-200 shadow-sm p-8"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-blue-100/50 rounded-lg backdrop-blur-sm">
-                      <Icon className="w-6 h-6 text-blue-600" />
+                    <div className="p-3 bg-primary/10 rounded-lg">
+                      <Icon className="w-6 h-6 text-primary" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      <h3 className="text-xl font-bold text-secondary mb-2">
                         {area.title}
                       </h3>
-                      <p className="text-gray-700">
+                      <p className="text-secondary/80">
                         {area.description}
                       </p>
                     </div>
@@ -165,13 +165,13 @@ export default function HomePage() {
       </Section>
 
       {/* Featured Projects */}
-      <Section className="bg-transparent">
+      <Section className="bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
               Featured Projects
             </h2>
-            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+            <p className="text-lg text-secondary/80 max-w-2xl mx-auto">
               Recent projects showcasing expertise in modern web development
             </p>
           </div>
@@ -180,19 +180,19 @@ export default function HomePage() {
             {featuredProjects.map((project, index) => (
               <div
                 key={index}
-                className="glass-card p-6"
+                className="bg-white border border-gray-200 shadow-sm p-6"
               >
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-bold text-secondary mb-3">
                   {project.title}
                 </h3>
-                <p className="text-gray-700 mb-4">
+                <p className="text-secondary/80 mb-4">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 text-sm bg-blue-100/50 text-blue-700 rounded-full backdrop-blur-sm border border-blue-200/40"
+                      className="px-3 py-1 text-sm bg-secondary/10 text-secondary rounded-full"
                     >
                       {tech}
                     </span>
@@ -203,7 +203,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center">
-            <Button href="/projects" variant="primary" className="glass-button">
+            <Button href="/projects" variant="primary" className="bg-primary hover:bg-primary-600">
               View All Projects
             </Button>
           </div>
@@ -211,75 +211,75 @@ export default function HomePage() {
       </Section>
 
       {/* Experience Snapshot */}
-      <Section className="bg-transparent">
+      <Section className="bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
               Professional Journey
             </h2>
-            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+            <p className="text-lg text-secondary/80 max-w-2xl mx-auto">
               Building scalable solutions and leading teams at top organizations
             </p>
           </div>
 
           <div className="space-y-6">
-            <div className="glass-card p-6">
+            <div className="bg-white border border-gray-200 shadow-sm p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">
+                  <h3 className="text-xl font-bold text-secondary">
                     Senior Associate Consultant
                   </h3>
-                  <p className="text-blue-600">
+                  <p className="text-primary">
                     Infosys
                   </p>
                 </div>
-                <span className="text-gray-700 mt-2 md:mt-0">
+                <span className="text-secondary/80 mt-2 md:mt-0">
                   Sep 2025 – Present
                 </span>
               </div>
-              <p className="text-gray-700">
+              <p className="text-secondary/80">
                 Leading enterprise application development, architecting
                 scalable solutions for global clients, and driving technical
                 excellence across development teams.
               </p>
             </div>
 
-            <div className="glass-card p-6">
+            <div className="bg-white border border-gray-200 shadow-sm p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">
+                  <h3 className="text-xl font-bold text-secondary">
                     Freelance Full Stack Developer
                   </h3>
-                  <p className="text-blue-600">
+                  <p className="text-primary">
                     Self-Employed
                   </p>
                 </div>
-                <span className="text-gray-700 mt-2 md:mt-0">
+                <span className="text-secondary/80 mt-2 md:mt-0">
                   Oct 2024 – Present
                 </span>
               </div>
-              <p className="text-gray-700">
+              <p className="text-secondary/80">
                 Delivering custom web applications for diverse clients.
                 Specializing in Next.js, React, and WordPress solutions with
                 end-to-end project ownership.
               </p>
             </div>
 
-            <div className="glass-card p-6">
+            <div className="bg-white border border-gray-200 shadow-sm p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">
+                  <h3 className="text-xl font-bold text-secondary">
                     Team Lead
                   </h3>
-                  <p className="text-blue-600">
+                  <p className="text-primary">
                     Acespritech Solutions
                   </p>
                 </div>
-                <span className="text-gray-700 mt-2 md:mt-0">
+                <span className="text-secondary/80 mt-2 md:mt-0">
                   6+ Years Leadership
                 </span>
               </div>
-              <p className="text-gray-700">
+              <p className="text-secondary/80">
                 Led development teams on multiple projects, managed client
                 relationships, conducted code reviews, and made technical
                 architecture decisions.
@@ -288,7 +288,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center mt-8">
-            <Button href="/experience" variant="outline" className="glass-card hover:shadow-xl">
+            <Button href="/experience" variant="outline" className="bg-white border border-gray-200 shadow-sm hover:shadow-xl">
               View Full Experience
             </Button>
           </div>
@@ -296,12 +296,12 @@ export default function HomePage() {
       </Section>
 
       {/* Call to Action */}
-      <Section className="bg-transparent">
-        <div className="max-w-4xl mx-auto text-center glass-card p-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+      <Section className="bg-white">
+        <div className="max-w-4xl mx-auto text-center bg-white border border-gray-200 shadow-sm p-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">
             Let's Build Something Amazing Together
           </h2>
-          <p className="text-xl mb-8 text-gray-700">
+          <p className="text-xl mb-8 text-secondary/80">
             Looking for a reliable, experienced developer to bring your project
             to life? I'm available for freelance projects and full-time
             opportunities.
@@ -311,7 +311,7 @@ export default function HomePage() {
               href="/contact"
               variant="secondary"
               size="lg"
-              className="glass-button"
+              className="bg-primary hover:bg-primary-600"
             >
               Get in Touch
             </Button>
@@ -319,7 +319,7 @@ export default function HomePage() {
               href="/projects"
               variant="outline"
               size="lg"
-              className="glass-card hover:shadow-xl"
+              className="bg-white border border-gray-200 shadow-sm hover:shadow-xl"
             >
               View My Work
             </Button>

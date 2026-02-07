@@ -204,45 +204,45 @@ export default function ExperiencePage() {
       />
 
       {/* Hero Section */}
-      <Section className="bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+      <Section className="bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
             Professional Experience
           </h1>
-          <p className="text-xl text-gray-700 mb-4">
+          <p className="text-xl text-secondary/80 mb-4">
             7+ years of full-stack development experience building scalable web
             applications
           </p>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-secondary/80">
             From WordPress developer to leading enterprise teams at Infosys
           </p>
         </div>
       </Section>
 
       {/* Career Timeline */}
-      <Section className="bg-white">
+      <Section className="bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="space-y-12">
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className="relative pl-8 border-l-2 border-indigo-200"
+                className="relative pl-8 border-l-2 border-secondary"
               >
                 {/* Timeline Dot */}
-                <div className="absolute -left-[9px] top-0 w-4 h-4 bg-indigo-600 rounded-full border-4 border-white"></div>
+                <div className="absolute -left-[9px] top-0 w-4 h-4 bg-primary rounded-full border-4 border-white"></div>
 
                 {/* Content */}
                 <div className="pb-8">
                   {/* Header */}
                   <div className="mb-4">
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                    <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-2">
                       {exp.position}
                     </h2>
                     <div className="flex flex-col md:flex-row md:items-center md:gap-6 text-lg">
-                      <span className="text-indigo-600 font-semibold">
+                      <span className="text-primary font-semibold">
                         {exp.company}
                       </span>
-                      <div className="flex flex-wrap items-center gap-4 text-gray-600 text-base mt-2 md:mt-0">
+                      <div className="flex flex-wrap items-center gap-4 text-secondary/80 text-base mt-2 md:mt-0">
                         <span className="flex items-center gap-2">
                           <FiCalendar className="w-4 h-4" />
                           {exp.duration}
@@ -260,23 +260,23 @@ export default function ExperiencePage() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-700 text-lg mb-6 leading-relaxed">
+                  <p className="text-secondary/80 text-lg mb-6 leading-relaxed">
                     {exp.description}
                   </p>
 
                   {/* Responsibilities */}
                   {exp.responsibilities && (
                     <div className="mb-6">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                      <h3 className="text-lg font-semibold text-secondary mb-3">
                         Key Responsibilities:
                       </h3>
                       <ul className="space-y-2">
                         {exp.responsibilities.map((resp, i) => (
                           <li
                             key={i}
-                            className="flex items-start gap-3 text-gray-600"
+                            className="flex items-start gap-3 text-secondary/80"
                           >
-                            <span className="text-indigo-600 mt-1 flex-shrink-0">
+                            <span className="text-primary mt-1 flex-shrink-0">
                               •
                             </span>
                             <span>{resp}</span>
@@ -289,14 +289,14 @@ export default function ExperiencePage() {
                   {/* Achievements */}
                   {exp.achievements && (
                     <div className="mb-6">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                      <h3 className="text-lg font-semibold text-secondary mb-3">
                         Key Achievements:
                       </h3>
                       <ul className="space-y-2">
                         {exp.achievements.map((achievement, i) => (
                           <li
                             key={i}
-                            className="flex items-start gap-3 text-gray-600"
+                            className="flex items-start gap-3 text-secondary/80"
                           >
                             <span className="text-green-600 mt-1 flex-shrink-0">
                               ✓
@@ -311,16 +311,16 @@ export default function ExperiencePage() {
                   {/* Projects */}
                   {exp.projects && (
                     <div className="mb-6">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                      <h3 className="text-lg font-semibold text-secondary mb-3">
                         Notable Projects:
                       </h3>
                       <ul className="space-y-2">
                         {exp.projects.map((project, i) => (
                           <li
                             key={i}
-                            className="flex items-start gap-3 text-gray-600"
+                            className="flex items-start gap-3 text-secondary/80"
                           >
-                            <span className="text-indigo-600 mt-1 flex-shrink-0">
+                            <span className="text-primary mt-1 flex-shrink-0">
                               →
                             </span>
                             <span>{project}</span>
@@ -332,14 +332,14 @@ export default function ExperiencePage() {
 
                   {/* Technologies */}
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                    <h3 className="text-lg font-semibold text-secondary mb-3">
                       Technologies Used:
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 text-sm bg-indigo-100 text-indigo-700 rounded-full"
+                          className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full"
                         >
                           {tech}
                         </span>
@@ -354,13 +354,13 @@ export default function ExperiencePage() {
       </Section>
 
       {/* Skills Highlight */}
-      <Section className="bg-gray-50">
+      <Section className="bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
               Skills Developed Through Experience
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-secondary/80 max-w-2xl mx-auto">
               Comprehensive skill set built through hands-on experience across
               diverse projects
             </p>
@@ -368,30 +368,30 @@ export default function ExperiencePage() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="p-6 bg-white rounded-lg border border-gray-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
+              <h3 className="text-xl font-bold text-secondary mb-3">
                 Technical Leadership
               </h3>
-              <p className="text-gray-600">
+              <p className="text-secondary/80">
                 6+ years leading development teams, making architectural
                 decisions, and driving technical excellence
               </p>
             </div>
 
             <div className="p-6 bg-white rounded-lg border border-gray-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
+              <h3 className="text-xl font-bold text-secondary mb-3">
                 Full-Stack Expertise
               </h3>
-              <p className="text-gray-600">
+              <p className="text-secondary/80">
                 Mastery of modern frontend frameworks (React, Next.js, Vue.js)
                 and backend technologies (Node.js, Laravel, PHP)
               </p>
             </div>
 
             <div className="p-6 bg-white rounded-lg border border-gray-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
+              <h3 className="text-xl font-bold text-secondary mb-3">
                 Client Management
               </h3>
-              <p className="text-gray-600">
+              <p className="text-secondary/80">
                 Strong communication skills, requirement gathering, and managing
                 stakeholder expectations
               </p>
@@ -401,12 +401,12 @@ export default function ExperiencePage() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="bg-gradient-to-br from-indigo-600 to-purple-600 text-white">
+      <Section className="bg-primary text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Interested in Working Together?
           </h2>
-          <p className="text-xl mb-8 text-indigo-100">
+          <p className="text-xl mb-8 text-white/90">
             With 7+ years of experience and a proven track record, I'm ready to
             help your team succeed.
           </p>
@@ -415,7 +415,7 @@ export default function ExperiencePage() {
               href="/contact"
               variant="secondary"
               size="lg"
-              className="bg-white text-indigo-600 hover:bg-gray-100"
+              className="bg-white text-primary hover:bg-gray-100"
             >
               Get in Touch
             </Button>
@@ -423,7 +423,7 @@ export default function ExperiencePage() {
               href="/projects"
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-indigo-600"
+              className="border-white text-white hover:bg-white hover:text-primary"
             >
               View Projects
             </Button>

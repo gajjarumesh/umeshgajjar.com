@@ -255,12 +255,12 @@ export default function SkillsPage() {
       />
 
       {/* Hero Section */}
-      <Section className="bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+      <Section className="bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
             Technical Skills & Expertise
           </h1>
-          <p className="text-xl text-gray-700">
+          <p className="text-xl text-secondary/80">
             Comprehensive full-stack development capabilities built over 7+
             years of hands-on experience
           </p>
@@ -275,21 +275,21 @@ export default function SkillsPage() {
             key={categoryIndex}
             className={
               categoryIndex % 2 === 0
-                ? 'bg-white'
-                : 'bg-gray-50'
+                ? 'bg-gray-50'
+                : 'bg-white'
             }
           >
             <div className="max-w-6xl mx-auto">
               {/* Category Header */}
               <div className="flex items-center gap-4 mb-8">
-                <div className="p-4 bg-indigo-100 rounded-lg">
-                  <Icon className="w-8 h-8 text-indigo-600" />
+                <div className="p-4 bg-primary/10 rounded-lg">
+                  <Icon className="w-8 h-8 text-primary" />
                 </div>
                 <div>
-                  <h2 className="text-3xl font-bold text-gray-900">
+                  <h2 className="text-3xl font-bold text-secondary">
                     {category.title}
                   </h2>
-                  <p className="text-gray-600 mt-1">
+                  <p className="text-secondary/80 mt-1">
                     {category.description}
                   </p>
                 </div>
@@ -300,12 +300,12 @@ export default function SkillsPage() {
                 {category.skills.map((skill, skillIndex) => (
                   <div
                     key={skillIndex}
-                    className="p-6 bg-white border border-gray-200 rounded-lg hover:border-indigo-300 transition-all"
+                    className="p-6 bg-white border border-gray-200 rounded-lg hover:border-secondary transition-all"
                   >
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-xl font-bold text-secondary mb-3">
                       {skill.name}
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-secondary/80">
                       {skill.description}
                     </p>
                   </div>
@@ -317,25 +317,25 @@ export default function SkillsPage() {
       })}
 
       {/* CTA Section */}
-      <Section className="bg-gradient-to-br from-indigo-600 to-purple-600 text-white">
+      <Section className="bg-primary text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Put These Skills to Work?
           </h2>
-          <p className="text-xl mb-8 text-indigo-100">
+          <p className="text-xl mb-8 text-white/90">
             Let's discuss how my technical expertise can help bring your project
             to life.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg transition-all duration-200 bg-white text-indigo-600 hover:bg-gray-100"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg transition-all duration-200 bg-white text-primary hover:bg-gray-100"
             >
               Get in Touch
             </a>
             <a
               href="/projects"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg transition-all duration-200 border-2 border-white text-white hover:bg-white hover:text-indigo-600"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg transition-all duration-200 border-2 border-white text-white hover:bg-white hover:text-primary"
             >
               View Projects
             </a>
