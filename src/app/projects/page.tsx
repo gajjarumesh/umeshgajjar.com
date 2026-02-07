@@ -397,16 +397,16 @@ export default function ProjectsPage() {
       />
 
       {/* Hero Section */}
-      <Section className="bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-secondary mb-6 tracking-tight">
+      <Section className="bg-gradient-to-b from-white via-gray-50/30 to-white">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary tracking-tight">
             Projects & Portfolio
           </h1>
-          <p className="text-xl md:text-2xl text-secondary/80 mb-4 leading-relaxed">
+          <p className="text-lg md:text-xl text-secondary/70 leading-relaxed">
             Showcasing 7+ years of full-stack development work across diverse
             industries
           </p>
-          <p className="text-lg md:text-xl text-secondary/70 leading-relaxed">
+          <p className="text-base md:text-lg text-secondary/60 leading-relaxed max-w-2xl mx-auto">
             From enterprise SaaS platforms to e-commerce solutions and custom CMS
             implementations
           </p>
@@ -421,21 +421,21 @@ export default function ProjectsPage() {
             key={category.id}
             className={
               categoryIndex % 2 === 0
-                ? 'bg-gray-50'
-                : 'bg-white'
+                ? 'bg-white'
+                : 'bg-gray-50/50'
             }
           >
             <div className="max-w-7xl mx-auto">
               {/* Category Header */}
-              <div className="flex items-center gap-4 mb-12">
-                <div className="p-4 bg-primary/10 rounded-xl flex-shrink-0">
+              <div className="flex items-center gap-5 mb-12">
+                <div className="p-4 bg-primary/5 rounded-2xl flex-shrink-0 border-2 border-primary/10">
                   <Icon className="w-8 h-8 text-primary" />
                 </div>
-                <div>
+                <div className="space-y-2">
                   <h2 className="text-3xl md:text-4xl font-bold text-secondary">
                     {category.title}
                   </h2>
-                  <p className="text-base md:text-lg text-secondary/80 mt-1">
+                  <p className="text-base md:text-lg text-secondary/60">
                     {category.description}
                   </p>
                 </div>
@@ -446,28 +446,28 @@ export default function ProjectsPage() {
                 {category.projects.map((project, projectIndex) => (
                   <div
                     key={projectIndex}
-                    className="p-8 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                    className="group p-8 bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 space-y-6"
                   >
                     {/* Project Header */}
-                    <div className="mb-6">
-                      <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-3">
+                    <div>
+                      <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-4 group-hover:text-primary transition-colors duration-300">
                         {project.name}
                       </h3>
-                      <p className="text-base md:text-lg text-secondary/80 leading-relaxed">
+                      <p className="text-base md:text-lg text-secondary/70 leading-relaxed">
                         {project.description}
                       </p>
                     </div>
 
                     {/* Technologies */}
-                    <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-secondary mb-3 uppercase tracking-wide">
+                    <div>
+                      <h4 className="text-xs font-semibold text-secondary/80 mb-3 uppercase tracking-wide">
                         Technologies Used
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full"
+                            className="px-3 py-1.5 text-xs font-semibold bg-primary/5 text-primary rounded-lg border border-primary/10"
                           >
                             {tech}
                           </span>
@@ -476,17 +476,17 @@ export default function ProjectsPage() {
                     </div>
 
                     {/* Features */}
-                    <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-secondary mb-3 uppercase tracking-wide">
+                    <div>
+                      <h4 className="text-xs font-semibold text-secondary/80 mb-4 uppercase tracking-wide">
                         Key Features
                       </h4>
                       <ul className="grid md:grid-cols-2 gap-3">
                         {project.features.map((feature, i) => (
                           <li
                             key={i}
-                            className="flex items-start gap-3 text-base text-secondary/80"
+                            className="flex items-start gap-3 text-base text-secondary/70"
                           >
-                            <span className="text-primary mt-1 flex-shrink-0">
+                            <span className="text-primary mt-1 flex-shrink-0 font-bold">
                               •
                             </span>
                             <span>{feature}</span>
@@ -496,11 +496,11 @@ export default function ProjectsPage() {
                     </div>
 
                     {/* Impact */}
-                    <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-                      <h4 className="text-sm font-semibold text-green-900 mb-2 uppercase tracking-wide">
+                    <div className="p-5 bg-green-50 border-2 border-green-200 rounded-xl">
+                      <h4 className="text-xs font-semibold text-green-900 mb-2 uppercase tracking-wide">
                         Business Impact
                       </h4>
-                      <p className="text-base text-green-800">
+                      <p className="text-base text-green-800 leading-relaxed">
                         {project.impact}
                       </p>
                     </div>
@@ -515,51 +515,51 @@ export default function ProjectsPage() {
       {/* Project Stats */}
       <Section className="bg-primary text-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="text-center mb-12 space-y-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
               Portfolio Highlights
             </h2>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed">
               Proven track record of delivering successful projects
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold mb-2">50+</div>
-              <div className="text-lg text-white/90">Projects Delivered</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center space-y-3">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold">50+</div>
+              <div className="text-base md:text-lg text-white/90">Projects Delivered</div>
             </div>
-            <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold mb-2">30+</div>
-              <div className="text-lg text-white/90">Happy Clients</div>
+            <div className="text-center space-y-3">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold">30+</div>
+              <div className="text-base md:text-lg text-white/90">Happy Clients</div>
             </div>
-            <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold mb-2">100K+</div>
-              <div className="text-lg text-white/90">Users Served</div>
+            <div className="text-center space-y-3">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold">100K+</div>
+              <div className="text-base md:text-lg text-white/90">Users Served</div>
             </div>
-            <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold mb-2">7+</div>
-              <div className="text-lg text-white/90">Years Experience</div>
+            <div className="text-center space-y-3">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold">7+</div>
+              <div className="text-base md:text-lg text-white/90">Years Experience</div>
             </div>
           </div>
         </div>
       </Section>
 
       {/* CTA Section */}
-      <Section className="bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">
+      <Section className="bg-gradient-to-b from-white to-gray-50/30">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary">
             Ready to Start Your Project?
           </h2>
-          <p className="text-xl md:text-2xl text-secondary/80 mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl text-secondary/70 leading-relaxed max-w-2xl mx-auto">
             Let's discuss how I can help bring your ideas to life with modern
             web technologies.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/contact" size="lg" className="bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold shadow-sm hover:shadow-md transition-all duration-300">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <Button href="/contact" size="lg" className="bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
               Get in Touch
             </Button>
-            <Button href="/skills" variant="outline" size="lg" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300">
+            <Button href="/skills" variant="outline" size="lg" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-0.5">
               View Skills
             </Button>
           </div>

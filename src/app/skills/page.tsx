@@ -255,12 +255,12 @@ export default function SkillsPage() {
       />
 
       {/* Hero Section */}
-      <Section className="bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-secondary mb-6 tracking-tight">
+      <Section className="bg-gradient-to-b from-white via-gray-50/30 to-white">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary tracking-tight">
             Technical Skills & Expertise
           </h1>
-          <p className="text-xl md:text-2xl text-secondary/80 leading-relaxed">
+          <p className="text-lg md:text-xl text-secondary/70 leading-relaxed max-w-3xl mx-auto">
             Comprehensive full-stack development capabilities built over 7+
             years of hands-on experience
           </p>
@@ -275,21 +275,21 @@ export default function SkillsPage() {
             key={categoryIndex}
             className={
               categoryIndex % 2 === 0
-                ? 'bg-gray-50'
-                : 'bg-white'
+                ? 'bg-white'
+                : 'bg-gray-50/50'
             }
           >
             <div className="max-w-7xl mx-auto">
               {/* Category Header */}
-              <div className="flex items-center gap-4 mb-12">
-                <div className="p-4 bg-primary/10 rounded-xl flex-shrink-0">
+              <div className="flex items-center gap-5 mb-12">
+                <div className="p-4 bg-primary/5 rounded-2xl flex-shrink-0 border-2 border-primary/10">
                   <Icon className="w-8 h-8 text-primary" />
                 </div>
-                <div>
+                <div className="space-y-2">
                   <h2 className="text-3xl md:text-4xl font-bold text-secondary">
                     {category.title}
                   </h2>
-                  <p className="text-base md:text-lg text-secondary/80 mt-1">
+                  <p className="text-base md:text-lg text-secondary/60">
                     {category.description}
                   </p>
                 </div>
@@ -300,12 +300,12 @@ export default function SkillsPage() {
                 {category.skills.map((skill, skillIndex) => (
                   <div
                     key={skillIndex}
-                    className="p-8 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                    className="group p-8 bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 space-y-3"
                   >
-                    <h3 className="text-xl md:text-2xl font-semibold text-secondary mb-3">
+                    <h3 className="text-xl md:text-2xl font-semibold text-secondary group-hover:text-primary transition-colors duration-300">
                       {skill.name}
                     </h3>
-                    <p className="text-base text-secondary/80 leading-relaxed">
+                    <p className="text-base text-secondary/70 leading-relaxed">
                       {skill.description}
                     </p>
                   </div>
@@ -318,24 +318,24 @@ export default function SkillsPage() {
 
       {/* CTA Section */}
       <Section className="bg-primary text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
             Ready to Put These Skills to Work?
           </h2>
-          <p className="text-xl mb-8 text-white/90">
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
             Let's discuss how my technical expertise can help bring your project
             to life.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <a
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg transition-all duration-200 bg-white text-primary hover:bg-gray-100"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 bg-white text-primary hover:bg-gray-100 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               Get in Touch
             </a>
             <a
               href="/projects"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg transition-all duration-200 border-2 border-white text-white hover:bg-white hover:text-primary"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 border-2 border-white text-white hover:bg-white hover:text-primary transform hover:-translate-y-0.5"
             >
               View Projects
             </a>
