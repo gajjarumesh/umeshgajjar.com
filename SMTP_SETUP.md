@@ -98,6 +98,8 @@ CONTACT_EMAIL_FROM_NAME=Your Name Portfolio
 | `CONTACT_EMAIL_TO` | Email that receives form submissions | `hello@umeshgajjar.com` |
 | `CONTACT_EMAIL_FROM` | Email that appears as sender | `noreply@umeshgajjar.com` |
 | `CONTACT_EMAIL_FROM_NAME` | Name that appears as sender | `Umesh Gajjar Portfolio` |
+| `TIMEZONE` | Timezone for email timestamps (optional, default: UTC) | `Asia/Kolkata` |
+| `NEXT_PUBLIC_SITE_URL` | Your site URL (optional, for email footer) | `https://umeshgajjar.com` |
 
 ## Testing Email Configuration
 

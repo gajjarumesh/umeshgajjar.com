@@ -170,11 +170,11 @@ export const sendContactEmail = async (contactData) => {
               </div>
             </div>
             <div class="footer">
-              <p>This email was sent from your portfolio contact form at ${process.env.NEXT_PUBLIC_SITE_URL || 'https://umeshgajjar.com'}</p>
+              <p>This email was sent from your portfolio contact form at ${process.env.NEXT_PUBLIC_SITE_URL || 'your-site.com'}</p>
               <p>Received on ${new Date().toLocaleString('en-US', { 
                 dateStyle: 'full', 
                 timeStyle: 'long',
-                timeZone: 'Asia/Kolkata'
+                timeZone: process.env.TIMEZONE || 'UTC'
               })}</p>
             </div>
           </div>
@@ -197,7 +197,7 @@ This email was sent from your portfolio contact form.
 Received on ${new Date().toLocaleString('en-US', { 
   dateStyle: 'full', 
   timeStyle: 'long',
-  timeZone: 'Asia/Kolkata'
+  timeZone: process.env.TIMEZONE || 'UTC'
 })}
     `;
 

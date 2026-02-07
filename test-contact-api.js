@@ -5,6 +5,8 @@
  * 
  * Usage:
  *   node test-contact-api.js
+ *   API_URL=http://localhost:3001 node test-contact-api.js
+ *   API_URL=https://staging.umeshgajjar.com node test-contact-api.js
  * 
  * This script tests the contact form API endpoint without SMTP configuration
  * to verify the endpoint is working correctly.
@@ -12,6 +14,9 @@
 
 const testContactAPI = async () => {
   console.log('🧪 Testing Contact Form API...\n');
+
+  // Allow URL override via environment variable or default to localhost:3000
+  const apiUrl = process.env.API_URL || 'http://localhost:3000';
 
   const testData = {
     name: 'Test User',
@@ -24,9 +29,10 @@ const testContactAPI = async () => {
 
   try {
     console.log('📤 Sending test contact form submission...');
+    console.log('API URL:', `${apiUrl}/api/contact`);
     console.log('Test data:', JSON.stringify(testData, null, 2), '\n');
 
-    const response = await fetch('http://localhost:3000/api/contact', {
+    const response = await fetch(`${apiUrl}/api/contact`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
