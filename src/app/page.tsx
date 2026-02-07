@@ -158,6 +158,33 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+
+          {/* Right Column - Stats Card */}
+          <div className="hidden lg:block">
+            <div className="bg-white rounded-2xl border border-gray-200 shadow-md p-8">
+              <h3 className="text-lg font-semibold text-secondary mb-6 text-center">
+                By the Numbers
+              </h3>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary mb-1">7+</div>
+                  <div className="text-sm text-secondary/70">Years Experience</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary mb-1">50+</div>
+                  <div className="text-sm text-secondary/70">Projects Delivered</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary mb-1">30+</div>
+                  <div className="text-sm text-secondary/70">Happy Clients</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary mb-1">10+</div>
+                  <div className="text-sm text-secondary/70">Technologies Mastered</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
 
