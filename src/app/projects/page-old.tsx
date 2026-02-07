@@ -389,11 +389,6 @@ export default function ProjectsPage() {
     { name: 'Projects', path: '/projects' },
   ]);
 
-  // Flatten all projects from all categories
-  const allProjects = projectCategories.flatMap(category => 
-    category.projects.map(project => ({ ...project, category: category.title }))
-  );
-
   return (
     <>
       <script
@@ -401,107 +396,175 @@ export default function ProjectsPage() {
         dangerouslySetInnerHTML={injectStructuredData(breadcrumbSchema)}
       />
 
-      {/* NEW Hero - Simple and clean */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-6xl font-bold text-secondary mb-6">
+      {/* Hero Section */}
+      <Section className="bg-gradient-to-b from-white via-gray-50/30 to-white">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary tracking-tight">
             Projects & Portfolio
           </h1>
-          <p className="text-xl text-secondary/60 max-w-3xl mb-4">
-            Showcasing 7+ years of full-stack development work across diverse industries
+          <p className="text-lg md:text-xl text-secondary/70 leading-relaxed">
+            Showcasing 7+ years of full-stack development work across diverse
+            industries
           </p>
-          <p className="text-lg text-secondary/50 max-w-2xl">
-            From enterprise SaaS platforms to e-commerce solutions and custom CMS implementations
+          <p className="text-base md:text-lg text-secondary/60 leading-relaxed max-w-2xl mx-auto">
+            From enterprise SaaS platforms to e-commerce solutions and custom CMS
+            implementations
           </p>
         </div>
-      </section>
+      </Section>
 
-      {/* NEW Projects - Simple card grid */}
-      <section className="bg-gray-50 py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {allProjects.map((project, index) => (
-              <div key={index} className="bg-white rounded-lg overflow-hidden border-2 border-gray-200 hover:border-primary transition-colors">
-                {/* Category badge at top */}
-                <div className="bg-primary text-white px-4 py-2 text-sm font-semibold">
-                  {project.category}
+      {/* Project Categories */}
+      {projectCategories.map((category, categoryIndex) => {
+        const Icon = category.icon;
+        return (
+          <Section
+            key={category.id}
+            className={
+              categoryIndex % 2 === 0
+                ? 'bg-white'
+                : 'bg-gray-50/50'
+            }
+          >
+            <div className="max-w-7xl mx-auto">
+              {/* Category Header */}
+              <div className="flex items-center gap-5 mb-12">
+                <div className="p-4 bg-primary/5 rounded-2xl flex-shrink-0 border-2 border-primary/10">
+                  <Icon className="w-8 h-8 text-primary" />
                 </div>
-                
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-secondary mb-3">{project.name}</h3>
-                  <p className="text-secondary/70 text-sm mb-4 line-clamp-3">{project.description}</p>
-                  
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.slice(0, 4).map((tech) => (
-                      <span key={tech} className="px-2 py-1 text-xs bg-gray-100 text-secondary rounded">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  {/* Impact */}
-                  {project.impact && (
-                    <div className="text-sm text-primary font-medium">
-                      ✓ {project.impact}
-                    </div>
-                  )}
+                <div className="space-y-2">
+                  <h2 className="text-3xl md:text-4xl font-bold text-secondary">
+                    {category.title}
+                  </h2>
+                  <p className="text-base md:text-lg text-secondary/60">
+                    {category.description}
+                  </p>
                 </div>
               </div>
-            ))}
+
+              {/* Projects */}
+              <div className="space-y-8">
+                {category.projects.map((project, projectIndex) => (
+                  <div
+                    key={projectIndex}
+                    className="group p-8 bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 space-y-6"
+                  >
+                    {/* Project Header */}
+                    <div>
+                      <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-4 group-hover:text-primary transition-colors duration-300">
+                        {project.name}
+                      </h3>
+                      <p className="text-base md:text-lg text-secondary/70 leading-relaxed">
+                        {project.description}
+                      </p>
+                    </div>
+
+                    {/* Technologies */}
+                    <div>
+                      <h4 className="text-xs font-semibold text-secondary/80 mb-3 uppercase tracking-wide">
+                        Technologies Used
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1.5 text-xs font-semibold bg-primary/5 text-primary rounded-lg border border-primary/10"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Features */}
+                    <div>
+                      <h4 className="text-xs font-semibold text-secondary/80 mb-4 uppercase tracking-wide">
+                        Key Features
+                      </h4>
+                      <ul className="grid md:grid-cols-2 gap-3">
+                        {project.features.map((feature, i) => (
+                          <li
+                            key={i}
+                            className="flex items-start gap-3 text-base text-secondary/70"
+                          >
+                            <span className="text-primary mt-1 flex-shrink-0 font-bold">
+                              •
+                            </span>
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Impact */}
+                    <div className="p-5 bg-green-50 border-2 border-green-200 rounded-xl">
+                      <h4 className="text-xs font-semibold text-green-900 mb-2 uppercase tracking-wide">
+                        Business Impact
+                      </h4>
+                      <p className="text-base text-green-800 leading-relaxed">
+                        {project.impact}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Section>
+        );
+      })}
+
+      {/* Project Stats */}
+      <Section className="bg-primary text-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12 space-y-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+              Portfolio Highlights
+            </h2>
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed">
+              Proven track record of delivering successful projects
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center space-y-3">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold">50+</div>
+              <div className="text-base md:text-lg text-white/90">Projects Delivered</div>
+            </div>
+            <div className="text-center space-y-3">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold">30+</div>
+              <div className="text-base md:text-lg text-white/90">Happy Clients</div>
+            </div>
+            <div className="text-center space-y-3">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold">100K+</div>
+              <div className="text-base md:text-lg text-white/90">Users Served</div>
+            </div>
+            <div className="text-center space-y-3">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold">7+</div>
+              <div className="text-base md:text-lg text-white/90">Years Experience</div>
+            </div>
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Stats Section */}
-      <section className="bg-primary text-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-5xl font-bold mb-2">50+</div>
-              <div className="text-white/80">Projects Delivered</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold mb-2">30+</div>
-              <div className="text-white/80">Happy Clients</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold mb-2">100K+</div>
-              <div className="text-white/80">Users Served</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold mb-2">7+</div>
-              <div className="text-white/80">Years Experience</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
+      {/* CTA Section */}
+      <Section className="bg-gradient-to-b from-white to-gray-50/30">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary">
             Ready to Start Your Project?
           </h2>
-          <p className="text-xl text-secondary/60 mb-8">
-            Let's discuss how I can help bring your ideas to life with modern web technologies.
+          <p className="text-lg md:text-xl text-secondary/70 leading-relaxed max-w-2xl mx-auto">
+            Let's discuss how I can help bring your ideas to life with modern
+            web technologies.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a
-              href="/contact"
-              className="inline-block bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold transition-colors"
-            >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <Button href="/contact" size="lg" className="bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
               Get in Touch
-            </a>
-            <a
-              href="/skills"
-              className="inline-block border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors"
-            >
+            </Button>
+            <Button href="/skills" variant="outline" size="lg" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-0.5">
               View Skills
-            </a>
+            </Button>
           </div>
         </div>
-      </section>
+      </Section>
     </>
   );
 }
