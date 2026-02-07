@@ -5,8 +5,8 @@
   --font-mono: var(--font-space-mono);
   
   /* Light Theme Colors */
-  --background: #f9f9fb;
-  --foreground: #283742;
+  --background: #ffffff;
+  --foreground: #0f172a;
   --accent-blue: #3b82f6;
   --accent-purple: #8b5cf6;
   --accent-teal: #14b8a6;
@@ -34,9 +34,9 @@
   --border-focus: #3b82f6;
   
   /* Text Colors */
-  --text-primary: #283742;
-  --text-secondary: #6b7280;
-  --text-muted: #9ca3af;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
   
   /* Focus Ring */
   --ring-focus: rgba(59, 130, 246, 0.2);
@@ -55,6 +55,34 @@
   /* Glassmorphism */
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(255, 255, 255, 0.3);
+}
+
+.dark {
+  /* Dark Theme Colors */
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  
+  /* Surface Colors */
+  --surface: #1e293b;
+  --surface-secondary: #334155;
+  
+  /* Border Colors */
+  --border: #334155;
+  --border-muted: #1e293b;
+  
+  /* Text Colors */
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(51, 65, 85, 0.3);
 }
 
 @layer utilities {
@@ -175,7 +203,7 @@ body {
 
 /* Blog Content Styles */
 .blog-content {
-  @apply text-gray-700;
+  @apply text-gray-700 dark:text-gray-300;
 }
 
 .blog-content h1,
@@ -184,7 +212,7 @@ body {
 .blog-content h4,
 .blog-content h5,
 .blog-content h6 {
-  @apply font-bold text-gray-900 mt-8 mb-4;
+  @apply font-bold text-gray-900 dark:text-gray-100 mt-8 mb-4;
 }
 
 .blog-content h1 {
@@ -208,7 +236,7 @@ body {
 }
 
 .blog-content a {
-  @apply text-blue-600 hover:underline;
+  @apply text-blue-600 dark:text-blue-400 hover:underline;
 }
 
 .blog-content ul,
@@ -229,15 +257,15 @@ body {
 }
 
 .blog-content blockquote {
-  @apply border-l-4 border-blue-600 pl-4 italic my-6 text-gray-600;
+  @apply border-l-4 border-blue-600 dark:border-blue-400 pl-4 italic my-6 text-gray-600 dark:text-gray-400;
 }
 
 .blog-content code {
-  @apply bg-gray-100 rounded px-2 py-1 text-sm font-mono;
+  @apply bg-gray-100 dark:bg-gray-800 rounded px-2 py-1 text-sm font-mono;
 }
 
 .blog-content pre {
-  @apply bg-gray-100 rounded-lg p-4 overflow-x-auto mb-6;
+  @apply bg-gray-100 dark:bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6;
 }
 
 .blog-content pre code {
@@ -249,7 +277,7 @@ body {
 }
 
 .blog-content strong {
-  @apply font-bold text-gray-900;
+  @apply font-bold text-gray-900 dark:text-gray-100;
 }
 
 .blog-content em {
@@ -257,5 +285,5 @@ body {
 }
 
 .blog-content hr {
-  @apply my-8 border-gray-200;
+  @apply my-8 border-gray-200 dark:border-gray-700;
 }
