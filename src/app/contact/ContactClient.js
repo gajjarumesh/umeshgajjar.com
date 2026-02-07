@@ -67,13 +67,13 @@ export default function ContactClient() {
           <div className="mb-8 flex gap-4">
             <Link
               href="/services"
-              className="text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
+              className="text-primary font-medium hover:text-primary-600 transition-colors"
             >
               View services →
             </Link>
             <Link
               href="/paravix"
-              className="text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
+              className="text-primary font-medium hover:text-primary-600 transition-colors"
             >
               Learn about Paravix →
             </Link>
@@ -154,7 +154,7 @@ export default function ContactClient() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-indigo-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+              className="w-full bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary-600 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
             >
               {isSubmitting ? "Sending..." : "Send Message"}
             </button>

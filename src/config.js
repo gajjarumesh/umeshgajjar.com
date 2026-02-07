@@ -13,7 +13,7 @@ import {
 export const tabs = [
   { label: "All", icon: <SiAlltrails className="text-lg" /> },
   { label: "Laravel", icon: <SiLaravel className="text-lg text-red-600" /> },
-  { label: "React.js", icon: <SiReact className="text-lg text-blue-500" /> },
+  { label: "React.js", icon: <SiReact className="text-lg text-primary" /> },
   {
     label: "Node.js",
     icon: <SiNodedotjs className="text-lg text-green-600" />,
@@ -28,7 +28,7 @@ export const tabs = [
   },
   {
     label: "WordPress",
-    icon: <SiWordpress className="text-lg text-blue-700" />,
+    icon: <SiWordpress className="text-lg text-primary" />,
   },
   { label: "Django", icon: <SiDjango className="text-lg text-green-900" /> },
   { label: "NextJS", icon: <SiNextdotjs className="text-lg" /> },

@@ -12,10 +12,10 @@ export default function About() {
         <div className="max-w-4xl mx-auto">
           {/* About the Founder */}
           <section className="mb-20">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+            <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-8">
               About Umesh Gajjar
             </h1>
-            <div className="text-lg text-gray-700 leading-relaxed space-y-4 mb-8">
+            <div className="text-lg text-secondary/80 leading-relaxed space-y-4 mb-8">
               <p>
                 I&apos;m Umesh Gajjar, a full-stack developer with over seven years of experience
                 building and maintaining web applications, backend systems, and internal tools.
@@ -28,13 +28,13 @@ export default function About() {
             <div className="flex gap-4">
               <Link
                 href="/paravix"
-                className="text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
+                className="text-primary font-medium hover:text-primary-600 transition-colors"
               >
                 Learn about Paravix →
               </Link>
               <Link
                 href="/contact"
-                className="text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
+                className="text-primary font-medium hover:text-primary-600 transition-colors"
               >
                 Get in touch →
               </Link>
@@ -43,10 +43,10 @@ export default function About() {
 
           {/* Why Paravix Exists */}
           <section className="bg-gray-50 rounded-lg p-8 md:p-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">
               Why Paravix Was Created
             </h2>
-            <div className="text-lg text-gray-700 leading-relaxed space-y-4 mb-6">
+            <div className="text-lg text-secondary/80 leading-relaxed space-y-4 mb-6">
               <p>
                 Many long-term software problems are introduced early.
                 Paravix exists to slow that process down
@@ -55,7 +55,7 @@ export default function About() {
             </div>
             <Link
               href="/services"
-              className="text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
+              className="text-primary font-medium hover:text-primary-600 transition-colors"
             >
               View our services →
             </Link>

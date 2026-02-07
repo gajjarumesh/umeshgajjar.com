@@ -20,7 +20,7 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold text-gray-900 hover:text-indigo-600 transition-colors">
+          <Link href="/" className="text-2xl font-bold text-secondary hover:text-primary transition-colors">
             Paravix
           </Link>
 
@@ -32,8 +32,8 @@ export default function Header() {
                 href={link.href}
                 className={`text-sm font-medium transition-colors ${
                   pathname === link.href
-                    ? "text-indigo-600"
-                    : "text-gray-600 hover:text-indigo-600"
+                    ? "text-primary font-semibold"
+                    : "text-secondary hover:text-primary"
                 }`}
               >
                 {link.label}
@@ -48,7 +48,7 @@ export default function Header() {
             aria-label="Toggle menu"
           >
             <svg
-              className="w-6 h-6"
+              className="w-6 h-6 text-secondary"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -74,8 +74,8 @@ export default function Header() {
                 href={link.href}
                 className={`block py-2 text-sm font-medium ${
                   pathname === link.href
-                    ? "text-indigo-600"
-                    : "text-gray-600 hover:text-indigo-600"
+                    ? "text-primary font-semibold"
+                    : "text-secondary hover:text-primary"
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >

@@ -31,10 +31,10 @@ export default function Services() {
         <div className="max-w-4xl mx-auto">
           {/* Overview */}
           <section className="mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+            <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-8">
               Engineering Services
             </h1>
-            <p className="text-xl text-gray-700 leading-relaxed">
+            <p className="text-xl text-secondary/80 leading-relaxed">
               Paravix offers focused engineering services for teams
               that value long-term quality over quick fixes.
             </p>
@@ -45,17 +45,17 @@ export default function Services() {
             {SERVICES.map((service, index) => (
               <div
                 key={index}
-                className="border border-gray-200 rounded-lg p-8 hover:border-indigo-300 hover:shadow-lg transition-all"
+                className="border border-gray-200 rounded-lg p-8 hover:border-secondary hover:shadow-lg transition-all"
               >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-secondary mb-4">
                   {service.title}
                 </h2>
-                <p className="text-gray-700 mb-6 leading-relaxed">
+                <p className="text-secondary/80 mb-6 leading-relaxed">
                   {service.description}
                 </p>
                 <Link
                   href="/contact"
-                  className="text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
+                  className="text-primary font-medium hover:text-primary-600 transition-colors"
                 >
                   Get in touch →
                 </Link>
@@ -64,17 +64,17 @@ export default function Services() {
           </section>
 
           {/* CTA */}
-          <section className="mt-16 bg-indigo-50 rounded-lg p-8 md:p-12 text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <section className="mt-16 bg-primary/10 rounded-lg p-8 md:p-12 text-center">
+            <h3 className="text-2xl font-bold text-secondary mb-4">
               Ready to discuss your project?
             </h3>
-            <p className="text-gray-700 mb-6">
+            <p className="text-secondary/80 mb-6">
               If you have a technical problem or system to improve, describe the problem clearly.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="inline-block bg-indigo-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors"
+                className="inline-block bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary-600 transition-colors"
               >
                 Get in touch
               </Link>

@@ -37,24 +37,24 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="glass mt-20 border-t-0">
+    <footer className="bg-secondary text-white mt-20 border-t-0">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-gray-900 text-xl font-bold mb-4">Umesh Gajjar</h3>
-            <p className="text-sm text-gray-700 mb-4">
+            <h3 className="text-white text-xl font-bold mb-4">Umesh Gajjar</h3>
+            <p className="text-sm text-white/80 mb-4">
               Senior Full Stack Developer with 7+ years of experience building
               scalable web applications with modern technologies.
             </p>
-            <p className="text-sm text-gray-700">
+            <p className="text-sm text-white/80">
               📍 Pune, Maharashtra, India
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-gray-900 text-sm font-semibold mb-4 uppercase tracking-wider">
+            <h4 className="text-white text-sm font-semibold mb-4 uppercase tracking-wider">
               Quick Links
             </h4>
             <ul className="space-y-2">
@@ -62,7 +62,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-700 hover:text-blue-600 transition-colors"
+                    className="text-sm text-white/80 hover:text-primary transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -73,10 +73,10 @@ export function Footer() {
 
           {/* Connect */}
           <div>
-            <h4 className="text-gray-900 text-sm font-semibold mb-4 uppercase tracking-wider">
+            <h4 className="text-white text-sm font-semibold mb-4 uppercase tracking-wider">
               Connect
             </h4>
-            <p className="text-sm text-gray-700 mb-4">
+            <p className="text-sm text-white/80 mb-4">
               Let's collaborate on your next project
             </p>
             <div className="flex gap-4">
@@ -88,7 +88,7 @@ export function Footer() {
                     href={social.href}
                     target={social.href.startsWith('http') ? '_blank' : undefined}
                     rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="text-gray-700 hover:text-blue-600 transition-colors duration-300 p-2 rounded-lg hover:bg-blue-50/50"
+                    className="text-white/80 hover:text-primary transition-colors duration-300 p-2 rounded-lg hover:bg-white/10"
                     aria-label={social.label}
                   >
                     <Icon className="w-5 h-5" />
@@ -100,12 +100,12 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-blue-200/30 pt-8">
+        <div className="border-t border-white/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-center text-sm text-gray-600">
+            <p className="text-center text-sm text-white/70">
               © {currentYear} Umesh Gajjar. All rights reserved.
             </p>
-            <p className="text-center text-sm text-gray-600">
+            <p className="text-center text-sm text-white/70">
               Built with Next.js, TypeScript & Tailwind CSS
             </p>
           </div>
