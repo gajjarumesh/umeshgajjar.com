@@ -88,8 +88,8 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
         {/* Contact Details */}
         <div className="space-y-6">
           <div className="flex items-start gap-4">
-            <div className="p-3 bg-indigo-100 rounded-lg">
-              <FiMail className="w-5 h-5 text-indigo-600" />
+            <div className="p-3 bg-primary/10 rounded-lg">
+              <FiMail className="w-5 h-5 text-primary" />
             </div>
             <div>
               <h3 className="font-semibold text-gray-900 mb-1">
@@ -97,7 +97,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
               </h3>
               <a
                 href="mailto:hello@umeshgajjar.com"
-                className="text-indigo-600 hover:underline"
+                className="text-primary hover:underline"
               >
                 hello@umeshgajjar.com
               </a>
@@ -105,8 +105,8 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
           </div>
 
           <div className="flex items-start gap-4">
-            <div className="p-3 bg-indigo-100 rounded-lg">
-              <FiMapPin className="w-5 h-5 text-indigo-600" />
+            <div className="p-3 bg-primary/10 rounded-lg">
+              <FiMapPin className="w-5 h-5 text-primary" />
             </div>
             <div>
               <h3 className="font-semibold text-gray-900 mb-1">
@@ -119,8 +119,8 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
           </div>
 
           <div className="flex items-start gap-4">
-            <div className="p-3 bg-indigo-100 rounded-lg">
-              <FiClock className="w-5 h-5 text-indigo-600" />
+            <div className="p-3 bg-primary/10 rounded-lg">
+              <FiClock className="w-5 h-5 text-primary" />
             </div>
             <div>
               <h3 className="font-semibold text-gray-900 mb-1">
@@ -134,8 +134,8 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
         </div>
 
         {/* Response Time */}
-        <div className="p-4 bg-indigo-50 border border-indigo-200 rounded-lg">
-          <p className="text-sm text-indigo-900">
+        <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg">
+          <p className="text-sm text-secondary">
             <strong>Response Time:</strong> I typically respond to all
             inquiries within 24-48 hours during business days.
           </p>
@@ -162,7 +162,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
               required
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 transition-colors"
+              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 transition-colors"
               placeholder="John Doe"
             />
           </div>
@@ -181,7 +181,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
               required
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 transition-colors"
+              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 transition-colors"
               placeholder="john@example.com"
             />
           </div>
@@ -199,7 +199,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
               name="subject"
               value={formData.subject}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 transition-colors"
+              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 transition-colors"
               placeholder="Project Inquiry / Consultation / General Question"
             />
           </div>
@@ -218,7 +218,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
               rows={6}
               value={formData.message}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 transition-colors resize-none"
+              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 transition-colors resize-none"
               placeholder="Tell me about your project, timeline, and any specific requirements..."
             />
           </div>
@@ -240,7 +240,7 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-indigo-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-indigo-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-lg"
+            className="w-full bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-600 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-lg"
           >
             {isSubmitting ? (
               <>
