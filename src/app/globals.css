@@ -49,24 +49,25 @@ html {
 
 body {
   @apply bg-white text-secondary font-normal;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 /* Typography Scale - Premium Hierarchy */
 h1, h2, h3, h4, h5, h6 {
   @apply text-secondary;
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
-h1 { @apply text-5xl md:text-6xl font-extrabold tracking-tight; }
-h2 { @apply text-3xl md:text-4xl font-bold; }
-h3 { @apply text-xl md:text-2xl font-semibold; }
+h1 { @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight; }
+h2 { @apply text-3xl md:text-4xl lg:text-5xl font-bold; }
+h3 { @apply text-xl md:text-2xl lg:text-3xl font-semibold; }
 h4 { @apply text-lg md:text-xl font-semibold; }
 h5 { @apply text-base md:text-lg font-semibold; }
 h6 { @apply text-sm md:text-base font-semibold; }
 
 p {
-  @apply text-base md:text-lg text-secondary/80 leading-relaxed;
+  @apply text-base md:text-lg text-secondary/75 leading-relaxed;
 }
 
 /* Links */
@@ -86,22 +87,22 @@ a {
 }
 
 .btn-primary {
-  @apply bg-primary hover:bg-primary-600 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300;
+  @apply bg-primary hover:bg-primary-600 text-white font-semibold px-6 py-3 md:px-8 md:py-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5;
 }
 
 .btn-outline {
-  @apply border-2 border-secondary text-secondary hover:bg-secondary hover:text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300;
+  @apply border-2 border-secondary text-secondary hover:bg-secondary hover:text-white font-semibold px-6 py-3 md:px-8 md:py-4 rounded-lg transition-all duration-300 transform hover:-translate-y-0.5;
 }
 
-/* Card System */
+/* Enhanced Card System */
 .card {
-  @apply bg-white border border-gray-200 rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300;
+  @apply bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1;
 }
 
 .card-title {
-  @apply text-2xl font-bold text-secondary mb-3;
+  @apply text-xl md:text-2xl font-bold text-secondary mb-3;
 }
 
 .card-description {
-  @apply text-base text-secondary/80 leading-relaxed;
+  @apply text-base text-secondary/75 leading-relaxed;
 }

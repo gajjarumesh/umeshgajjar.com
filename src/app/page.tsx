@@ -92,95 +92,72 @@ export default function HomePage() {
       />
 
       {/* Hero Section */}
-      <Section className="bg-white">
+      <Section className="bg-gradient-to-b from-white via-gray-50/30 to-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: Text Content */}
-            <div className="space-y-6">
-              <h1 className="text-5xl md:text-6xl font-extrabold text-secondary leading-tight tracking-tight">
+            <div className="space-y-8">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary leading-tight">
                 Senior Full Stack Developer Building{' '}
                 <span className="text-primary">
                   Scalable Web Applications
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-secondary/80 leading-relaxed">
+              <p className="text-xl md:text-2xl text-secondary/75 leading-relaxed">
                 7+ years of experience leading development teams and delivering
                 high-performance web solutions
               </p>
-              <p className="text-lg text-secondary/70 leading-relaxed">
+              <p className="text-base md:text-lg text-secondary/60 leading-relaxed">
                 Specializing in React.js, Next.js, Vue.js, Node.js, Laravel, and
                 WordPress. I help startups, agencies, and SaaS companies build
                 robust, maintainable applications that scale with their business
                 needs.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button href="/projects" size="lg" className="bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                <Button href="/projects" size="lg" className="bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
                   View Projects
                 </Button>
-                <Button href="/contact" variant="outline" size="lg" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300">
+                <Button href="/contact" variant="outline" size="lg" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-0.5">
                   Hire Me
                 </Button>
               </div>
             </div>
 
-            {/* Right: Visual Element */}
+            {/* Right: Stats Card */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-gray-200 rounded-xl p-8 md:p-12 shadow-sm">
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center">
-                      <FiCode className="w-8 h-8 text-primary" />
+              <div className="bg-gradient-to-br from-primary/5 via-primary/3 to-transparent border-2 border-gray-100 rounded-2xl p-8 lg:p-10 shadow-lg backdrop-blur-sm">
+                <h3 className="text-lg font-semibold text-secondary mb-8 text-center">
+                  By the Numbers
+                </h3>
+                <div className="grid grid-cols-2 gap-8">
+                  <div className="text-center space-y-2">
+                    <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                      <FiCode className="w-7 h-7 text-primary" />
                     </div>
-                    <div>
-                      <div className="text-2xl font-bold text-secondary">50+</div>
-                      <div className="text-sm text-secondary/70">Projects Delivered</div>
-                    </div>
+                    <div className="text-3xl lg:text-4xl font-bold text-primary">50+</div>
+                    <div className="text-xs md:text-sm text-secondary/60 font-medium">Projects Delivered</div>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center">
-                      <FiServer className="w-8 h-8 text-primary" />
+                  <div className="text-center space-y-2">
+                    <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                      <FiServer className="w-7 h-7 text-primary" />
                     </div>
-                    <div>
-                      <div className="text-2xl font-bold text-secondary">7+</div>
-                      <div className="text-sm text-secondary/70">Years Experience</div>
-                    </div>
+                    <div className="text-3xl lg:text-4xl font-bold text-primary">7+</div>
+                    <div className="text-xs md:text-sm text-secondary/60 font-medium">Years Experience</div>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center">
-                      <FiLayout className="w-8 h-8 text-primary" />
+                  <div className="text-center space-y-2">
+                    <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                      <FiLayout className="w-7 h-7 text-primary" />
                     </div>
-                    <div>
-                      <div className="text-2xl font-bold text-secondary">30+</div>
-                      <div className="text-sm text-secondary/70">Happy Clients</div>
-                    </div>
+                    <div className="text-3xl lg:text-4xl font-bold text-primary">30+</div>
+                    <div className="text-xs md:text-sm text-secondary/60 font-medium">Happy Clients</div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column - Stats Card */}
-          <div className="hidden lg:block">
-            <div className="bg-white rounded-2xl border border-gray-200 shadow-md p-8">
-              <h3 className="text-lg font-semibold text-secondary mb-6 text-center">
-                By the Numbers
-              </h3>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-1">7+</div>
-                  <div className="text-sm text-secondary/70">Years Experience</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-1">50+</div>
-                  <div className="text-sm text-secondary/70">Projects Delivered</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-1">30+</div>
-                  <div className="text-sm text-secondary/70">Happy Clients</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-1">10+</div>
-                  <div className="text-sm text-secondary/70">Technologies Mastered</div>
+                  <div className="text-center space-y-2">
+                    <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                      <FiCloud className="w-7 h-7 text-primary" />
+                    </div>
+                    <div className="text-3xl lg:text-4xl font-bold text-primary">10+</div>
+                    <div className="text-xs md:text-sm text-secondary/60 font-medium">Technologies</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -189,13 +166,13 @@ export default function HomePage() {
       </Section>
 
       {/* Expertise Overview */}
-      <Section className="bg-gray-50">
+      <Section className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary">
               Technical Expertise
             </h2>
-            <p className="text-lg md:text-xl text-secondary/80 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-secondary/60 max-w-3xl mx-auto">
               Full-stack development services focused on building scalable,
               maintainable applications
             </p>
@@ -207,17 +184,17 @@ export default function HomePage() {
               return (
                 <div
                   key={index}
-                  className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-8"
+                  className="group bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 p-8 hover:-translate-y-1"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-primary/10 rounded-lg flex-shrink-0">
-                      <Icon className="w-6 h-6 text-primary" />
+                  <div className="flex items-start gap-5">
+                    <div className="p-4 bg-primary/5 rounded-xl flex-shrink-0 group-hover:bg-primary/10 transition-colors duration-300">
+                      <Icon className="w-7 h-7 text-primary" />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl md:text-2xl font-semibold text-secondary mb-3">
+                    <div className="flex-1 space-y-3">
+                      <h3 className="text-xl md:text-2xl font-semibold text-secondary">
                         {area.title}
                       </h3>
-                      <p className="text-base text-secondary/80 leading-relaxed">
+                      <p className="text-base text-secondary/70 leading-relaxed">
                         {area.description}
                       </p>
                     </div>
@@ -230,34 +207,34 @@ export default function HomePage() {
       </Section>
 
       {/* Featured Projects */}
-      <Section className="bg-white">
+      <Section className="bg-gradient-to-b from-gray-50/50 to-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary">
               Featured Projects
             </h2>
-            <p className="text-lg md:text-xl text-secondary/80 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-secondary/60 max-w-3xl mx-auto">
               Recent projects showcasing expertise in modern web development
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
             {featuredProjects.map((project, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-8"
+                className="group bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 p-8 hover:-translate-y-1 space-y-5"
               >
-                <h3 className="text-2xl font-bold text-secondary mb-3">
+                <h3 className="text-xl md:text-2xl font-bold text-secondary group-hover:text-primary transition-colors duration-300">
                   {project.title}
                 </h3>
-                <p className="text-base text-secondary/80 leading-relaxed mb-6">
+                <p className="text-base text-secondary/70 leading-relaxed">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 pt-2">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 text-xs font-medium bg-secondary/10 text-secondary rounded-full"
+                      className="px-3 py-1.5 text-xs font-semibold bg-secondary/5 text-secondary rounded-lg border border-secondary/10"
                     >
                       {tech}
                     </span>
@@ -268,7 +245,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center">
-            <Button href="/projects" variant="primary" className="bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold shadow-sm hover:shadow-md transition-all duration-300">
+            <Button href="/projects" variant="primary" className="bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
               View All Projects
             </Button>
           </div>
@@ -276,75 +253,75 @@ export default function HomePage() {
       </Section>
 
       {/* Experience Snapshot */}
-      <Section className="bg-gray-50">
+      <Section className="bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary">
               Professional Journey
             </h2>
-            <p className="text-lg md:text-xl text-secondary/80 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-secondary/60 max-w-3xl mx-auto">
               Building scalable solutions and leading teams at top organizations
             </p>
           </div>
 
-          <div className="space-y-6">
-            <div className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-8">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <div>
-                  <h3 className="text-2xl font-bold text-secondary mb-2">
+          <div className="space-y-6 max-w-5xl mx-auto">
+            <div className="group bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 p-8 hover:-translate-y-1">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-5">
+                <div className="space-y-2">
+                  <h3 className="text-xl md:text-2xl font-bold text-secondary group-hover:text-primary transition-colors duration-300">
                     Senior Associate Consultant
                   </h3>
-                  <p className="text-lg text-primary font-medium">
+                  <p className="text-base md:text-lg text-primary font-semibold">
                     Infosys
                   </p>
                 </div>
-                <span className="text-sm text-secondary/60 mt-2 md:mt-0 font-normal">
+                <span className="text-sm text-secondary/50 mt-3 md:mt-0 font-medium">
                   Sep 2025 – Present
                 </span>
               </div>
-              <p className="text-base text-secondary/80 leading-relaxed">
+              <p className="text-base text-secondary/70 leading-relaxed">
                 Leading enterprise application development, architecting
                 scalable solutions for global clients, and driving technical
                 excellence across development teams.
               </p>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-8">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <div>
-                  <h3 className="text-2xl font-bold text-secondary mb-2">
+            <div className="group bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 p-8 hover:-translate-y-1">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-5">
+                <div className="space-y-2">
+                  <h3 className="text-xl md:text-2xl font-bold text-secondary group-hover:text-primary transition-colors duration-300">
                     Freelance Full Stack Developer
                   </h3>
-                  <p className="text-lg text-primary font-medium">
+                  <p className="text-base md:text-lg text-primary font-semibold">
                     Self-Employed
                   </p>
                 </div>
-                <span className="text-sm text-secondary/60 mt-2 md:mt-0 font-normal">
+                <span className="text-sm text-secondary/50 mt-3 md:mt-0 font-medium">
                   Oct 2024 – Present
                 </span>
               </div>
-              <p className="text-base text-secondary/80 leading-relaxed">
+              <p className="text-base text-secondary/70 leading-relaxed">
                 Delivering custom web applications for diverse clients.
                 Specializing in Next.js, React, and WordPress solutions with
                 end-to-end project ownership.
               </p>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-8">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <div>
-                  <h3 className="text-2xl font-bold text-secondary mb-2">
+            <div className="group bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 p-8 hover:-translate-y-1">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-5">
+                <div className="space-y-2">
+                  <h3 className="text-xl md:text-2xl font-bold text-secondary group-hover:text-primary transition-colors duration-300">
                     Team Lead
                   </h3>
-                  <p className="text-lg text-primary font-medium">
+                  <p className="text-base md:text-lg text-primary font-semibold">
                     Acespritech Solutions
                   </p>
                 </div>
-                <span className="text-sm text-secondary/60 mt-2 md:mt-0 font-normal">
+                <span className="text-sm text-secondary/50 mt-3 md:mt-0 font-medium">
                   6+ Years Leadership
                 </span>
               </div>
-              <p className="text-base text-secondary/80 leading-relaxed">
+              <p className="text-base text-secondary/70 leading-relaxed">
                 Led development teams on multiple projects, managed client
                 relationships, conducted code reviews, and made technical
                 architecture decisions.
@@ -353,7 +330,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center mt-12">
-            <Button href="/experience" variant="outline" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300">
+            <Button href="/experience" variant="outline" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-0.5">
               View Full Experience
             </Button>
           </div>
@@ -361,23 +338,23 @@ export default function HomePage() {
       </Section>
 
       {/* Call to Action */}
-      <Section className="bg-white">
+      <Section className="bg-gradient-to-br from-gray-50 via-primary/5 to-gray-50">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-gray-200 rounded-xl shadow-sm p-12 md:p-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">
+          <div className="bg-white border-2 border-gray-100 rounded-3xl shadow-xl p-12 md:p-16 space-y-8">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary">
               Let's Build Something Amazing Together
             </h2>
-            <p className="text-xl md:text-2xl mb-8 text-secondary/80 leading-relaxed">
+            <p className="text-lg md:text-xl text-secondary/70 leading-relaxed max-w-2xl mx-auto">
               Looking for a reliable, experienced developer to bring your project
               to life? I'm available for freelance projects and full-time
               opportunities.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Button
                 href="/contact"
                 variant="secondary"
                 size="lg"
-                className="bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold shadow-sm hover:shadow-md transition-all duration-300"
+                className="bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
               >
                 Get in Touch
               </Button>
@@ -385,7 +362,7 @@ export default function HomePage() {
                 href="/projects"
                 variant="outline"
                 size="lg"
-                className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300"
+                className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-0.5"
               >
                 View My Work
               </Button>
