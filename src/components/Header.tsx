@@ -24,7 +24,7 @@ export function Header() {
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50 transition-all duration-300">
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
@@ -35,7 +35,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-8">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
@@ -79,12 +79,12 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-2 bg-white border border-gray-200 rounded-lg p-4">
+          <div className="md:hidden mt-4 pb-4 space-y-2 bg-white border border-gray-200 rounded-xl p-4">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block py-2 px-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`block py-3 px-4 rounded-lg text-sm font-medium transition-all duration-200 ${
                   pathname === link.href
                     ? 'text-primary bg-primary/10 font-semibold'
                     : 'text-secondary hover:text-primary hover:bg-primary/10'
