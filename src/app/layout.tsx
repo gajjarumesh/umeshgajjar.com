@@ -1,7 +1,6 @@
 import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { ThemeProvider } from '@/components/ThemeProvider';
 import ThreeBackground from '@/components/ThreeBackground';
 import { Analytics } from '@vercel/analytics/next';
 import { generatePageMetadata, generatePersonSchema, generateWebsiteSchema, injectStructuredData } from '@/lib/seo';
@@ -17,7 +16,7 @@ export default function RootLayout({
   const websiteSchema = generateWebsiteSchema();
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
         <script
           type="application/ld+json"
@@ -28,16 +27,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={injectStructuredData(websiteSchema)}
         />
       </head>
-      <body className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
-        <ThemeProvider>
-          <ThreeBackground />
-          <div className="relative z-10">
-            <Header />
-            <main className="min-h-screen">{children}</main>
-            <Footer />
-          </div>
-          <Analytics />
-        </ThemeProvider>
+      <body className="bg-white text-gray-900">
+        <ThreeBackground />
+        <div className="relative z-10">
+          <Header />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+        </div>
+        <Analytics />
       </body>
     </html>
   );

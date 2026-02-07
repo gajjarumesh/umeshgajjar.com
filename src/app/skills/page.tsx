@@ -255,12 +255,12 @@ export default function SkillsPage() {
       />
 
       {/* Hero Section */}
-      <Section className="bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-indigo-950">
+      <Section className="bg-gradient-to-br from-indigo-50 via-white to-purple-50">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Technical Skills & Expertise
           </h1>
-          <p className="text-xl text-gray-700 dark:text-gray-300">
+          <p className="text-xl text-gray-700">
             Comprehensive full-stack development capabilities built over 7+
             years of hands-on experience
           </p>
@@ -275,21 +275,21 @@ export default function SkillsPage() {
             key={categoryIndex}
             className={
               categoryIndex % 2 === 0
-                ? 'bg-white dark:bg-gray-900'
-                : 'bg-gray-50 dark:bg-gray-800'
+                ? 'bg-white'
+                : 'bg-gray-50'
             }
           >
             <div className="max-w-6xl mx-auto">
               {/* Category Header */}
               <div className="flex items-center gap-4 mb-8">
-                <div className="p-4 bg-indigo-100 dark:bg-indigo-900 rounded-lg">
-                  <Icon className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
+                <div className="p-4 bg-indigo-100 rounded-lg">
+                  <Icon className="w-8 h-8 text-indigo-600" />
                 </div>
                 <div>
-                  <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                  <h2 className="text-3xl font-bold text-gray-900">
                     {category.title}
                   </h2>
-                  <p className="text-gray-600 dark:text-gray-400 mt-1">
+                  <p className="text-gray-600 mt-1">
                     {category.description}
                   </p>
                 </div>
@@ -300,12 +300,12 @@ export default function SkillsPage() {
                 {category.skills.map((skill, skillIndex) => (
                   <div
                     key={skillIndex}
-                    className="p-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-indigo-300 dark:hover:border-indigo-700 transition-all"
+                    className="p-6 bg-white border border-gray-200 rounded-lg hover:border-indigo-300 transition-all"
                   >
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
                       {skill.name}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <p className="text-gray-600">
                       {skill.description}
                     </p>
                   </div>

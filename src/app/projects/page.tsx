@@ -397,16 +397,16 @@ export default function ProjectsPage() {
       />
 
       {/* Hero Section */}
-      <Section className="bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-indigo-950">
+      <Section className="bg-gradient-to-br from-indigo-50 via-white to-purple-50">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Projects & Portfolio
           </h1>
-          <p className="text-xl text-gray-700 dark:text-gray-300 mb-4">
+          <p className="text-xl text-gray-700 mb-4">
             Showcasing 7+ years of full-stack development work across diverse
             industries
           </p>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+          <p className="text-lg text-gray-600">
             From enterprise SaaS platforms to e-commerce solutions and custom CMS
             implementations
           </p>
@@ -421,21 +421,21 @@ export default function ProjectsPage() {
             key={category.id}
             className={
               categoryIndex % 2 === 0
-                ? 'bg-white dark:bg-gray-900'
-                : 'bg-gray-50 dark:bg-gray-800'
+                ? 'bg-white'
+                : 'bg-gray-50'
             }
           >
             <div className="max-w-6xl mx-auto">
               {/* Category Header */}
               <div className="flex items-center gap-4 mb-12">
-                <div className="p-4 bg-indigo-100 dark:bg-indigo-900 rounded-lg">
-                  <Icon className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
+                <div className="p-4 bg-indigo-100 rounded-lg">
+                  <Icon className="w-8 h-8 text-indigo-600" />
                 </div>
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                     {category.title}
                   </h2>
-                  <p className="text-gray-600 dark:text-gray-400 mt-1">
+                  <p className="text-gray-600 mt-1">
                     {category.description}
                   </p>
                 </div>
@@ -446,28 +446,28 @@ export default function ProjectsPage() {
                 {category.projects.map((project, projectIndex) => (
                   <div
                     key={projectIndex}
-                    className="p-8 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-indigo-300 dark:hover:border-indigo-700 transition-all"
+                    className="p-8 bg-white border border-gray-200 rounded-lg hover:border-indigo-300 transition-all"
                   >
                     {/* Project Header */}
                     <div className="mb-6">
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-3">
                         {project.name}
                       </h3>
-                      <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+                      <p className="text-gray-700 text-lg leading-relaxed">
                         {project.description}
                       </p>
                     </div>
 
                     {/* Technologies */}
                     <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3 uppercase tracking-wide">
+                      <h4 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">
                         Technologies Used
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1 text-sm bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded-full"
+                            className="px-3 py-1 text-sm bg-indigo-100 text-indigo-700 rounded-full"
                           >
                             {tech}
                           </span>
@@ -477,16 +477,16 @@ export default function ProjectsPage() {
 
                     {/* Features */}
                     <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3 uppercase tracking-wide">
+                      <h4 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">
                         Key Features
                       </h4>
                       <ul className="grid md:grid-cols-2 gap-3">
                         {project.features.map((feature, i) => (
                           <li
                             key={i}
-                            className="flex items-start gap-3 text-gray-600 dark:text-gray-400"
+                            className="flex items-start gap-3 text-gray-600"
                           >
-                            <span className="text-indigo-600 dark:text-indigo-400 mt-1 flex-shrink-0">
+                            <span className="text-indigo-600 mt-1 flex-shrink-0">
                               •
                             </span>
                             <span>{feature}</span>
@@ -496,11 +496,11 @@ export default function ProjectsPage() {
                     </div>
 
                     {/* Impact */}
-                    <div className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
-                      <h4 className="text-sm font-semibold text-green-900 dark:text-green-400 mb-2 uppercase tracking-wide">
+                    <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+                      <h4 className="text-sm font-semibold text-green-900 mb-2 uppercase tracking-wide">
                         Business Impact
                       </h4>
-                      <p className="text-green-800 dark:text-green-300">
+                      <p className="text-green-800">
                         {project.impact}
                       </p>
                     </div>
@@ -546,12 +546,12 @@ export default function ProjectsPage() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="bg-white dark:bg-gray-900">
+      <Section className="bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             Ready to Start Your Project?
           </h2>
-          <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
+          <p className="text-xl text-gray-700 mb-8">
             Let's discuss how I can help bring your ideas to life with modern
             web technologies.
           </p>

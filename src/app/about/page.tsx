@@ -92,12 +92,12 @@ export default function AboutPage() {
       />
 
       {/* Hero Section */}
-      <Section className="bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-indigo-950">
+      <Section className="bg-gradient-to-br from-indigo-50 via-white to-purple-50">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             About Me
           </h1>
-          <p className="text-xl text-gray-700 dark:text-gray-300">
+          <p className="text-xl text-gray-700">
             Senior Full Stack Developer passionate about building scalable,
             maintainable web applications
           </p>
@@ -105,10 +105,10 @@ export default function AboutPage() {
       </Section>
 
       {/* Professional Summary */}
-      <Section className="bg-white dark:bg-gray-900">
+      <Section className="bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="prose prose-lg dark:prose-invert max-w-none">
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+          <div className="prose prose-lg max-w-none">
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
               I'm Umesh Gajjar, a Senior Full Stack Developer based in Pune,
               Maharashtra, India, with over 7 years of experience in building
               scalable web applications. My journey in software development has
@@ -116,14 +116,14 @@ export default function AboutPage() {
               enterprise-level SaaS platforms, always with a focus on delivering
               high-quality, maintainable solutions.
             </p>
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
               Currently, I'm working as a Senior Associate Consultant at
               Infosys, where I lead development teams in building enterprise
               applications for global clients. Alongside my corporate role, I
               continue to work as a freelance developer, helping startups and
               agencies bring their ideas to life with modern web technologies.
             </p>
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
               My expertise spans the full stack—from crafting pixel-perfect user
               interfaces with React.js and Next.js to building robust backend
               systems with Node.js and Laravel. I'm particularly passionate
@@ -132,7 +132,7 @@ export default function AboutPage() {
               SaaS platform, an e-commerce solution, or a custom CMS, I approach
               every project with the same commitment to excellence.
             </p>
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-lg text-gray-700 leading-relaxed">
               Beyond coding, I believe in the power of collaboration and
               continuous learning. I've mentored junior developers, led
               technical discussions, and always stay updated with the latest
@@ -145,13 +145,13 @@ export default function AboutPage() {
       </Section>
 
       {/* Career Journey */}
-      <Section className="bg-gray-50 dark:bg-gray-800">
+      <Section className="bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Career Journey
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               From WordPress developer to enterprise architect
             </p>
           </div>
@@ -163,18 +163,18 @@ export default function AboutPage() {
                 className="flex flex-col md:flex-row gap-6 items-start"
               >
                 <div className="min-w-[120px]">
-                  <div className="inline-block px-4 py-2 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded-lg font-bold">
+                  <div className="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg font-bold">
                     {item.year}
                   </div>
                 </div>
-                <div className="flex-1 p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                <div className="flex-1 p-6 bg-white rounded-lg border border-gray-200">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-indigo-600 dark:text-indigo-400 mb-3">
+                  <p className="text-indigo-600 mb-3">
                     {item.company}
                   </p>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-600">
                     {item.description}
                   </p>
                 </div>
@@ -185,22 +185,22 @@ export default function AboutPage() {
       </Section>
 
       {/* Leadership & Team Management */}
-      <Section className="bg-white dark:bg-gray-900">
+      <Section className="bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             Leadership & Team Management
           </h2>
-          <div className="prose prose-lg dark:prose-invert max-w-none">
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+          <div className="prose prose-lg max-w-none">
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
               With over 6 years of experience in team leadership, I've had the
               privilege of managing development teams, mentoring junior
               developers, and driving technical excellence across multiple
               projects. My leadership philosophy centers on empowerment,
               collaboration, and continuous improvement.
             </p>
-            <ul className="space-y-3 text-gray-700 dark:text-gray-300 mb-6">
+            <ul className="space-y-3 text-gray-700 mb-6">
               <li className="flex items-start gap-3">
-                <span className="text-indigo-600 dark:text-indigo-400 mt-1">
+                <span className="text-indigo-600 mt-1">
                   •
                 </span>
                 <span>
@@ -210,7 +210,7 @@ export default function AboutPage() {
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-indigo-600 dark:text-indigo-400 mt-1">
+                <span className="text-indigo-600 mt-1">
                   •
                 </span>
                 <span>
@@ -220,7 +220,7 @@ export default function AboutPage() {
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-indigo-600 dark:text-indigo-400 mt-1">
+                <span className="text-indigo-600 mt-1">
                   •
                 </span>
                 <span>
@@ -230,7 +230,7 @@ export default function AboutPage() {
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-indigo-600 dark:text-indigo-400 mt-1">
+                <span className="text-indigo-600 mt-1">
                   •
                 </span>
                 <span>
@@ -240,7 +240,7 @@ export default function AboutPage() {
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-indigo-600 dark:text-indigo-400 mt-1">
+                <span className="text-indigo-600 mt-1">
                   •
                 </span>
                 <span>
@@ -255,13 +255,13 @@ export default function AboutPage() {
       </Section>
 
       {/* Values & Work Philosophy */}
-      <Section className="bg-gray-50 dark:bg-gray-800">
+      <Section className="bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Values & Work Philosophy
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Principles that guide my approach to software development
             </p>
           </div>
@@ -272,17 +272,17 @@ export default function AboutPage() {
               return (
                 <div
                   key={index}
-                  className="p-6 bg-white dark:bg-gray-900 rounded-lg"
+                  className="p-6 bg-white rounded-lg border border-gray-200"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-indigo-100 dark:bg-indigo-900 rounded-lg">
-                      <Icon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                    <div className="p-3 bg-indigo-100 rounded-lg">
+                      <Icon className="w-6 h-6 text-indigo-600" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">
                         {value.title}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400">
+                      <p className="text-gray-600">
                         {value.description}
                       </p>
                     </div>

@@ -21,8 +21,6 @@ export const NAVIGATION_LINKS = [
   { label: "Home", href: "/", external: false },
   { label: "About", href: "/about", external: false },
   { label: "Paravix", href: "/paravix", external: false },
-  { label: "Blog", href: "/blog", external: false },
-  { label: "Work", href: "/work", external: false },
   { label: "Services", href: "/services", external: false },
   { label: "Contact", href: "/contact", external: false },
 ];

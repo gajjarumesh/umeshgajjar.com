@@ -8,27 +8,19 @@ export const metadata = {
 const SERVICES = [
   {
     title: "Full-Stack Development",
-    description: "End-to-end development of web applications with focus on maintainability and performance. React, Next.js, Node.js, MongoDB, and modern tech stacks.",
-    relatedBlog: "best-practices-scalable-saas-applications",
-    relatedBlogTitle: "Building Scalable SaaS Applications",
+    description: "End-to-end development of web applications with focus on maintainability and performance. React, Next.js, Node.js, and modern tech stacks.",
   },
   {
     title: "Backend Architecture",
     description: "Design and implementation of robust backend systems, APIs, and database architectures that scale with your business needs.",
-    relatedBlog: "backend-architecture-patterns",
-    relatedBlogTitle: "Backend Architecture Patterns",
   },
   {
     title: "Engineering Consulting",
     description: "Strategic guidance on technical decisions, architecture reviews, and long-term technology roadmaps for sustainable growth.",
-    relatedBlog: "engineering-leadership-lessons",
-    relatedBlogTitle: "Engineering Leadership Lessons",
   },
   {
     title: "Code & System Reviews",
     description: "Comprehensive audits of existing codebases and systems to identify technical debt, security issues, and optimization opportunities.",
-    relatedBlog: "code-review-best-practices",
-    relatedBlogTitle: "Effective Code Review Practices",
   },
 ];
 
@@ -61,20 +53,12 @@ export default function Services() {
                 <p className="text-gray-700 mb-6 leading-relaxed">
                   {service.description}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link
-                    href={`/blog/${service.relatedBlog}`}
-                    className="text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
-                  >
-                    Read: {service.relatedBlogTitle} →
-                  </Link>
-                  <Link
-                    href="/work"
-                    className="text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
-                  >
-                    View case studies →
-                  </Link>
-                </div>
+                <Link
+                  href="/contact"
+                  className="text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
+                >
+                  Get in touch →
+                </Link>
               </div>
             ))}
           </section>
@@ -93,12 +77,6 @@ export default function Services() {
                 className="inline-block bg-indigo-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors"
               >
                 Get in touch
-              </Link>
-              <Link
-                href="/blog"
-                className="inline-block bg-white text-indigo-600 border-2 border-indigo-600 px-8 py-3 rounded-lg font-medium hover:bg-indigo-50 transition-colors"
-              >
-                Read engineering blog
               </Link>
             </div>
           </section>

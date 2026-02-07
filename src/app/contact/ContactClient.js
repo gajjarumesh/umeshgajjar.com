@@ -72,10 +72,10 @@ export default function ContactClient() {
               View services →
             </Link>
             <Link
-              href="/blog"
+              href="/paravix"
               className="text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
             >
-              Read the blog →
+              Learn about Paravix →
             </Link>
           </div>
 
