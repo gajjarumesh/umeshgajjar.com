@@ -206,14 +206,14 @@ export default function ExperiencePage() {
       {/* Hero Section */}
       <Section className="bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-secondary mb-6 tracking-tight">
             Professional Experience
           </h1>
-          <p className="text-xl text-secondary/80 mb-4">
+          <p className="text-xl md:text-2xl text-secondary/80 mb-4 leading-relaxed">
             7+ years of full-stack development experience building scalable web
             applications
           </p>
-          <p className="text-lg text-secondary/80">
+          <p className="text-lg md:text-xl text-secondary/70 leading-relaxed">
             From WordPress developer to leading enterprise teams at Infosys
           </p>
         </div>
@@ -221,130 +221,124 @@ export default function ExperiencePage() {
 
       {/* Career Timeline */}
       <Section className="bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="space-y-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="space-y-8">
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className="relative pl-8 border-l-2 border-secondary"
+                className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-8"
               >
-                {/* Timeline Dot */}
-                <div className="absolute -left-[9px] top-0 w-4 h-4 bg-primary rounded-full border-4 border-white"></div>
-
-                {/* Content */}
-                <div className="pb-8">
-                  {/* Header */}
-                  <div className="mb-4">
-                    <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-2">
-                      {exp.position}
-                    </h2>
-                    <div className="flex flex-col md:flex-row md:items-center md:gap-6 text-lg">
-                      <span className="text-primary font-semibold">
-                        {exp.company}
+                {/* Header */}
+                <div className="mb-6">
+                  <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3">
+                    {exp.position}
+                  </h2>
+                  <div className="flex flex-col md:flex-row md:items-center md:gap-6 mb-3">
+                    <span className="text-lg text-primary font-semibold">
+                      {exp.company}
+                    </span>
+                    <div className="flex flex-wrap items-center gap-4 text-secondary/60 text-sm mt-2 md:mt-0 font-normal">
+                      <span className="flex items-center gap-2">
+                        <FiCalendar className="w-4 h-4" />
+                        {exp.duration}
                       </span>
-                      <div className="flex flex-wrap items-center gap-4 text-secondary/80 text-base mt-2 md:mt-0">
-                        <span className="flex items-center gap-2">
-                          <FiCalendar className="w-4 h-4" />
-                          {exp.duration}
-                        </span>
-                        <span className="flex items-center gap-2">
-                          <FiMapPin className="w-4 h-4" />
-                          {exp.location}
-                        </span>
-                        <span className="flex items-center gap-2">
-                          <FiBriefcase className="w-4 h-4" />
-                          {exp.type}
-                        </span>
-                      </div>
+                      <span className="flex items-center gap-2">
+                        <FiMapPin className="w-4 h-4" />
+                        {exp.location}
+                      </span>
+                      <span className="flex items-center gap-2">
+                        <FiBriefcase className="w-4 h-4" />
+                        {exp.type}
+                      </span>
                     </div>
                   </div>
+                </div>
 
-                  {/* Description */}
-                  <p className="text-secondary/80 text-lg mb-6 leading-relaxed">
-                    {exp.description}
-                  </p>
+                {/* Description */}
+                <p className="text-base md:text-lg text-secondary/80 mb-6 leading-relaxed">
+                  {exp.description}
+                </p>
 
-                  {/* Responsibilities */}
-                  {exp.responsibilities && (
-                    <div className="mb-6">
-                      <h3 className="text-lg font-semibold text-secondary mb-3">
-                        Key Responsibilities:
-                      </h3>
-                      <ul className="space-y-2">
-                        {exp.responsibilities.map((resp, i) => (
-                          <li
-                            key={i}
-                            className="flex items-start gap-3 text-secondary/80"
-                          >
-                            <span className="text-primary mt-1 flex-shrink-0">
-                              •
-                            </span>
-                            <span>{resp}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {/* Achievements */}
-                  {exp.achievements && (
-                    <div className="mb-6">
-                      <h3 className="text-lg font-semibold text-secondary mb-3">
-                        Key Achievements:
-                      </h3>
-                      <ul className="space-y-2">
-                        {exp.achievements.map((achievement, i) => (
-                          <li
-                            key={i}
-                            className="flex items-start gap-3 text-secondary/80"
-                          >
-                            <span className="text-green-600 mt-1 flex-shrink-0">
-                              ✓
-                            </span>
-                            <span>{achievement}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {/* Projects */}
-                  {exp.projects && (
-                    <div className="mb-6">
-                      <h3 className="text-lg font-semibold text-secondary mb-3">
-                        Notable Projects:
-                      </h3>
-                      <ul className="space-y-2">
-                        {exp.projects.map((project, i) => (
-                          <li
-                            key={i}
-                            className="flex items-start gap-3 text-secondary/80"
-                          >
-                            <span className="text-primary mt-1 flex-shrink-0">
-                              →
-                            </span>
-                            <span>{project}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {/* Technologies */}
-                  <div>
-                    <h3 className="text-lg font-semibold text-secondary mb-3">
-                      Technologies Used:
+                {/* Responsibilities */}
+                {exp.responsibilities && (
+                  <div className="mb-6">
+                    <h3 className="text-lg font-semibold text-secondary mb-4">
+                      Key Responsibilities:
                     </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full"
+                    <ul className="space-y-3">
+                      {exp.responsibilities.map((resp, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-3 text-base text-secondary/80"
                         >
-                          {tech}
-                        </span>
+                          <span className="text-primary mt-1 flex-shrink-0">
+                            •
+                          </span>
+                          <span>{resp}</span>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
+                  </div>
+                )}
+
+                {/* Achievements */}
+                {exp.achievements && (
+                  <div className="mb-6">
+                    <h3 className="text-lg font-semibold text-secondary mb-4">
+                      Key Achievements:
+                    </h3>
+                    <ul className="space-y-3">
+                      {exp.achievements.map((achievement, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-3 text-base text-secondary/80"
+                        >
+                          <span className="text-green-600 mt-1 flex-shrink-0">
+                            ✓
+                          </span>
+                          <span>{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Projects */}
+                {exp.projects && (
+                  <div className="mb-6">
+                    <h3 className="text-lg font-semibold text-secondary mb-4">
+                      Notable Projects:
+                    </h3>
+                    <ul className="space-y-3">
+                      {exp.projects.map((project, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-3 text-base text-secondary/80"
+                        >
+                          <span className="text-primary mt-1 flex-shrink-0">
+                            →
+                          </span>
+                          <span>{project}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Technologies */}
+                <div>
+                  <h3 className="text-lg font-semibold text-secondary mb-4">
+                    Technologies Used:
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {exp.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -355,43 +349,43 @@ export default function ExperiencePage() {
 
       {/* Skills Highlight */}
       <Section className="bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
               Skills Developed Through Experience
             </h2>
-            <p className="text-lg text-secondary/80 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-secondary/80 max-w-2xl mx-auto">
               Comprehensive skill set built through hands-on experience across
               diverse projects
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-6 bg-white rounded-lg border border-gray-200">
-              <h3 className="text-xl font-bold text-secondary mb-3">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-8 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300">
+              <h3 className="text-xl md:text-2xl font-semibold text-secondary mb-3">
                 Technical Leadership
               </h3>
-              <p className="text-secondary/80">
+              <p className="text-base text-secondary/80 leading-relaxed">
                 6+ years leading development teams, making architectural
                 decisions, and driving technical excellence
               </p>
             </div>
 
-            <div className="p-6 bg-white rounded-lg border border-gray-200">
-              <h3 className="text-xl font-bold text-secondary mb-3">
+            <div className="p-8 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300">
+              <h3 className="text-xl md:text-2xl font-semibold text-secondary mb-3">
                 Full-Stack Expertise
               </h3>
-              <p className="text-secondary/80">
+              <p className="text-base text-secondary/80 leading-relaxed">
                 Mastery of modern frontend frameworks (React, Next.js, Vue.js)
                 and backend technologies (Node.js, Laravel, PHP)
               </p>
             </div>
 
-            <div className="p-6 bg-white rounded-lg border border-gray-200">
-              <h3 className="text-xl font-bold text-secondary mb-3">
+            <div className="p-8 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300">
+              <h3 className="text-xl md:text-2xl font-semibold text-secondary mb-3">
                 Client Management
               </h3>
-              <p className="text-secondary/80">
+              <p className="text-base text-secondary/80 leading-relaxed">
                 Strong communication skills, requirement gathering, and managing
                 stakeholder expectations
               </p>
@@ -406,7 +400,7 @@ export default function ExperiencePage() {
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Interested in Working Together?
           </h2>
-          <p className="text-xl mb-8 text-white/90">
+          <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed">
             With 7+ years of experience and a proven track record, I'm ready to
             help your team succeed.
           </p>
@@ -415,7 +409,7 @@ export default function ExperiencePage() {
               href="/contact"
               variant="secondary"
               size="lg"
-              className="bg-white text-primary hover:bg-gray-100"
+              className="bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold shadow-sm hover:shadow-md transition-all duration-300"
             >
               Get in Touch
             </Button>
@@ -423,7 +417,7 @@ export default function ExperiencePage() {
               href="/projects"
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-primary"
+              className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold transition-all duration-300"
             >
               View Projects
             </Button>

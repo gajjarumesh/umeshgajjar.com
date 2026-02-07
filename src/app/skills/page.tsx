@@ -257,10 +257,10 @@ export default function SkillsPage() {
       {/* Hero Section */}
       <Section className="bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-secondary mb-6 tracking-tight">
             Technical Skills & Expertise
           </h1>
-          <p className="text-xl text-secondary/80">
+          <p className="text-xl md:text-2xl text-secondary/80 leading-relaxed">
             Comprehensive full-stack development capabilities built over 7+
             years of hands-on experience
           </p>
@@ -279,17 +279,17 @@ export default function SkillsPage() {
                 : 'bg-white'
             }
           >
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               {/* Category Header */}
-              <div className="flex items-center gap-4 mb-8">
-                <div className="p-4 bg-primary/10 rounded-lg">
+              <div className="flex items-center gap-4 mb-12">
+                <div className="p-4 bg-primary/10 rounded-xl flex-shrink-0">
                   <Icon className="w-8 h-8 text-primary" />
                 </div>
                 <div>
-                  <h2 className="text-3xl font-bold text-secondary">
+                  <h2 className="text-3xl md:text-4xl font-bold text-secondary">
                     {category.title}
                   </h2>
-                  <p className="text-secondary/80 mt-1">
+                  <p className="text-base md:text-lg text-secondary/80 mt-1">
                     {category.description}
                   </p>
                 </div>
@@ -300,12 +300,12 @@ export default function SkillsPage() {
                 {category.skills.map((skill, skillIndex) => (
                   <div
                     key={skillIndex}
-                    className="p-6 bg-white border border-gray-200 rounded-lg hover:border-secondary transition-all"
+                    className="p-8 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
                   >
-                    <h3 className="text-xl font-bold text-secondary mb-3">
+                    <h3 className="text-xl md:text-2xl font-semibold text-secondary mb-3">
                       {skill.name}
                     </h3>
-                    <p className="text-secondary/80">
+                    <p className="text-base text-secondary/80 leading-relaxed">
                       {skill.description}
                     </p>
                   </div>
