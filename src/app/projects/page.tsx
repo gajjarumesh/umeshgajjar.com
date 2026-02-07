@@ -399,14 +399,14 @@ export default function ProjectsPage() {
       {/* Hero Section */}
       <Section className="bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-secondary mb-6 tracking-tight">
             Projects & Portfolio
           </h1>
-          <p className="text-xl text-secondary/80 mb-4">
+          <p className="text-xl md:text-2xl text-secondary/80 mb-4 leading-relaxed">
             Showcasing 7+ years of full-stack development work across diverse
             industries
           </p>
-          <p className="text-lg text-secondary/80">
+          <p className="text-lg md:text-xl text-secondary/70 leading-relaxed">
             From enterprise SaaS platforms to e-commerce solutions and custom CMS
             implementations
           </p>
@@ -425,17 +425,17 @@ export default function ProjectsPage() {
                 : 'bg-white'
             }
           >
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               {/* Category Header */}
               <div className="flex items-center gap-4 mb-12">
-                <div className="p-4 bg-primary/10 rounded-lg">
+                <div className="p-4 bg-primary/10 rounded-xl flex-shrink-0">
                   <Icon className="w-8 h-8 text-primary" />
                 </div>
                 <div>
                   <h2 className="text-3xl md:text-4xl font-bold text-secondary">
                     {category.title}
                   </h2>
-                  <p className="text-secondary/80 mt-1">
+                  <p className="text-base md:text-lg text-secondary/80 mt-1">
                     {category.description}
                   </p>
                 </div>
@@ -446,14 +446,14 @@ export default function ProjectsPage() {
                 {category.projects.map((project, projectIndex) => (
                   <div
                     key={projectIndex}
-                    className="p-8 bg-white border border-gray-200 rounded-lg hover:border-secondary transition-all"
+                    className="p-8 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
                   >
                     {/* Project Header */}
                     <div className="mb-6">
-                      <h3 className="text-2xl font-bold text-secondary mb-3">
+                      <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-3">
                         {project.name}
                       </h3>
-                      <p className="text-secondary/80 text-lg leading-relaxed">
+                      <p className="text-base md:text-lg text-secondary/80 leading-relaxed">
                         {project.description}
                       </p>
                     </div>
@@ -467,7 +467,7 @@ export default function ProjectsPage() {
                         {project.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full"
+                            className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full"
                           >
                             {tech}
                           </span>
@@ -484,7 +484,7 @@ export default function ProjectsPage() {
                         {project.features.map((feature, i) => (
                           <li
                             key={i}
-                            className="flex items-start gap-3 text-secondary/80"
+                            className="flex items-start gap-3 text-base text-secondary/80"
                           >
                             <span className="text-primary mt-1 flex-shrink-0">
                               •
@@ -500,7 +500,7 @@ export default function ProjectsPage() {
                       <h4 className="text-sm font-semibold text-green-900 mb-2 uppercase tracking-wide">
                         Business Impact
                       </h4>
-                      <p className="text-green-800">
+                      <p className="text-base text-green-800">
                         {project.impact}
                       </p>
                     </div>
@@ -514,32 +514,32 @@ export default function ProjectsPage() {
 
       {/* Project Stats */}
       <Section className="bg-primary text-white">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Portfolio Highlights
             </h2>
-            <p className="text-xl text-white/90">
+            <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
               Proven track record of delivering successful projects
             </p>
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-5xl font-bold mb-2">50+</div>
-              <div className="text-white/90">Projects Delivered</div>
+              <div className="text-5xl md:text-6xl font-bold mb-2">50+</div>
+              <div className="text-lg text-white/90">Projects Delivered</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-bold mb-2">30+</div>
-              <div className="text-white/90">Happy Clients</div>
+              <div className="text-5xl md:text-6xl font-bold mb-2">30+</div>
+              <div className="text-lg text-white/90">Happy Clients</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-bold mb-2">100K+</div>
-              <div className="text-white/90">Users Served</div>
+              <div className="text-5xl md:text-6xl font-bold mb-2">100K+</div>
+              <div className="text-lg text-white/90">Users Served</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-bold mb-2">7+</div>
-              <div className="text-white/90">Years Experience</div>
+              <div className="text-5xl md:text-6xl font-bold mb-2">7+</div>
+              <div className="text-lg text-white/90">Years Experience</div>
             </div>
           </div>
         </div>
@@ -551,15 +551,15 @@ export default function ProjectsPage() {
           <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">
             Ready to Start Your Project?
           </h2>
-          <p className="text-xl text-secondary/80 mb-8">
+          <p className="text-xl md:text-2xl text-secondary/80 mb-8 leading-relaxed">
             Let's discuss how I can help bring your ideas to life with modern
             web technologies.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/contact" size="lg">
+            <Button href="/contact" size="lg" className="bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold shadow-sm hover:shadow-md transition-all duration-300">
               Get in Touch
             </Button>
-            <Button href="/skills" variant="outline" size="lg">
+            <Button href="/skills" variant="outline" size="lg" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300">
               View Skills
             </Button>
           </div>
