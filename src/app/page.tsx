@@ -93,31 +93,56 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <Section className="bg-white">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="bg-white border border-gray-200 shadow-sm p-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-6 leading-tight">
-              Senior Full Stack Developer Building{' '}
-              <span className="text-primary">
-                Scalable Web Applications
-              </span>
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Column - Text Content */}
+          <div className="text-center lg:text-left">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-6 leading-tight max-w-3xl">
+              Senior Full Stack Developer Building <span className="text-primary">Scalable Web Applications</span>
             </h1>
             <p className="text-xl md:text-2xl text-secondary/80 mb-6">
               7+ years of experience leading development teams and delivering
               high-performance web solutions
             </p>
-            <p className="text-lg text-secondary/70 mb-8 max-w-3xl mx-auto">
+            <p className="text-lg text-secondary/70 mb-8 max-w-2xl mx-auto lg:mx-0">
               Specializing in React.js, Next.js, Vue.js, Node.js, Laravel, and
               WordPress. I help startups, agencies, and SaaS companies build
               robust, maintainable applications that scale with their business
               needs.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button href="/projects" size="lg" className="bg-primary hover:bg-primary-600">
                 View Projects
               </Button>
               <Button href="/contact" variant="outline" size="lg" className="bg-white border border-gray-200 shadow-sm hover:shadow-xl">
                 Hire Me
               </Button>
+            </div>
+          </div>
+
+          {/* Right Column - Stats Card */}
+          <div className="hidden lg:block">
+            <div className="bg-white rounded-2xl border border-gray-200 shadow-md p-8">
+              <h3 className="text-lg font-semibold text-secondary mb-6 text-center">
+                By the Numbers
+              </h3>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary mb-1">7+</div>
+                  <div className="text-sm text-secondary/70">Years Experience</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary mb-1">50+</div>
+                  <div className="text-sm text-secondary/70">Projects Delivered</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary mb-1">30+</div>
+                  <div className="text-sm text-secondary/70">Happy Clients</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary mb-1">10+</div>
+                  <div className="text-sm text-secondary/70">Technologies Mastered</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -142,7 +167,7 @@ export default function HomePage() {
               return (
                 <div
                   key={index}
-                  className="bg-white border border-gray-200 shadow-sm p-8"
+                  className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow p-8"
                 >
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-primary/10 rounded-lg">
@@ -180,7 +205,7 @@ export default function HomePage() {
             {featuredProjects.map((project, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-200 shadow-sm p-6"
+                className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow p-6"
               >
                 <h3 className="text-xl font-bold text-secondary mb-3">
                   {project.title}
@@ -223,7 +248,7 @@ export default function HomePage() {
           </div>
 
           <div className="space-y-6">
-            <div className="bg-white border border-gray-200 shadow-sm p-6">
+            <div className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-secondary">
@@ -244,7 +269,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="bg-white border border-gray-200 shadow-sm p-6">
+            <div className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-secondary">
@@ -265,7 +290,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="bg-white border border-gray-200 shadow-sm p-6">
+            <div className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-secondary">
@@ -297,7 +322,7 @@ export default function HomePage() {
 
       {/* Call to Action */}
       <Section className="bg-white">
-        <div className="max-w-4xl mx-auto text-center bg-white border border-gray-200 shadow-sm p-12">
+        <div className="max-w-4xl mx-auto text-center bg-white border border-gray-200 rounded-2xl shadow-sm p-12">
           <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">
             Let's Build Something Amazing Together
           </h2>
