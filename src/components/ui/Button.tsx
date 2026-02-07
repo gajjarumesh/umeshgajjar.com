@@ -27,11 +27,11 @@ export function Button({
 
   const variantStyles = {
     primary:
-      'bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-500',
+      'bg-primary text-white hover:bg-primary-600 focus:ring-primary',
     secondary:
       'bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500',
     outline:
-      'border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-50 focus:ring-indigo-500',
+      'border-2 border-secondary text-secondary hover:bg-secondary hover:text-white focus:ring-primary',
   };
 
   const sizeStyles = {
