@@ -1,6 +1,7 @@
+import Link from 'next/link';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
-import { generatePageMetadata, injectStructuredData, generateBreadcrumbSchema } from '@/lib/seo';
+import { CTASection } from '@/components/CTASection';
 import {
   FiCode,
   FiShoppingCart,
@@ -10,23 +11,12 @@ import {
   FiGithub,
 } from 'react-icons/fi';
 
-export const metadata = generatePageMetadata({
-  title: 'Portfolio Projects & Web Development Work',
+export const metadata = {
+  title: 'Portfolio Projects & Web Development Work | Umesh Gajjar',
   description:
     'Showcase of web development projects by Umesh Gajjar including Enterprise Applications, SaaS Platforms, E-commerce Solutions, CMS Development, and API Integrations. Built with React.js, Next.js, Vue.js, Node.js, Laravel, and WordPress.',
-  keywords: [
-    'Web Development Projects',
-    'Next.js Projects',
-    'React Projects',
-    'WordPress Development',
-    'SaaS Development',
-    'Enterprise Applications',
-    'E-commerce Development',
-    'Full Stack Portfolio',
-    'Developer Portfolio',
-  ],
-  path: '/projects',
-});
+  keywords: 'Web Development Projects, Next.js Projects, React Projects, WordPress Development, SaaS Development, Enterprise Applications, E-commerce Development, Full Stack Portfolio, Developer Portfolio',
+};
 
 const projectCategories = [
   {
@@ -384,124 +374,219 @@ const projectCategories = [
 ];
 
 export default function ProjectsPage() {
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', path: '/' },
-    { name: 'Projects', path: '/projects' },
-  ]);
-
-  // Flatten all projects from all categories
+  // Flatten all projects from all categories for the grid view
   const allProjects = projectCategories.flatMap(category => 
-    category.projects.map(project => ({ ...project, category: category.title }))
+    category.projects.map(project => ({ ...project, category: category.title, categoryIcon: category.icon }))
   );
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={injectStructuredData(breadcrumbSchema)}
-      />
-
-      {/* NEW Hero - Simple and clean */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-6xl font-bold text-secondary mb-6">
+      {/* MODERN HERO SECTION */}
+      <section className="relative min-h-[70vh] bg-primary py-20 md:py-32 overflow-hidden">
+        {/* Simple Background Pattern */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-pattern/10 rounded-full"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/20 rounded-full"></div>
+        </div>
+        
+        {/* Floating Particles */}
+        <div className="absolute inset-0">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 bg-white/10 rounded-full animate-bounce"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${2 + Math.random() * 3}s`,
+              }}
+            />
+          ))}
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 border border-white/20">
+            <FiCode className="w-4 h-4 text-pattern" />
+            <span>Portfolio Showcase</span>
+          </div>
+          
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight">
             Projects & Portfolio
           </h1>
-          <p className="text-xl text-secondary/60 max-w-3xl mb-4">
-            Showcasing 7+ years of full-stack development work across diverse industries
+          
+          <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed mb-8">
+            8+ years of full-stack development excellence across diverse industries
+            and cutting-edge technologies.
           </p>
-          <p className="text-lg text-secondary/50 max-w-2xl">
-            From enterprise SaaS platforms to e-commerce solutions and custom CMS implementations
-          </p>
+          
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white/90 border border-white/20">
+              <FiServer className="w-4 h-4 text-green-400" />
+              <span className="text-sm">Enterprise Apps</span>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white/90 border border-white/20">
+              <FiCode className="w-4 h-4 text-green-400" />
+              <span className="text-sm">SaaS Platforms</span>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white/90 border border-white/20">
+              <FiShoppingCart className="w-4 h-4 text-green-400" />
+              <span className="text-sm">E-commerce Solutions</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* NEW Projects - Simple card grid */}
-      <section className="bg-gray-50 py-16 md:py-24">
+      {/* MODERN PROJECTS GRID */}
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {allProjects.map((project, index) => (
-              <div key={index} className="bg-white rounded-lg overflow-hidden border-2 border-gray-200 hover:border-primary transition-colors">
-                {/* Category badge at top */}
-                <div className="bg-primary text-white px-4 py-2 text-sm font-semibold">
-                  {project.category}
-                </div>
-                
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-secondary mb-3">{project.name}</h3>
-                  <p className="text-secondary/70 text-sm mb-4 line-clamp-3">{project.description}</p>
-                  
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.slice(0, 4).map((tech) => (
-                      <span key={tech} className="px-2 py-1 text-xs bg-gray-100 text-secondary rounded">
-                        {tech}
-                      </span>
-                    ))}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-6 py-3 rounded-full text-sm font-semibold mb-6">
+              <FiLayout className="w-4 h-4 text-pattern" />
+              <span>Featured Work</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Portfolio Showcase
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+              Real projects, real impact, real results - built with modern technologies and best practices
+            </p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12">
+            {allProjects.slice(0, 6).map((project, index) => {
+              const CategoryIcon = project.categoryIcon;
+              return (
+                <div key={index} className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-primary/30 hover:-translate-y-2">
+                  {/* Modern Header with gradient */}
+                  <div className="bg-gradient-to-r from-primary to-primary-400 text-white p-8 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl transform translate-x-8 -translate-y-8"></div>
+                    <div className="relative z-10 flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/30">
+                          <CategoryIcon className="w-6 h-6 text-pattern" />
+                        </div>
+                        <span className="font-bold text-lg">{project.category}</span>
+                      </div>
+                      <div className="text-3xl font-black text-primary">#{String(index + 1).padStart(2, '0')}</div>
+                    </div>
                   </div>
                   
-                  {/* Impact */}
-                  {project.impact && (
-                    <div className="text-sm text-primary font-medium">
-                      ✓ {project.impact}
+                  <div className="p-8">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors duration-300">
+                      {project.name}
+                    </h3>
+                    
+                    <p className="text-gray-600 leading-relaxed mb-8 text-lg">
+                      {project.description}
+                    </p>
+                    
+                    {/* Technologies */}
+                    <div className="mb-8">
+                      <h4 className="font-bold text-gray-900 mb-4 text-sm uppercase tracking-wide">Technologies Used</h4>
+                      <div className="flex flex-wrap gap-3">
+                        {project.technologies.map((tech, techIndex) => (
+                          <span
+                            key={tech}
+                            className="px-4 py-2 bg-secondary/20 text-fontColor rounded-full text-sm font-semibold hover:bg-secondary/30 transition-all duration-300 border border-secondary/30"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  )}
+                    
+                    {/* Features */}
+                    {project.features && (
+                      <div className="mb-8">
+                        <h4 className="font-bold text-gray-900 mb-4 text-sm uppercase tracking-wide">Key Features</h4>
+                        <div className="space-y-3">
+                          {project.features.slice(0, 3).map((feature, featureIndex) => (
+                            <div key={featureIndex} className="flex items-start gap-3 p-3 bg-gray-50 rounded-xl border border-gray-100">
+                              <div className="w-2 h-2 bg-pattern rounded-full mt-2 flex-shrink-0"></div>
+                              <span className="text-gray-700">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* Impact */}
+                    {project.impact && (
+                      <div className="bg-background p-6 rounded-2xl border border-secondary/20 relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-r from-green-100/20 via-primary-100/10 to-secondary-100/10"></div>
+                        <div className="relative z-10 flex items-start gap-4">
+                          <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h4 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wide">Project Impact</h4>
+                            <p className="text-gray-700 font-medium text-lg">{project.impact}</p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="bg-primary text-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-5xl font-bold mb-2">50+</div>
-              <div className="text-white/80">Projects Delivered</div>
+      {/* ENHANCED STATS SECTION */}
+      <section className="relative bg-primary text-white py-20 overflow-hidden">
+        {/* Simple Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/10 rounded-full"></div>
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white px-8 py-4 rounded-full text-sm font-bold mb-8 border border-white/30 shadow-xl">
+              <FiExternalLink className="w-5 h-5 text-pattern" />
+              <span>Success Metrics</span>
             </div>
-            <div>
-              <div className="text-5xl font-bold mb-2">30+</div>
-              <div className="text-white/80">Happy Clients</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold mb-2">100K+</div>
-              <div className="text-white/80">Users Served</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold mb-2">7+</div>
-              <div className="text-white/80">Years Experience</div>
-            </div>
+            <h2 className="text-5xl md:text-6xl font-black mb-8 tracking-tight">Project Impact</h2>
+            <p className="text-2xl text-white/95 max-w-4xl mx-auto font-light">Numbers that speak for the quality and success of delivered solutions</p>
+          </div>
+          
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { number: "50+", label: "Projects Delivered", icon: FiCode },
+              { number: "30+", label: "Happy Clients", icon: FiLayout },
+              { number: "100K+", label: "Users Served", icon: FiServer },
+              { number: "8+", label: "Years Experience", icon: FiExternalLink }
+            ].map((stat, index) => {
+              const StatIcon = stat.icon;
+              return (
+                <div key={index} className="text-center group">
+                  <div className="relative mb-8">
+                    <div className="w-24 h-24 bg-white/20 rounded-3xl flex items-center justify-center mx-auto group-hover:scale-110 transition-all duration-500 backdrop-blur-sm border border-white/40 shadow-2xl group-hover:bg-white/30">
+                      <StatIcon className="w-12 h-12 text-pattern group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                    <div className="absolute inset-0 w-24 h-24 bg-white/20 rounded-3xl mx-auto opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                  </div>
+                  <div className="text-6xl md:text-7xl font-black mb-4 group-hover:scale-110 transition-all duration-300 text-white drop-shadow-lg">
+                    {stat.number}
+                  </div>
+                  <div className="text-white/95 text-xl font-semibold tracking-wide">{stat.label}</div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-xl text-secondary/60 mb-8">
-            Let's discuss how I can help bring your ideas to life with modern web technologies.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a
-              href="/contact"
-              className="inline-block bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold transition-colors"
-            >
-              Get in Touch
-            </a>
-            <a
-              href="/skills"
-              className="inline-block border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors"
-            >
-              View Skills
-            </a>
-          </div>
-        </div>
-      </section>
+      <CTASection 
+        title="Ready to Start Your Next Project?"
+        subtitle="Let's collaborate to create something amazing together. From concept to deployment, I'll help bring your vision to life with cutting-edge web technologies."
+        secondaryButtonText="View Skills"
+        secondaryButtonHref="/skills"
+      />
     </>
   );
 }

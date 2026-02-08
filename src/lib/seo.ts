@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 export const siteConfig = {
   name: 'Umesh Gajjar',
   title: 'Umesh Gajjar | Senior Full Stack Developer',
-  description: 'Senior Full Stack Developer with 7+ years of experience specializing in React.js, Next.js, Vue.js, Node.js, Laravel, and WordPress. Building scalable web applications for startups, agencies, and SaaS companies.',
+  description: 'Senior Full Stack Developer with 8+ years of experience specializing in React.js, Next.js, Vue.js, Node.js, Laravel, and WordPress. Building scalable web applications for startups, agencies, and SaaS companies.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://umeshgajjar.com',
   author: 'Umesh Gajjar',
   location: 'Pune, Maharashtra, India',
@@ -30,8 +30,8 @@ export const siteConfig = {
   ],
   social: {
     github: 'https://github.com/gajjarumesh',
-    linkedin: 'https://linkedin.com/in/umeshgajjar',
-    twitter: 'https://twitter.com/umeshgajjar',
+    linkedin: 'https://www.linkedin.com/in/umesh-gajjar-6a8817108/',
+    twitter: 'https://twitter.com/_umesh_gajjar',
   },
   banner: '/banner.png',
 };

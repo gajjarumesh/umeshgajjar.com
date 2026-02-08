@@ -1,6 +1,6 @@
 # Umesh Gajjar - Portfolio Website
 
-Premium, SEO-optimized portfolio website showcasing full-stack development expertise with 7+ years of experience. Built with Next.js 15, TypeScript, and Tailwind CSS 4.
+Premium, SEO-optimized portfolio website showcasing full-stack development expertise with 8+ years of experience. Built with Next.js 15, TypeScript, and Tailwind CSS 4.
 
 ## ✨ Features
 
@@ -238,4 +238,4 @@ The site can be deployed to any platform supporting Next.js:
 ---
 
 **Built with ❤️ by Umesh Gajjar**  
-[umeshgajjar.com](https://umeshgajjar.com) | [GitHub](https://github.com/gajjarumesh) | [LinkedIn](https://linkedin.com/in/umeshgajjar)
+[umeshgajjar.com](https://umeshgajjar.com) | [GitHub](https://github.com/gajjarumesh) | [LinkedIn](https://www.linkedin.com/in/umesh-gajjar-6a8817108/)

@@ -1,25 +1,23 @@
-import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
-import { generatePageMetadata, injectStructuredData, generateBreadcrumbSchema } from '@/lib/seo';
-import { FiCalendar, FiMapPin, FiBriefcase } from 'react-icons/fi';
+import { CTASection } from '@/components/CTASection';
+import { 
+  FiCalendar, 
+  FiMapPin, 
+  FiBriefcase, 
+  FiCheckCircle,
+  FiAward,
+  FiTrendingUp,
+  FiUsers,
+  FiCode,
+  FiStar
+} from 'react-icons/fi';
 
-export const metadata = generatePageMetadata({
-  title: 'Professional Experience & Career Timeline',
+export const metadata = {
+  title: 'Professional Experience & Career Timeline | Umesh Gajjar',
   description:
-    'Detailed career journey of Umesh Gajjar - from WordPress developer to Senior Associate Consultant at Infosys. 7+ years of full-stack development experience leading teams at Acespritech, NewsReach, KNP Technologies, and more.',
-  keywords: [
-    'Umesh Gajjar Experience',
-    'Career Timeline',
-    'Infosys Developer',
-    'Team Lead',
-    'Full Stack Career',
-    'Software Engineer Experience',
-    'Acespritech',
-    'Freelance Developer',
-    'Professional Experience',
-  ],
-  path: '/experience',
-});
+    'Detailed career journey of Umesh Gajjar - from WordPress developer to Senior Associate Consultant at Infosys. 8+ years of full-stack development experience leading teams at Acespritech, NewsReach, KNP Technologies, and more.',
+  keywords: 'Umesh Gajjar Experience, Career Timeline, Infosys Developer, Team Lead, Full Stack Career, Software Engineer Experience, Acespritech, Freelance Developer',
+};
 
 const experiences = [
   {
@@ -191,241 +189,289 @@ const experiences = [
 ];
 
 export default function ExperiencePage() {
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', path: '/' },
-    { name: 'Experience', path: '/experience' },
-  ]);
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={injectStructuredData(breadcrumbSchema)}
-      />
-
-      {/* Hero Section */}
-      <Section className="bg-gradient-to-b from-white via-gray-50/30 to-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="space-y-6">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary tracking-tight">
-              Professional Experience
-            </h1>
-            <p className="text-lg md:text-xl text-secondary/70 leading-relaxed">
-              7+ years of full-stack development experience building scalable web
-              applications
-            </p>
-            <p className="text-base md:text-lg text-secondary/60 leading-relaxed">
-              From WordPress developer to leading enterprise teams at Infosys
-            </p>
+      {/* MODERN HERO SECTION */}
+      <section className="relative min-h-[60vh] bg-primary py-20 md:py-32 overflow-hidden">
+        {/* Simple Background Pattern */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-pattern/10 rounded-full"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/20 rounded-full"></div>
+        </div>
+        
+        {/* Floating Particles */}
+        <div className="absolute inset-0">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 bg-white/10 rounded-full animate-bounce"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${2 + Math.random() * 3}s`,
+              }}
+            />
+          ))}
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 border border-white/20">
+            <FiBriefcase className="w-4 h-4 text-pattern" />
+            <span>Career Journey</span>
+          </div>
+          
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight">
+            Professional Experience
+          </h1>
+          
+          <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed mb-8">
+            8+ years of full-stack development experience, from WordPress developer
+            to enterprise team leadership at global companies.
+          </p>
+          
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white/90 border border-white/20">
+              <FiTrendingUp className="w-4 h-4 text-green-400" />
+              <span className="text-sm">8+ Years Growth</span>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white/90 border border-white/20">
+              <FiUsers className="w-4 h-4 text-green-400" />
+              <span className="text-sm">Team Leadership</span>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white/90 border border-white/20">
+              <FiAward className="w-4 h-4 text-green-400" />
+              <span className="text-sm">Enterprise Level</span>
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* Career Timeline */}
-      <Section className="bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="space-y-8">
+      {/* MODERN CAREER TIMELINE */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-6 py-3 rounded-full text-sm font-semibold mb-6">
+              <FiCalendar className="w-4 h-4 text-pattern" />
+              <span>Career Timeline</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Professional Journey
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+              A comprehensive look at my career progression and key contributions at each stage
+            </p>
+          </div>
+
+          <div className="space-y-12">
             {experiences.map((exp, index) => (
-              <div
-                key={index}
-                className="bg-white border-2 border-gray-100 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 p-8 group"
-              >
-                {/* Header */}
-                <div className="mb-6">
-                  <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-3 group-hover:text-primary transition-colors duration-300">
-                    {exp.position}
-                  </h2>
-                  <div className="flex flex-col md:flex-row md:items-center md:gap-6 mb-3">
-                    <span className="text-lg text-primary font-semibold">
-                      {exp.company}
-                    </span>
-                    <div className="flex flex-wrap items-center gap-4 text-secondary/60 text-sm mt-2 md:mt-0 font-normal">
-                      <span className="flex items-center gap-2">
-                        <FiCalendar className="w-4 h-4" />
-                        {exp.duration}
-                      </span>
-                      <span className="flex items-center gap-2">
-                        <FiMapPin className="w-4 h-4" />
-                        {exp.location}
-                      </span>
-                      <span className="flex items-center gap-2">
-                        <FiBriefcase className="w-4 h-4" />
-                        {exp.type}
-                      </span>
+              <div key={index} className="relative">
+                {/* Timeline connector */}
+                
+                <div className="bg-white border border-gray-100 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden group">
+                  {/* Company header with gradient */}
+                  <div className="bg-gradient-to-r from-primary to-primary-400 p-8 text-white relative overflow-hidden">
+
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/20 rounded-full"></div>
+                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-primary/20 rounded-full"></div>
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                          <FiBriefcase className="w-6 h-6 text-pattern" />
+                        </div>
+                        <div>
+                          <h2 className="text-2xl md:text-3xl font-bold mb-1">
+                            {exp.position}
+                          </h2>
+                          <p className="text-xl font-semibold text-white/90">
+                            {exp.company}
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex flex-wrap gap-4 text-white/90">
+                        <div className="flex items-center gap-2">
+                          <FiCalendar className="w-4 h-4 text-pattern" />
+                          <span className="text-sm font-medium">{exp.duration}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <FiMapPin className="w-4 h-4 text-pattern" />
+                          <span className="text-sm font-medium">{exp.location}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <FiBriefcase className="w-4 h-4 text-pattern" />
+                          <span className="text-sm font-medium">{exp.type}</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Description */}
-                <p className="text-base md:text-lg text-secondary/80 mb-6 leading-relaxed">
-                  {exp.description}
-                </p>
+                  <div className="p-8 space-y-8">
+                    {/* Description */}
+                    <div className="bg-gradient-to-r from-gray-50 to-white p-6 rounded-xl border border-gray-100">
+                      <p className="text-lg text-gray-700 leading-relaxed">
+                        {exp.description}
+                      </p>
+                    </div>
 
-                {/* Responsibilities */}
-                {exp.responsibilities && (
-                  <div className="mb-6">
-                    <h3 className="text-lg font-semibold text-secondary mb-4">
-                      Key Responsibilities:
-                    </h3>
-                    <ul className="space-y-3">
-                      {exp.responsibilities.map((resp, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-3 text-base text-secondary/80"
-                        >
-                          <span className="text-primary mt-1 flex-shrink-0 font-bold">
-                            •
+                    {/* Responsibilities */}
+                    {exp.responsibilities && (
+                      <div>
+                        <div className="flex items-center gap-3 mb-6">
+                          <div className="p-2 bg-primary/10 rounded-lg">
+                            <FiCheckCircle className="w-5 h-5 text-pattern" />
+                          </div>
+                          <h3 className="text-xl font-bold text-gray-900">
+                            Key Responsibilities
+                          </h3>
+                        </div>
+                        <div className="grid md:grid-cols-2 gap-4">
+                          {exp.responsibilities.map((resp, i) => (
+                            <div key={i} className="flex items-start gap-3 p-4 bg-white border border-gray-100 rounded-lg hover:border-primary/30 transition-colors">
+                              <div className="w-2 h-2 bg-pattern rounded-full mt-2 flex-shrink-0"></div>
+                              <span className="text-gray-700">{resp}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Achievements */}
+                    {exp.achievements && (
+                      <div>
+                        <div className="flex items-center gap-3 mb-6">
+                          <div className="p-2 bg-green-100 rounded-lg">
+                            <FiAward className="w-5 h-5 text-pattern" />
+                          </div>
+                          <h3 className="text-xl font-bold text-gray-900">
+                            Key Achievements
+                          </h3>
+                        </div>
+                        <div className="grid gap-4">
+                          {exp.achievements.map((achievement, i) => (
+                            <div key={i} className="flex items-start gap-3 p-4 bg-gradient-to-r from-green-50 to-primary-50 border border-green-100 rounded-lg">
+                              <FiCheckCircle className="w-5 h-5 text-pattern mt-0.5 flex-shrink-0" />
+                              <span className="text-gray-700 font-medium">{achievement}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Projects */}
+                    {exp.projects && (
+                      <div>
+                        <div className="flex items-center gap-3 mb-6">
+                          <div className="p-2 bg-secondary/10 rounded-lg">
+                            <FiCode className="w-5 h-5 text-pattern" />
+                          </div>
+                          <h3 className="text-xl font-bold text-gray-900">
+                            Notable Projects
+                          </h3>
+                        </div>
+                        <div className="grid gap-3">
+                          {exp.projects.map((project, i) => (
+                            <div key={i} className="flex items-start gap-3 p-4 bg-secondary/5 border border-secondary/10 rounded-lg">
+                              <div className="w-2 h-2 bg-pattern rounded-full mt-2 flex-shrink-0"></div>
+                              <span className="text-gray-700">{project}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Technologies */}
+                    <div>
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="p-2 bg-primary/10 rounded-lg">
+                          <FiCode className="w-5 h-5 text-pattern" />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900">
+                          Technologies Used
+                        </h3>
+                      </div>
+                      <div className="flex flex-wrap gap-3">
+                        {exp.technologies.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 text-pattern font-semibold rounded-full border border-primary/20 hover:from-primary/20 hover:to-secondary/20 transition-colors"
+                          >
+                            {tech}
                           </span>
-                          <span>{resp}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Achievements */}
-                {exp.achievements && (
-                  <div className="mb-6">
-                    <h3 className="text-lg font-semibold text-secondary mb-4">
-                      Key Achievements:
-                    </h3>
-                    <ul className="space-y-3">
-                      {exp.achievements.map((achievement, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-3 text-base text-secondary/80"
-                        >
-                          <span className="text-green-600 mt-1 flex-shrink-0 font-bold">
-                            ✓
-                          </span>
-                          <span>{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Projects */}
-                {exp.projects && (
-                  <div className="mb-6">
-                    <h3 className="text-lg font-semibold text-secondary mb-4">
-                      Notable Projects:
-                    </h3>
-                    <ul className="space-y-3">
-                      {exp.projects.map((project, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-3 text-base text-secondary/80"
-                        >
-                          <span className="text-primary mt-1 flex-shrink-0 font-bold">
-                            →
-                          </span>
-                          <span>{project}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Technologies */}
-                <div>
-                  <h3 className="text-lg font-semibold text-secondary mb-4">
-                    Technologies Used:
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1.5 text-xs font-semibold bg-primary/5 text-primary rounded-lg border border-primary/10"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* Skills Highlight */}
-      <Section className="bg-white">
-        <div className="max-w-7xl mx-auto">
+      {/* SKILLS HIGHLIGHT */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-6 py-3 rounded-full text-sm font-semibold mb-6">
+              <FiStar className="w-4 h-4 text-pattern" />
+              <span>Core Competencies</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Skills Developed Through Experience
             </h2>
-            <p className="text-lg md:text-xl text-secondary/80 max-w-2xl mx-auto">
-              Comprehensive skill set built through hands-on experience across
-              diverse projects
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+              Comprehensive skill set built through hands-on experience across diverse projects and leadership roles
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-8 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300">
-              <h3 className="text-xl md:text-2xl font-semibold text-secondary mb-3">
+            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
+              <div className="p-4 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl w-fit mb-6 group-hover:from-primary/20 group-hover:to-secondary/20 transition-colors">
+                <FiUsers className="w-8 h-8 text-pattern" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors">
                 Technical Leadership
               </h3>
-              <p className="text-base text-secondary/80 leading-relaxed">
-                6+ years leading development teams, making architectural
-                decisions, and driving technical excellence
+              <p className="text-gray-600 leading-relaxed text-lg">
+                6+ years leading development teams, making architectural decisions,
+                and driving technical excellence across enterprise projects.
               </p>
             </div>
 
-            <div className="p-8 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300">
-              <h3 className="text-xl md:text-2xl font-semibold text-secondary mb-3">
+            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
+              <div className="p-4 bg-gradient-to-br from-secondary/10 to-primary/10 rounded-2xl w-fit mb-6 group-hover:from-secondary/20 group-hover:to-primary/20 transition-colors">
+                <FiCode className="w-8 h-8 text-pattern" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-secondary transition-colors">
                 Full-Stack Expertise
               </h3>
-              <p className="text-base text-secondary/80 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-lg">
                 Mastery of modern frontend frameworks (React, Next.js, Vue.js)
-                and backend technologies (Node.js, Laravel, PHP)
+                and backend technologies (Node.js, Laravel, PHP).
               </p>
             </div>
 
-            <div className="p-8 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300">
-              <h3 className="text-xl md:text-2xl font-semibold text-secondary mb-3">
+            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
+              <div className="p-4 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl w-fit mb-6 group-hover:from-primary/20 group-hover:to-secondary/20 transition-colors">
+                <FiTrendingUp className="w-8 h-8 text-pattern" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors">
                 Client Management
               </h3>
-              <p className="text-base text-secondary/80 leading-relaxed">
-                Strong communication skills, requirement gathering, and managing
-                stakeholder expectations
+              <p className="text-gray-600 leading-relaxed text-lg">
+                Strong communication skills, requirement gathering, stakeholder
+                management, and delivering projects that exceed expectations.
               </p>
             </div>
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* CTA Section */}
-      <Section className="bg-primary text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Interested in Working Together?
-          </h2>
-          <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed">
-            With 7+ years of experience and a proven track record, I'm ready to
-            help your team succeed.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              href="/contact"
-              variant="secondary"
-              size="lg"
-              className="bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold shadow-sm hover:shadow-md transition-all duration-300"
-            >
-              Get in Touch
-            </Button>
-            <Button
-              href="/projects"
-              variant="outline"
-              size="lg"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold transition-all duration-300"
-            >
-              View Projects
-            </Button>
-          </div>
-        </div>
-      </Section>
+      <CTASection 
+        title="Interested in Working Together?"
+        subtitle="With 8+ years of experience and a proven track record, I'm ready to help your team succeed and deliver exceptional results."
+      />
     </>
   );
 }

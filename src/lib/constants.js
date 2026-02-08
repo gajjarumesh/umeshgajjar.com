@@ -12,8 +12,8 @@ export const SITE_CONFIG = {
 
 export const SOCIAL_LINKS = {
   github: "https://github.com/gajjarumesh",
-  linkedin: "https://linkedin.com/in/umeshgajjar",
-  twitter: "https://twitter.com/umeshgajjar",
+  linkedin: "https://www.linkedin.com/in/umesh-gajjar-6a8817108/",
+  twitter: "https://twitter.com/_umesh_gajjar",
   email: "mailto:hello@umeshgajjar.com",
 };
 

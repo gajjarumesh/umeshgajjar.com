@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 interface ButtonProps {
   href?: string;
   children: ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'secondary' | 'outline' | 'custom';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   onClick?: () => void;
@@ -23,21 +23,21 @@ export function Button({
   disabled = false,
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-sm hover:shadow-md';
+    'group inline-flex items-center justify-center gap-2 font-semibold rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-xl hover:shadow-2xl transform hover:-translate-y-1';
 
   const variantStyles = {
     primary:
-      'bg-primary text-white hover:bg-primary-600 focus:ring-primary-500',
+      'bg-primary hover:bg-white text-white hover:text-primary hover:border-primary border-2 border-primary focus:ring-primary-500 shadow-xl hover:shadow-primary/25',
     secondary:
-      'bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500',
+      'bg-white/50 backdrop-blur-sm border-2 border-gray-200/50 text-secondary hover:bg-gray-100 hover:border-gray-300 focus:ring-gray-500',
     outline:
-      'border-2 border-secondary text-secondary hover:bg-secondary hover:text-white focus:ring-primary-500',
+      'border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-secondary focus:ring-primary-500',
   };
 
   const sizeStyles = {
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg',
+    sm: 'px-6 py-3 text-sm',
+    md: 'px-8 py-4 text-base',
+    lg: 'px-10 py-5 text-lg',
   };
 
   const disabledStyles = disabled ? 'opacity-50 cursor-not-allowed' : '';
