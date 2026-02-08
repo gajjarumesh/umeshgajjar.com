@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { FaXTwitter } from 'react-icons/fa6';
 import { FiGithub, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
 
 const FOOTER_LINKS = {
@@ -23,9 +24,9 @@ const FOOTER_LINKS = {
       icon: FiLinkedin,
     },
     {
-      href: 'https://twitter.com/_umesh_gajjar',
-      label: 'Twitter',
-      icon: FiTwitter,
+      href: 'https://x.com/_umesh_gajjar',
+      label: 'X (Twitter)',
+      icon: FaXTwitter,
     },
     {
       href: 'mailto:hello@umeshgajjar.com',

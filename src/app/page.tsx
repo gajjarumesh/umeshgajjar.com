@@ -1,9 +1,7 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
-import { Section } from '@/components/ui/Section';
 import { CTASection } from '@/components/CTASection';
-import { FiCode, FiServer, FiLayout, FiCloud, FiCheckCircle, FiArrowRight, FiStar, FiExternalLink } from 'react-icons/fi';
+import { FiCode, FiServer, FiLayout, FiCloud, FiCheckCircle, FiArrowRight, FiExternalLink } from 'react-icons/fi';
 
 export const metadata = {
   title: 'Senior Full Stack Developer Building Scalable Web Applications | Umesh Gajjar',

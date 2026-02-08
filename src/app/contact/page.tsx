@@ -5,7 +5,6 @@ import ContactForm from './ContactForm';
 import {
   FiGithub,
   FiLinkedin,
-  FiTwitter,
   FiCode,
   FiMessageSquare,
   FiMail,
@@ -15,6 +14,7 @@ import {
   FiCalendar,
   FiCheckCircle,
 } from 'react-icons/fi';
+import { FaXTwitter } from 'react-icons/fa6';
 
 export const metadata = {
   title: 'Contact - Hire Full Stack Developer for Your Project | Umesh Gajjar',
@@ -34,15 +34,15 @@ const socialLinks = [
   {
     name: 'LinkedIn',
     icon: FiLinkedin,
-    url: 'https://www.linkedin.com/in/umesh-gajjar-6a8817108/',
-    handle: '/in/umeshgajjar',
+    url: 'https://www.linkedin.com/in/umesh-gajjar/',
+    handle: '/in/umesh-gajjar',
     color: 'bg-primary',
   },
   {
-    name: 'Twitter',
-    icon: FiTwitter,
-    url: 'https://twitter.com/_umesh_gajjar',
-    handle: '@umeshgajjar',
+    name: 'X (Twitter)',
+    icon: FaXTwitter,
+    url: 'https://x.com/_umesh_gajjar',
+    handle: '@_umesh_gajjar',
     color: 'bg-primary',
   },
 ];

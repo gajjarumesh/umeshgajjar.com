@@ -13,14 +13,6 @@ export const SITE_CONFIG = {
 export const SOCIAL_LINKS = {
   github: "https://github.com/gajjarumesh",
   linkedin: "https://www.linkedin.com/in/umesh-gajjar-6a8817108/",
-  twitter: "https://twitter.com/_umesh_gajjar",
+  x: "https://x.com/_umesh_gajjar",
   email: "mailto:hello@umeshgajjar.com",
 };
-
-export const NAVIGATION_LINKS = [
-  { label: "Home", href: "/", external: false },
-  { label: "About", href: "/about", external: false },
-  { label: "Paravix", href: "/paravix", external: false },
-  { label: "Services", href: "/services", external: false },
-  { label: "Contact", href: "/contact", external: false },
-];

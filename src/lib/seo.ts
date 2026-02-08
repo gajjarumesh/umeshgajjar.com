@@ -30,8 +30,8 @@ export const siteConfig = {
   ],
   social: {
     github: 'https://github.com/gajjarumesh',
-    linkedin: 'https://www.linkedin.com/in/umesh-gajjar-6a8817108/',
-    twitter: 'https://twitter.com/_umesh_gajjar',
+    linkedin: 'https://www.linkedin.com/in/umesh-gajjar/',
+    x: 'https://x.com/_umesh_gajjar',
   },
   banner: '/banner.png',
 };
@@ -133,7 +133,7 @@ export function generatePersonSchema() {
     sameAs: [
       siteConfig.social.github,
       siteConfig.social.linkedin,
-      siteConfig.social.twitter,
+      siteConfig.social.x,
     ],
     knowsAbout: [
       'React.js',
@@ -202,7 +202,7 @@ export function generateProfilePageSchema() {
       sameAs: [
         siteConfig.social.github,
         siteConfig.social.linkedin,
-        siteConfig.social.twitter,
+        siteConfig.social.x,
       ],
     },
   };
@@ -226,7 +226,7 @@ export function generateOrganizationSchema() {
     sameAs: [
       siteConfig.social.github,
       siteConfig.social.linkedin,
-      siteConfig.social.twitter,
+      siteConfig.social.x,
     ],
   };
 }
