@@ -75,3 +75,16 @@ a {
 .card-description {
   @apply text-base text-secondary/75 leading-relaxed;
 }
+
+
+.blog-content br {
+    display: none;
+}
+
+.blog-content h2 {margin-top: 55px;}
+
+.blog-content p, .blog-content li {
+    font-size: 16px;
+}
+
+.blog-content code {margin-bottom: 0px;display: inline-block;}
