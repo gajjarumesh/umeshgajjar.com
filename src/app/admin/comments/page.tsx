@@ -124,7 +124,7 @@ export default function CommentsPage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'approved':
-        return 'text-green-700 bg-green-100 border-green-200';
+        return 'text-green-700 bg-pattern border-green-200';
       case 'rejected':
         return 'text-red-700 bg-red-100 border-red-200';
       default:
@@ -192,7 +192,7 @@ export default function CommentsPage() {
 
           <div className="bg-white rounded-2xl p-6 border border-secondary/20">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-pattern rounded-xl flex items-center justify-center">
                 <FiCheck className="w-6 h-6 text-green-600" />
               </div>
               <div>
@@ -310,7 +310,7 @@ export default function CommentsPage() {
                               size="sm"
                               onClick={() => updateCommentStatus(comment._id, 'approved')}
                               disabled={processingIds.has(comment._id)}
-                              className="bg-green-600 hover:bg-green-700 text-white inline-flex items-center gap-2"
+                              className="bg-pattern hover:bg-pattern-700 text-white inline-flex items-center gap-2"
                             >
                               {processingIds.has(comment._id) ? (
                                 <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -354,7 +354,7 @@ export default function CommentsPage() {
                             size="sm"
                             onClick={() => updateCommentStatus(comment._id, 'approved')}
                             disabled={processingIds.has(comment._id)}
-                            className="bg-green-600 hover:bg-green-700 text-white inline-flex items-center gap-2"
+                            className="bg-pattern hover:bg-pattern-700 text-white inline-flex items-center gap-2"
                           >
                             <FiCheck className="w-4 h-4" />
                             Approve

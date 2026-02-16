@@ -172,7 +172,7 @@ export default function AdminDashboardPage() {
 
           <div className="bg-white rounded-2xl p-6 border border-secondary/20">
             <div className="flex items-center justify-between mb-4">
-              <div className="p-3 bg-green-100 rounded-xl">
+              <div className="p-3 bg-pattern rounded-xl">
                 <FiMessageCircle className="w-6 h-6 text-green-600" />
               </div>
               <span className="text-2xl font-bold text-fontColor">
@@ -214,7 +214,7 @@ export default function AdminDashboardPage() {
                         </h4>
                         <span className={`px-2 py-1 text-xs font-medium rounded-full ${
                           blog.status === 'published' 
-                            ? 'bg-green-100 text-green-700' 
+                            ? 'bg-pattern text-green-700' 
                             : blog.status === 'draft'
                             ? 'bg-yellow-100 text-yellow-700'
                             : 'bg-gray-100 text-gray-700'

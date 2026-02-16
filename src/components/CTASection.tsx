@@ -18,7 +18,7 @@ export function CTASection({
   secondaryButtonHref = "/projects"
 }: CTASectionProps) {
   return (
-    <section className="relative bg-secondary py-24 md:py-32 overflow-hidden">
+    <section className="relative bg-white py-24 md:py-32 overflow-hidden">
       {/* Subtle background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-64 h-64 bg-pattern/10 rounded-full"></div>
@@ -26,7 +26,7 @@ export function CTASection({
       </div>
       
       <div className="relative max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="bg-white/15 backdrop-blur-lg border border-white/25 p-12 md:p-16 lg:p-20 rounded-3xl shadow-lg">
+        <div className="bg-white/15 bg-gradient-to-r from-primary to-primary-400 p-12 md:p-16 lg:p-20 rounded-3xl shadow-lg">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-3 bg-primary/20 backdrop-blur-sm text-white px-8 py-4 rounded-full text-sm font-semibold mb-12 border border-white/30 shadow-sm">
               <span>Let's Collaborate</span>
@@ -35,7 +35,7 @@ export function CTASection({
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
               {title.split(' ').map((word, index) => (
                 word.toLowerCase() === 'work?' || word.toLowerCase() === 'work' ? (
-                      <span key={index} className="text-fontColor">{word} </span>
+                      <span key={index} className="text-primary">{word} </span>
                 ) : (
                   <span key={index}>{word} </span>
                 )

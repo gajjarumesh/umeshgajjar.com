@@ -31,7 +31,7 @@ export function Button({
     secondary:
       'bg-white/50 backdrop-blur-sm border-2 border-gray-200/50 text-secondary hover:bg-gray-100 hover:border-gray-300 focus:ring-gray-500',
     outline:
-      'border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-secondary focus:ring-primary-500',
+      'bg-white/10 backdrop-blur-sm focus:ring-primary-500 text-primary border-2 border-primary',
   };
 
   const sizeStyles = {

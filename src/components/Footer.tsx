@@ -159,7 +159,7 @@ export function Footer() {
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-3 text-sm text-white/60">
                 <div className="flex items-center gap-1">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                  <div className="w-2 h-2 bg-pattern-400 rounded-full animate-pulse"></div>
                   <span>Currently available</span>
                 </div>
               </div>

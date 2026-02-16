@@ -116,7 +116,7 @@ export default function AdminBlogsPage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'published':
-        return 'bg-green-100 text-green-700 border-green-200';
+        return 'bg-pattern text-green-700 border-green-200';
       case 'draft':
         return 'bg-yellow-100 text-yellow-700 border-yellow-200';
       case 'archived':

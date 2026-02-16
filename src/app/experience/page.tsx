@@ -280,7 +280,7 @@ export default function ExperiencePage() {
                           <FiBriefcase className="w-6 h-6 text-pattern" />
                         </div>
                         <div>
-                          <h2 className="text-2xl md:text-3xl font-bold mb-1">
+                          <h2 className="text-2xl md:text-3xl font-bold mb-1 text-white">
                             {exp.position}
                           </h2>
                           <p className="text-xl font-semibold text-white/90">
@@ -340,7 +340,7 @@ export default function ExperiencePage() {
                     {exp.achievements && (
                       <div>
                         <div className="flex items-center gap-3 mb-6">
-                          <div className="p-2 bg-green-100 rounded-lg">
+                          <div className="p-2 bg-pattern rounded-lg">
                             <FiAward className="w-5 h-5 text-pattern" />
                           </div>
                           <h3 className="text-xl font-bold text-gray-900">

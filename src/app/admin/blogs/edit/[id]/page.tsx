@@ -338,7 +338,7 @@ export default function EditBlogPage() {
               <span
                 className={`px-3 py-1 text-xs font-medium rounded-full border ${
                   formData.status === 'published'
-                    ? 'bg-green-100 text-green-700 border-green-200'
+                    ? 'bg-pattern text-green-700 border-green-200'
                     : formData.status === 'draft'
                     ? 'bg-yellow-100 text-yellow-700 border-yellow-200'
                     : 'bg-gray-100 text-gray-700 border-gray-200'

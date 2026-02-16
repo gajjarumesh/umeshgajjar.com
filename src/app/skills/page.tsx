@@ -300,7 +300,7 @@ export default function SkillsPage() {
                         <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/30">
                           <Icon className="w-8 h-8 text-pattern" />
                         </div>
-                        <h2 className="text-2xl md:text-3xl font-bold">{category.title}</h2>
+                        <h2 className="text-2xl md:text-3xl font-bold text-white">{category.title}</h2>
                       </div>
                       
                       <p className="text-white/90 text-lg leading-relaxed">{category.description}</p>

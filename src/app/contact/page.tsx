@@ -285,7 +285,7 @@ export default function ContactPage() {
             </p>
           </div>
           
-          <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl">
+          <div className="bg-white backdrop-blur-lg rounded-3xl p-8 md:p-12 shadow-2xl">
             <ContactForm />
           </div>
         </div>
