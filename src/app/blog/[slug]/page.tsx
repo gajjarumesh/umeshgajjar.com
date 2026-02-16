@@ -7,17 +7,18 @@ import BlogDetailClient from './BlogDetailClient';
 import { CTASection } from '@/components/CTASection';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Generate dynamic metadata for blog posts
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   try {
+    const { slug } = await params;
     await dbConnect();
     const blog = await Blog.findOne({ 
-      slug: params.slug, 
+      slug: slug, 
       status: 'published' 
     }).lean();
 
@@ -108,7 +109,8 @@ async function getBlogBySlug(slug: string) {
 }
 
 export default async function BlogDetailPage({ params }: PageProps) {
-  const blog = await getBlogBySlug(params.slug);
+  const { slug } = await params;
+  const blog = await getBlogBySlug(slug);
 
   if (!blog) {
     notFound();
@@ -139,7 +141,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostSchema) }}
       />
       
-      <BlogDetailClient initialBlog={blog} slug={params.slug} />
+      <BlogDetailClient initialBlog={blog} slug={slug} />
       <CTASection />
     </>
   );

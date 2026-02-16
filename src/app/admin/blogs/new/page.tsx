@@ -31,6 +31,7 @@ interface BlogForm {
   seoTitle: string;
   seoDescription: string;
   seoKeywords: string;
+  author: string;
 }
 
 export default function NewBlogPage() {
@@ -48,6 +49,7 @@ export default function NewBlogPage() {
     seoTitle: '',
     seoDescription: '',
     seoKeywords: '',
+    author: 'Umesh Gajjar',
   });
   const [categoryInput, setCategoryInput] = useState('');
   const [tagInput, setTagInput] = useState('');

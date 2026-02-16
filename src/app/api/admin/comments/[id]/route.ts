@@ -47,7 +47,7 @@ export async function PUT(
 
     // Find and update the comment
     const result = await Blog.updateOne(
-      { 'comments._id': new mongoose.Types.ObjectId(id) },
+      { 'comments._id': id },
       { 
         $set: { 
           'comments.$.status': status,
@@ -95,10 +95,10 @@ export async function DELETE(
 
     // Remove the comment from the blog
     const result = await Blog.updateOne(
-      { 'comments._id': new mongoose.Types.ObjectId(id) },
+      { 'comments._id': id },
       { 
         $pull: { 
-          comments: { _id: new mongoose.Types.ObjectId(id) } 
+          comments: { _id: id } 
         } 
       }
     );

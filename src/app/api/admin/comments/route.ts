@@ -46,7 +46,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Aggregate to get all comments from all blogs
-    const pipeline = [
+    const pipeline: any[] = [
       { $unwind: '$comments' },
       ...(status !== 'all' ? [{ $match: { 'comments.status': status } }] : []),
       {
@@ -72,7 +72,7 @@ export async function GET(request: NextRequest) {
     const comments = await Blog.aggregate(pipeline);
 
     // Get total count
-    const countPipeline = [
+    const countPipeline: any[] = [
       { $unwind: '$comments' },
       ...(status !== 'all' ? [{ $match: { 'comments.status': status } }] : []),
       { $count: 'total' }
