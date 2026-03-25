@@ -10,6 +10,10 @@ import {
   FiExternalLink,
   FiGithub,
 } from 'react-icons/fi';
+import { HeroParticles } from '@/components/animations/HeroParticles';
+import { FadeUp } from '@/components/animations/FadeUp';
+import { StaggerContainer, StaggerItem } from '@/components/animations/StaggerContainer';
+import { CountUp } from '@/components/animations/CountUp';
 
 export const metadata = {
   title: 'Portfolio Projects & Web Development Work | Umesh Gajjar',
@@ -389,21 +393,8 @@ export default function ProjectsPage() {
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/20 rounded-full"></div>
         </div>
         
-        {/* Floating Particles */}
-        <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-white/10 rounded-full animate-bounce"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 3}s`,
-              }}
-            />
-          ))}
-        </div>
+        {/* Floating Particles - hydration-safe */}
+        <HeroParticles />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 border border-white/20">
@@ -453,11 +444,12 @@ export default function ProjectsPage() {
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-12">
+          <StaggerContainer className="grid lg:grid-cols-2 gap-12">
             {allProjects.slice(0, 6).map((project, index) => {
               const CategoryIcon = project.categoryIcon;
               return (
-                <div key={index} className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-primary/30 hover:-translate-y-2">
+                <StaggerItem key={index}>
+                <div className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-primary/30 hover:-translate-y-2">
                   {/* Modern Header with gradient */}
                   <div className="bg-gradient-to-r from-primary to-primary-400 text-white p-8 relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl transform translate-x-8 -translate-y-8"></div>
@@ -530,9 +522,10 @@ export default function ProjectsPage() {
                     )}
                   </div>
                 </div>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -571,7 +564,7 @@ export default function ProjectsPage() {
                     <div className="absolute inset-0 w-24 h-24 bg-white/20 rounded-3xl mx-auto opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                   </div>
                   <div className="text-6xl md:text-7xl font-black mb-4 group-hover:scale-110 transition-all duration-300 text-white drop-shadow-lg">
-                    {stat.number}
+                    <CountUp value={stat.number} />
                   </div>
                   <div className="text-white/95 text-xl font-semibold tracking-wide">{stat.label}</div>
                 </div>

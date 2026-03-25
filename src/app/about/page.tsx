@@ -3,6 +3,9 @@ import { Button } from '@/components/ui/Button';
 import { CTASection } from '@/components/CTASection';
 import Link from 'next/link';
 import { FiCode, FiUsers, FiTrendingUp, FiHeart, FiCheckCircle, FiMessageSquare, FiTarget, FiBriefcase, FiBookOpen, FiShield, FiLayers, FiStar, FiUser, FiMapPin, FiArrowRight } from 'react-icons/fi';
+import { HeroParticles } from '@/components/animations/HeroParticles';
+import { FadeUp } from '@/components/animations/FadeUp';
+import { StaggerContainer, StaggerItem } from '@/components/animations/StaggerContainer';
 
 export const metadata = {
   title: 'About Umesh Gajjar - Senior Full Stack Developer | Umesh Gajjar',
@@ -88,21 +91,8 @@ export default function AboutPage() {
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/20 rounded-full"></div>
         </div>
         
-        {/* Floating Particles */}
-        <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-white/10 rounded-full animate-bounce"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 3}s`,
-              }}
-            />
-          ))}
-        </div>
+        {/* Floating Particles - hydration-safe */}
+        <HeroParticles />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 border border-white/20">
@@ -110,7 +100,7 @@ export default function AboutPage() {
             <span>Passionate About Creating</span>
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight gradient-text">
             About Umesh
           </h1>
           
@@ -227,13 +217,13 @@ export default function AboutPage() {
             {/* Vertical progress line */}
             <div className="absolute left-8 md:left-16 top-0 bottom-0 w-1 bg-secondary/30 rounded-full"></div>
             
-            <div className="space-y-16">
+            <StaggerContainer className="space-y-16">
               {timeline.map((item, index) => {
                 const Icon = item.icon;
                 const isEven = index % 2 === 0;
                 
                 return (
-                  <div key={index} className="relative">
+                  <StaggerItem key={index}><div className="relative">
                     {/* Timeline marker */}
                     <div className="absolute left-6 md:left-14 w-5 h-5 bg-pattern rounded-full border-4 border-white shadow-lg z-10">
                       <div className="absolute inset-0 bg-pattern rounded-full animate-pulse opacity-75"></div>
@@ -280,10 +270,10 @@ export default function AboutPage() {
                         <div className="absolute top-6 right-6 w-20 h-20 bg-primary/5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
                     </div>
-                  </div>
+                  </div></StaggerItem>
                 );
               })}
-            </div>
+            </StaggerContainer>
             
             {/* Timeline end marker */}
             <div className="relative mt-16">
@@ -415,12 +405,12 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <StaggerContainer className="grid md:grid-cols-2 gap-8">
             {values.map((value, index) => {
               const Icon = value.icon;
               return (
+                <StaggerItem key={index}>
                 <div
-                  key={index}
                   className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group relative overflow-hidden"
                 >
                   {/* Subtle background gradient */}
@@ -442,9 +432,10 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </div>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 

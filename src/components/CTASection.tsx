@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { FadeUp } from '@/components/animations/FadeUp';
 
 interface CTASectionProps {
   title?: string;
@@ -26,7 +27,8 @@ export function CTASection({
       </div>
       
       <div className="relative max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="bg-white/15 bg-gradient-to-r from-primary to-primary-400 p-12 md:p-16 lg:p-20 rounded-3xl shadow-lg">
+        <FadeUp>
+        <div className="bg-white/15 bg-gradient-to-r from-primary to-primary-400 p-12 md:p-16 lg:p-20 rounded-3xl shadow-lg animate-gradient">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-3 bg-primary/20 backdrop-blur-sm text-white px-8 py-4 rounded-full text-sm font-semibold mb-12 border border-white/30 shadow-sm">
               <span>Let's Collaborate</span>
@@ -69,6 +71,7 @@ export function CTASection({
             </div>
           </div>
         </div>
+        </FadeUp>
       </div>
     </section>
   );

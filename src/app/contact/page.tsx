@@ -2,6 +2,8 @@ import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { CTASection } from '@/components/CTASection';
 import ContactForm from './ContactForm';
+import { HeroParticles } from '@/components/animations/HeroParticles';
+import { StaggerContainer, StaggerItem } from '@/components/animations/StaggerContainer';
 import {
   FiGithub,
   FiLinkedin,
@@ -118,21 +120,8 @@ export default function ContactPage() {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full blur-2xl animate-pulse" style={{animationDelay: '2s'}}></div>
         </div>
         
-        {/* Floating Particles */}
-        <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-white/10 rounded-full animate-bounce"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 3}s`,
-              }}
-            />
-          ))}
-        </div>
+        {/* Floating Particles - hydration-safe */}
+        <HeroParticles />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 border border-white/20">
@@ -177,14 +166,13 @@ export default function ContactPage() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <StaggerContainer className="grid md:grid-cols-3 gap-8 mb-16">
             {contactInfo.map((info, index) => {
               const Icon = info.icon;
               return (
+                <StaggerItem key={info.title}>
                 <div
-                  key={info.title}
                   className="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-transparent transform hover:-translate-y-2"
-                  style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl" style={{ backgroundImage: `linear-gradient(135deg, var(--tw-gradient-from), var(--tw-gradient-to))` }}></div>
                   
@@ -209,9 +197,10 @@ export default function ContactPage() {
                     )}
                   </div>
                 </div>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -227,14 +216,13 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+          <StaggerContainer className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
+                <StaggerItem key={index}>
                 <div
-                  key={index}
                   className="group relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-transparent transform hover:-translate-y-2"
-                  style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl" style={{ backgroundImage: `linear-gradient(135deg, var(--tw-gradient-from), var(--tw-gradient-to))` }}></div>
                   
@@ -261,9 +249,10 @@ export default function ContactPage() {
                     </ul>
                   </div>
                 </div>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 

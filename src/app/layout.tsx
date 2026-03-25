@@ -2,6 +2,7 @@ import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
+import { ScrollProgress } from '@/components/animations/ScrollProgress';
 import { Analytics } from '@vercel/analytics/next';
 import { generatePageMetadata, generatePersonSchema, generateWebsiteSchema, injectStructuredData } from '@/lib/seo';
 import { Outfit } from 'next/font/google';
@@ -40,6 +41,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-white text-secondary min-h-screen antialiased">
+        <ScrollProgress />
         <div className="relative">
           <Header />
           <main className="min-h-screen">{children}</main>

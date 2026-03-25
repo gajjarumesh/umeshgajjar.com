@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { FaXTwitter } from 'react-icons/fa6';
 import { FiGithub, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
+import { StaggerContainer, StaggerItem } from '@/components/animations/StaggerContainer';
 
 const FOOTER_LINKS = {
   main: [
@@ -83,20 +84,23 @@ export function Footer() {
               <div className="w-1 h-6 bg-primary rounded-full"></div>
               Quick Links
             </h4>
-            <ul className="space-y-4">
-              {FOOTER_LINKS.main.map((link, index) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="group flex items-center gap-3 text-white/75 hover:text-pattern/90 transition-all duration-300 transform hover:translate-x-1"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <div className="w-1.5 h-1.5 bg-pattern/50 group-hover:bg-pattern rounded-full transition-colors"></div>
-                    <span className="font-medium">{link.label}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <StaggerContainer>
+              <ul className="space-y-4">
+                {FOOTER_LINKS.main.map((link) => (
+                  <StaggerItem key={link.href}>
+                  <li>
+                    <Link
+                      href={link.href}
+                      className="group flex items-center gap-3 text-white/75 hover:text-pattern/90 transition-all duration-300 transform hover:translate-x-1"
+                    >
+                      <div className="w-1.5 h-1.5 bg-pattern/50 group-hover:bg-pattern rounded-full transition-colors"></div>
+                      <span className="font-medium">{link.label}</span>
+                    </Link>
+                  </li>
+                  </StaggerItem>
+                ))}
+              </ul>
+            </StaggerContainer>
           </div>
 
           {/* Enhanced Connect Section */}

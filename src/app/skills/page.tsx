@@ -9,6 +9,8 @@ import {
   FiTool,
   FiGitBranch,
 } from 'react-icons/fi';
+import { HeroParticles } from '@/components/animations/HeroParticles';
+import { FadeUp } from '@/components/animations/FadeUp';
 
 export const metadata = {
   title: 'Technical Skills & Expertise | Umesh Gajjar',
@@ -234,6 +236,8 @@ export default function SkillsPage() {
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/20 rounded-full"></div>
         </div>
         
+        {/* Floating Particles - hydration-safe */}
+        <HeroParticles />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 border border-white/20">
@@ -241,7 +245,7 @@ export default function SkillsPage() {
             <span>Technical Excellence</span>
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight gradient-text">
             Technical Skills & Expertise
           </h1>
           
@@ -287,7 +291,8 @@ export default function SkillsPage() {
             {skillCategories.map((category, categoryIndex) => {
               const Icon = category.icon;
               return (
-                <div key={categoryIndex} className="group">
+                <FadeUp key={categoryIndex} delay={categoryIndex * 0.1}>
+                <div className="group">
                   {/* Modern Category Header with New Attractive Gradient */}
                   <div className="relative bg-gradient-to-r from-primary to-primary-400 p-8 rounded-2xl text-white mb-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
                     {/* Enhanced background pattern */}
@@ -341,6 +346,7 @@ export default function SkillsPage() {
                     ))}
                   </div>
                 </div>
+                </FadeUp>
               );
             })}
           </div>

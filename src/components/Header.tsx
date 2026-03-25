@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
@@ -17,6 +17,13 @@ const NAV_LINKS = [
 export function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handler);
+    return () => window.removeEventListener('scroll', handler);
+  }, []);
 
   // Skip rendering header on admin pages
   if (pathname?.startsWith('/admin')) {
@@ -24,7 +31,7 @@ export function Header() {
   }
 
   return (
-    <header className="bg-background/95 backdrop-blur-lg border-b border-secondary/20 sticky top-0 z-50 shadow-sm">
+    <header className={`border-b border-secondary/20 sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'shadow-lg backdrop-blur-xl bg-background/90' : 'bg-background/95 backdrop-blur-lg shadow-sm'}`}>
       <nav className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-5">
         <div className="flex items-center justify-between">
           {/* Logo */}

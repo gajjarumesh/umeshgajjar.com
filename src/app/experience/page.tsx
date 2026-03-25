@@ -11,6 +11,8 @@ import {
   FiCode,
   FiStar
 } from 'react-icons/fi';
+import { HeroParticles } from '@/components/animations/HeroParticles';
+import { FadeUp } from '@/components/animations/FadeUp';
 
 export const metadata = {
   title: 'Professional Experience & Career Timeline | Umesh Gajjar',
@@ -199,21 +201,8 @@ export default function ExperiencePage() {
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/20 rounded-full"></div>
         </div>
         
-        {/* Floating Particles */}
-        <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-white/10 rounded-full animate-bounce"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 3}s`,
-              }}
-            />
-          ))}
-        </div>
+        {/* Floating Particles - hydration-safe */}
+        <HeroParticles />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 border border-white/20">
@@ -221,7 +210,7 @@ export default function ExperiencePage() {
             <span>Career Journey</span>
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight gradient-text">
             Professional Experience
           </h1>
           
@@ -265,9 +254,8 @@ export default function ExperiencePage() {
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
-              <div key={index} className="relative">
-                {/* Timeline connector */}
-                
+              <FadeUp key={index} delay={index * 0.08}>
+              <div className="relative">
                 <div className="bg-white border border-gray-100 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden group">
                   {/* Company header with gradient */}
                   <div className="bg-gradient-to-r from-primary to-primary-400 p-8 text-white relative overflow-hidden">
@@ -404,6 +392,7 @@ export default function ExperiencePage() {
                   </div>
                 </div>
               </div>
+              </FadeUp>
             ))}
           </div>
         </div>
