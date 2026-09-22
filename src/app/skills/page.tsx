@@ -1,362 +1,167 @@
 import Link from 'next/link';
-import { Section } from '@/components/ui/Section';
-import { CTASection } from '@/components/CTASection';
+import { FiCode, FiServer, FiDatabase, FiCloud, FiArrowRight, FiUsers, FiBox } from 'react-icons/fi';
+import { HoloPanel } from '@/components/dimension/HoloPanel';
+import { Prompt, Glitch } from '@/components/terminal/Terminal';
 import {
-  FiCode,
-  FiServer,
-  FiDatabase,
-  FiCloud,
-  FiTool,
-  FiGitBranch,
-} from 'react-icons/fi';
-import { HeroParticles } from '@/components/animations/HeroParticles';
-import { FadeUp } from '@/components/animations/FadeUp';
+  SpatialSection, Stagger, StaggerItem, TiltPanel, Reveal,
+} from '@/components/dimension/Spatial';
 
 export const metadata = {
   title: 'Technical Skills & Expertise | Umesh Gajjar',
   description:
-    'Comprehensive overview of Umesh Gajjar technical skills including React.js, Next.js, Vue.js, Node.js, Laravel, WordPress, PostgreSQL, MongoDB, AWS, Docker, and more. 8+ years of full stack development experience.',
-  keywords: 'React.js, Next.js, Vue.js, Nuxt.js, Node.js, Laravel, WordPress, TypeScript, JavaScript, PHP, Python, PostgreSQL, MongoDB, AWS, Docker, DevOps, Full Stack Skills',
+    'Comprehensive overview of Umesh Gajjar technical skills including Next.js, React, Vue.js, Node.js, Laravel, WordPress, PostgreSQL, MySQL, Prisma, and Docker. 7+ years of full stack development experience.',
+  keywords: 'React, Next.js, Vue.js, Nuxt.js, Node.js, Laravel, WordPress, TypeScript, PHP, PostgreSQL, MySQL, Prisma, Docker, Full Stack Skills',
 };
 
-const skillCategories = [
+const skillGroups = [
   {
     icon: FiCode,
-    title: 'Frontend Development',
-    description:
-      'Building modern, performant, and accessible user interfaces with cutting-edge frameworks and libraries.',
-    skills: [
-      {
-        name: 'React.js',
-        description:
-          'Expert in building interactive UIs with hooks, context, custom hooks, and modern patterns. Experience with React 18+ features.',
-      },
-      {
-        name: 'Next.js',
-        description:
-          'Advanced knowledge of App Router, server components, server actions, SSR, SSG, ISR, and performance optimization techniques.',
-      },
-      {
-        name: 'Vue.js & Nuxt.js',
-        description:
-          'Progressive framework experience including Composition API, Vuex, Pinia state management, and Nuxt 3 server-side rendering.',
-      },
-      {
-        name: 'Redux & State Management',
-        description:
-          'Complex state handling with Redux Toolkit, Context API, Zustand, and Recoil for enterprise applications.',
-      },
-      {
-        name: 'Tailwind CSS',
-        description:
-          'Utility-first styling for rapid, responsive development. Custom configurations, dark mode, and component patterns.',
-      },
-      {
-        name: 'TypeScript',
-        description:
-          'Strong typing for safer, more maintainable code. Type definitions, generics, and advanced TypeScript patterns.',
-      },
-    ],
+    title: 'Frontend',
+    depth: 'Primary',
+    skills: ['Next.js', 'React', 'Redux', 'Vue.js', 'Nuxt.js', 'TypeScript', 'Tailwind CSS'],
   },
   {
     icon: FiServer,
-    title: 'Backend Development',
-    description:
-      'Designing and implementing robust, scalable server-side applications and APIs.',
-    skills: [
-      {
-        name: 'Node.js',
-        description:
-          'Building RESTful APIs with Express.js, Fastify, and NestJS. Experience with real-time applications using Socket.io.',
-      },
-      {
-        name: 'Laravel',
-        description:
-          'PHP framework for robust web applications. Eloquent ORM, authentication, API development, and Laravel ecosystem tools.',
-      },
-      {
-        name: 'Symfony',
-        description:
-          'Enterprise-grade PHP development with Symfony components. Building scalable, maintainable applications.',
-      },
-      {
-        name: 'Python',
-        description:
-          'Backend development with Django and Flask. Scripting, automation, and data processing tasks.',
-      },
-      {
-        name: 'GraphQL',
-        description:
-          'Implementing GraphQL APIs with Apollo Server, type-safe queries, and efficient data fetching patterns.',
-      },
-      {
-        name: 'RESTful APIs',
-        description:
-          'Designing and documenting REST APIs following best practices. Authentication, rate limiting, and versioning.',
-      },
-    ],
-  },
-  {
-    icon: FiGitBranch,
-    title: 'CMS & WordPress Expertise',
-    description:
-      'Custom content management solutions and WordPress development.',
-    skills: [
-      {
-        name: 'Custom WordPress Themes',
-        description:
-          'Building responsive, SEO-optimized custom themes from scratch. Gutenberg blocks and Advanced Custom Fields.',
-      },
-      {
-        name: 'WordPress Plugins',
-        description:
-          'Developing custom plugins for specific functionality. WordPress hooks, filters, and plugin architecture.',
-      },
-      {
-        name: 'WooCommerce',
-        description:
-          'E-commerce customizations, payment gateway integrations, and custom product types.',
-      },
-      {
-        name: 'Headless WordPress',
-        description:
-          'Integrating WordPress with modern frontends using WP REST API and WPGraphQL for decoupled architectures.',
-      },
-    ],
+    title: 'Backend',
+    depth: 'Primary',
+    skills: ['Node.js', 'Laravel', 'Prisma', 'PHP', 'WordPress', 'RESTful APIs'],
   },
   {
     icon: FiDatabase,
-    title: 'Databases & Data',
-    description:
-      'Designing efficient data models and optimizing database performance.',
-    skills: [
-      {
-        name: 'PostgreSQL',
-        description:
-          'Advanced SQL queries, indexing, query optimization, and database design. JSONB support and full-text search.',
-      },
-      {
-        name: 'MySQL',
-        description:
-          'Relational database design, stored procedures, triggers, and performance tuning for high-traffic applications.',
-      },
-      {
-        name: 'MongoDB',
-        description:
-          'NoSQL document database for flexible schemas. Aggregation pipelines, indexing, and replication.',
-      },
-      {
-        name: 'Redis',
-        description:
-          'In-memory data structure store for caching, session management, and real-time features.',
-      },
-      {
-        name: 'Prisma ORM',
-        description:
-          'Type-safe database access with Prisma Client. Schema migrations and database introspection.',
-      },
-    ],
+    title: 'Data & Performance',
+    depth: 'Core',
+    skills: ['PostgreSQL', 'MySQL', 'Prisma', 'Query Optimization', 'Caching'],
   },
   {
     icon: FiCloud,
-    title: 'Cloud & DevOps',
-    description:
-      'Infrastructure setup, deployment automation, and cloud services management.',
-    skills: [
-      {
-        name: 'AWS Services',
-        description:
-          'EC2, S3, RDS, Lambda, CloudFront, Route 53, and IAM. Building scalable cloud architectures.',
-      },
-      {
-        name: 'Docker',
-        description:
-          'Containerization of applications, Docker Compose for local development, and container orchestration.',
-      },
-      {
-        name: 'CI/CD Pipelines',
-        description:
-          'Automated testing and deployment with GitHub Actions, GitLab CI, and Jenkins.',
-      },
-      {
-        name: 'Vercel & Netlify',
-        description:
-          'Serverless deployment platforms for Next.js and static sites. Edge functions and instant deployments.',
-      },
-      {
-        name: 'Monitoring & Logging',
-        description:
-          'Application monitoring with tools like Sentry, LogRocket, and CloudWatch for production systems.',
-      },
-    ],
-  },
-  {
-    icon: FiTool,
-    title: 'Tools & Collaboration',
-    description:
-      'Development tools, version control, and project management systems.',
-    skills: [
-      {
-        name: 'Git & GitHub',
-        description:
-          'Version control workflows, branching strategies, pull requests, and code review processes.',
-      },
-      {
-        name: 'GitLab',
-        description:
-          'GitLab repositories, CI/CD pipelines, and issue tracking for team collaboration.',
-      },
-      {
-        name: 'Figma',
-        description:
-          'UI/UX collaboration with designers. Implementing designs with pixel-perfect accuracy.',
-      },
-      {
-        name: 'Agile/Scrum',
-        description:
-          'Agile development methodologies, sprint planning, daily standups, and iterative development.',
-      },
-      {
-        name: 'VS Code',
-        description:
-          'Advanced IDE usage with extensions, debugging, and productivity workflows.',
-      },
-    ],
+    title: 'DevOps & Tools',
+    depth: 'Supporting',
+    skills: ['Git', 'Docker', 'CI/CD', 'Vercel', 'Netlify', 'Basic AWS', 'Postman', 'Jira'],
   },
 ];
+
+const productSkills = ['SaaS Platforms', 'Multi-Tenant Design', 'API Integrations', 'eCommerce', 'CMS'];
+const leadershipSkills = ['Team Mentoring', 'Code Reviews', 'Architecture Decisions', 'Sprint Planning'];
 
 export default function SkillsPage() {
   return (
     <>
-      {/* MODERN HERO SECTION */}
-      <section className="relative min-h-[70vh] bg-primary py-20 md:py-32 overflow-hidden">
-        {/* Simple Background Pattern */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-pattern/10 rounded-full"></div>
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/20 rounded-full"></div>
-        </div>
-        
-        {/* Floating Particles - hydration-safe */}
-        <HeroParticles />
+      {/* ═══ HEADER ═══ */}
+      <SpatialSection as="header" className="dim-section" depth={180}>
+        <Prompt path="~" command="stack --list-all" />
+        <h1 className="dim-h1" style={{ marginTop: '1rem' }}>
+          Technical <Glitch className="dim-beam-text">Skills</Glitch>
+        </h1>
+        <div className="dim-rule" />
+        <p className="dim-lede">
+          7+ years of hands-on experience across the full stack. Here&apos;s a
+          breakdown of my technical proficiency.
+        </p>
+      </SpatialSection>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 border border-white/20">
-            <FiCode className="w-4 h-4 text-pattern" />
-            <span>Technical Excellence</span>
-          </div>
-          
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight gradient-text">
-            Technical Skills & Expertise
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed mb-12">
-            8+ years of full-stack development expertise with modern technologies,
-            best practices, and scalable architecture patterns.
-          </p>
-          
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white/90 border border-white/20">
-              <FiCode className="w-4 h-4 text-green-400" />
-              <span className="text-sm">Frontend Expert</span>
-            </div>
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white/90 border border-white/20">
-              <FiServer className="w-4 h-4 text-green-400" />
-              <span className="text-sm">Backend Architect</span>
-            </div>
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white/90 border border-white/20">
-              <FiCloud className="w-4 h-4 text-green-400" />
-              <span className="text-sm">DevOps Integration</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* MODERN SKILLS SECTION */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-6 py-3 rounded-full text-sm font-semibold mb-6">
-              <FiTool className="w-4 h-4 text-pattern" />
-              <span>Technical Stack</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Skills & Technologies
-            </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              A comprehensive overview of my technical expertise across the full development stack
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12">
-            {skillCategories.map((category, categoryIndex) => {
-              const Icon = category.icon;
-              return (
-                <FadeUp key={categoryIndex} delay={categoryIndex * 0.1}>
-                <div className="group">
-                  {/* Modern Category Header with New Attractive Gradient */}
-                  <div className="relative bg-gradient-to-r from-primary to-primary-400 p-8 rounded-2xl text-white mb-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-                    {/* Enhanced background pattern */}
-                    {/* Simple decorative elements */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/20 rounded-full"></div>
-                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-primary/20 rounded-full"></div>
-                    
-                    <div className="relative z-10">
-                      <div className="flex items-center gap-6 mb-4">
-                        <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/30">
-                          <Icon className="w-8 h-8 text-pattern" />
+      {/* ═══ SKILL GROUPS ═══ */}
+      <SpatialSection className="dim-section">
+        <Stagger className="dim-grid-2" gap={0.09}>
+          {skillGroups.map((group) => {
+            const Icon = group.icon;
+            return (
+              <StaggerItem key={group.title}>
+                <TiltPanel max={5} style={{ height: '100%' }}>
+                  <HoloPanel style={{ height: '100%' }}>
+                    <div style={{
+                      display: 'flex', alignItems: 'center',
+                      justifyContent: 'space-between', marginBottom: '1.25rem',
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem' }}>
+                        <div className="dim-glyph" style={{ width: 42, height: 42 }}>
+                          <Icon size={18} />
                         </div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-white">{category.title}</h2>
+                        <h3 className="dim-h3">{group.title}</h3>
                       </div>
-                      
-                      <p className="text-white/90 text-lg leading-relaxed">{category.description}</p>
+                      <span style={{
+                        fontFamily: 'var(--font-mono)', fontSize: '0.625rem',
+                        color: 'var(--lum-38)', textTransform: 'uppercase',
+                        letterSpacing: '0.12em',
+                      }}>
+                        {group.depth}
+                      </span>
                     </div>
-                  </div>
-                  
-                  {/* Modern Skills Grid */}
-                  <div className="space-y-4">
-                    {category.skills.map((skill, skillIndex) => (
-                      <div 
-                        key={skillIndex} 
-                        className="group/skill bg-white rounded-xl border border-gray-100 hover:border-primary/30 p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
-                      >
-                        {/* Subtle hover gradient */}
-                        <div className="absolute inset-0 bg-secondary/5 opacity-0 group-hover/skill:opacity-100 transition-opacity duration-300"></div>
-                        
-                        <div className="relative z-10 flex items-start justify-between">
-                          <div className="flex-1">
-                            <div className="flex items-center gap-3 mb-3">
-                              <div className="w-3 h-3 bg-pattern/80 rounded-full group-hover/skill:scale-125 transition-transform duration-300"></div>
-                              <h3 className="font-bold text-xl text-gray-900 group-hover/skill:text-primary transition-colors duration-300">
-                                {skill.name}
-                              </h3>
-                            </div>
-                            <p className="text-gray-600 leading-relaxed group-hover/skill:text-gray-700 transition-colors duration-300">
-                              {skill.description}
-                            </p>
-                          </div>
-                          
-                          {/* Skill level indicator */}
-                          <div className="ml-6 flex-shrink-0">
-                            <div className="w-12 h-1 bg-primary-200 rounded-full overflow-hidden">
-                              <div className="w-full h-full bg-pattern/60 transform origin-left scale-x-90 group-hover/skill:scale-x-100 transition-transform duration-500"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                </FadeUp>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
-      <CTASection 
-        title="Ready to Put These Skills to Work?"
-        subtitle="Let's discuss how my technical expertise can help bring your vision to life and drive your business forward."
-      />
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
+                      {group.skills.map((skill) => (
+                        <span key={skill} className="dim-chip">{skill}</span>
+                      ))}
+                    </div>
+
+                    <div className="dim-meter" style={{ marginTop: '1.25rem' }}>
+                      <div className="dim-meter__fill" style={{ width: '100%' }} />
+                    </div>
+                  </HoloPanel>
+                </TiltPanel>
+              </StaggerItem>
+            );
+          })}
+        </Stagger>
+      </SpatialSection>
+
+      {/* ═══ LEADERSHIP + PRODUCT ═══ */}
+      <SpatialSection className="dim-section">
+        <Prompt path="~/meta" command="cat leadership.md" />
+        <h2 className="dim-h2" style={{ marginTop: '0.875rem' }}>Leadership &amp; Product</h2>
+        <div className="dim-rule" />
+
+        <Stagger className="dim-grid-2" gap={0.1}>
+          <StaggerItem>
+            <HoloPanel style={{ height: '100%' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', marginBottom: '1.25rem' }}>
+                <div className="dim-glyph" style={{ width: 42, height: 42 }}>
+                  <FiUsers size={18} />
+                </div>
+                <h3 className="dim-h3">Leadership</h3>
+              </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
+                {leadershipSkills.map((s) => (
+                  <span key={s} className="dim-chip">{s}</span>
+                ))}
+              </div>
+            </HoloPanel>
+          </StaggerItem>
+
+          <StaggerItem>
+            <HoloPanel style={{ height: '100%' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', marginBottom: '1.25rem' }}>
+                <div className="dim-glyph" style={{ width: 42, height: 42 }}>
+                  <FiBox size={18} />
+                </div>
+                <h3 className="dim-h3">Product Skills</h3>
+              </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
+                {productSkills.map((s) => (
+                  <span key={s} className="dim-chip">{s}</span>
+                ))}
+              </div>
+            </HoloPanel>
+          </StaggerItem>
+        </Stagger>
+      </SpatialSection>
+
+      {/* ═══ CTA ═══ */}
+      <SpatialSection>
+        <Reveal>
+          <HoloPanel variant="pulse" style={{ padding: '3rem 2rem', textAlign: 'center' }}>
+            <Prompt path="~" command="connect" caret={false} />
+            <h2 className="dim-h2" style={{ marginBottom: '0.75rem' }}>
+              Ready to put these skills <span className="dim-glow">to work?</span>
+            </h2>
+            <p className="dim-body" style={{ maxWidth: 420, margin: '0 auto 1.75rem' }}>
+              Let&apos;s build something exceptional together.
+            </p>
+            <Link href="/contact" className="dim-btn dim-btn--pulse">
+              Start a Conversation <FiArrowRight size={14} />
+            </Link>
+          </HoloPanel>
+        </Reveal>
+      </SpatialSection>
     </>
   );
 }

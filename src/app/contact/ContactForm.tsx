@@ -1,25 +1,29 @@
 'use client';
 
-import { Button } from '@/components/ui/Button';
 import { useState } from 'react';
-import { FiMail, FiMapPin, FiClock, FiSend, FiCheckCircle } from 'react-icons/fi';
+import { FiSend, FiCheck, FiAlertCircle } from 'react-icons/fi';
 
-interface ContactFormProps {
-  onSuccess?: () => void;
-  onError?: (error: string) => void;
-}
+const PROJECT_TYPES = [
+  'Web Development',
+  'E-commerce Solution',
+  'SaaS Application',
+  'WordPress Development',
+  'Technical Consulting',
+  'Maintenance & Support',
+  'Other',
+];
 
-export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
+export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: '',
   });
-  const [status, setStatus] = useState<{
-    type: 'success' | 'error' | '';
-    message: string;
-  }>({ type: '', message: '' });
+  const [status, setStatus] = useState<{ type: 'success' | 'error' | ''; message: string }>({
+    type: '',
+    message: '',
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
@@ -39,275 +43,147 @@ export default function ContactForm({ onSuccess, onError }: ContactFormProps) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-
       const data = await response.json();
 
       if (response.ok) {
-        setStatus({
-          type: 'success',
-          message:
-            "Message sent successfully! I'll get back to you within 24-48 hours.",
-        });
+        setStatus({ type: 'success', message: "Message sent — I'll get back to you within 24 hours." });
         setFormData({ name: '', email: '', subject: '', message: '' });
-        if (onSuccess) onSuccess();
       } else {
-        const errorMessage =
-          data.error || 'Failed to send message. Please try again.';
-        setStatus({
-          type: 'error',
-          message: errorMessage,
-        });
-        if (onError) onError(errorMessage);
+        setStatus({ type: 'error', message: data.error || 'Failed to send message. Please try again.' });
       }
-    } catch (error) {
-      const errorMessage =
-        'An error occurred while sending your message. Please try again or email me directly.';
+    } catch {
       setStatus({
         type: 'error',
-        message: errorMessage,
+        message: 'An error occurred. Please email me directly at urvishgajjar6@gmail.com',
       });
-      if (onError) onError(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="grid lg:grid-cols-5 gap-12">
-      {/* Contact Information */}
-      <div className="lg:col-span-2 space-y-8">
+    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.125rem' }}>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.125rem' }}>
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Let's Discuss Your Project
-          </h2>
-          <p className="text-gray-900/80 leading-relaxed mb-8">
-            Ready to bring your vision to life? I'm here to help you build exceptional web experiences that drive results.
-          </p>
+          <label htmlFor="cf-name" className="dim-label">Name *</label>
+          <input
+            id="cf-name"
+            type="text"
+            name="name"
+            required
+            value={formData.name}
+            onChange={handleChange}
+            className="dim-input"
+            placeholder="Your name"
+            autoComplete="name"
+          />
         </div>
 
-        {/* Contact Details */}
-        <div className="space-y-6">
-          <div className="flex items-start gap-4">
-            <div className="p-3 bg-white/10 backdrop-blur-sm rounded-2xl border border-gray/20">
-              <FiMail className="w-6 h-6 text-pattern" />
-            </div>
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-1 text-lg">
-                Email
-              </h3>
-              <a
-                href="mailto:hello@umeshgajjar.com"
-                className="text-pattern/80 hover:text-pattern transition-colors font-medium"
-              >
-                hello@umeshgajjar.com
-              </a>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-4">
-            <div className="p-3 bg-white/10 backdrop-blur-sm rounded-2xl border border-gray/20">
-              <FiMapPin className="w-6 h-6 text-pattern" />
-            </div>
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-1 text-lg">
-                Location
-              </h3>
-              <p className="text-gray-900/70 font-medium">
-                Pune, Maharashtra, India
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-4">
-            <div className="p-3 bg-white/10 backdrop-blur-sm rounded-2xl border border-gray/20">
-              <FiClock className="w-6 h-6 text-pattern" />
-            </div>
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-1 text-lg">
-                Response Time
-              </h3>
-              <p className="text-gray-900/70 font-medium">
-                Within 24 hours
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Enhanced Features */}
-        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
-          <h4 className="text-gray-900 font-semibold mb-4 flex items-center gap-2">
-            <FiCheckCircle className="w-5 h-5 text-pattern" />
-            <span>Why Work With Me?</span>
-          </h4>
-          <ul className="space-y-3 text-gray-900/80 text-sm">
-            <li className="flex items-center gap-3">
-              <div className="w-1.5 h-1.5 bg-pattern rounded-full flex-shrink-0"></div>
-              8+ years of full-stack experience
-            </li>
-            <li className="flex items-center gap-3">
-              <div className="w-1.5 h-1.5 bg-pattern rounded-full flex-shrink-0"></div>
-              100+ successful projects delivered
-            </li>
-            <li className="flex items-center gap-3">
-              <div className="w-1.5 h-1.5 bg-pattern rounded-full flex-shrink-0"></div>
-              Modern tech stack expertise
-            </li>
-            <li className="flex items-center gap-3">
-              <div className="w-1.5 h-1.5 bg-pattern rounded-full flex-shrink-0"></div>
-              Agile development approach
-            </li>
-          </ul>
+        <div>
+          <label htmlFor="cf-email" className="dim-label">Email *</label>
+          <input
+            id="cf-email"
+            type="email"
+            name="email"
+            required
+            value={formData.email}
+            onChange={handleChange}
+            className="dim-input"
+            placeholder="you@company.com"
+            autoComplete="email"
+          />
         </div>
       </div>
 
-      {/* Contact Form */}
-      <div className="lg:col-span-3">
-        <form
-          onSubmit={handleSubmit}
-          className="space-y-6 p-8 bg-white/10 backdrop-blur-sm border border-gray/20 rounded-3xl"
+      <div>
+        <label htmlFor="cf-subject" className="dim-label">Project Type</label>
+        <select
+          id="cf-subject"
+          name="subject"
+          value={formData.subject}
+          onChange={handleChange}
+          className="dim-input"
+          style={{ cursor: 'pointer' }}
         >
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-semibold text-gray-900 mb-3"
-              >
-                Your Name *
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-4 py-4 bg-white/10 backdrop-blur-sm border border-gray/20 rounded-2xl focus:ring-2 focus:ring-cyan-400 focus:border-transparent text-gray-900 placeholder-white/50 transition-all duration-300"
-                placeholder="John Doe"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-semibold text-gray-900 mb-3"
-              >
-                Email Address *
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-4 py-4 bg-white/10 backdrop-blur-sm border border-gray/20 rounded-2xl focus:ring-2 focus:ring-cyan-400 focus:border-transparent text-gray-900 placeholder-white/50 transition-all duration-300"
-                placeholder="john@example.com"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label
-              htmlFor="subject"
-              className="block text-sm font-semibold text-gray-900 mb-3"
-            >
-              Project Type
-            </label>
-            <select
-              id="subject"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              className="w-full px-4 py-4 bg-white/10 backdrop-blur-sm border border-gray/20 rounded-2xl focus:ring-2 focus:ring-cyan-400 focus:border-transparent text-gray-900 transition-all duration-300"
-            >
-              <option value="">Select project type...</option>
-              <option value="Web Development">Web Development</option>
-              <option value="E-commerce">E-commerce Solution</option>
-              <option value="SaaS Application">SaaS Application</option>
-              <option value="WordPress">WordPress Development</option>
-              <option value="Consulting">Technical Consulting</option>
-              <option value="Maintenance">Maintenance & Support</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div>
-            <label
-              htmlFor="message"
-              className="block text-sm font-semibold text-gray-900 mb-3"
-            >
-              Project Details *
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              required
-              rows={6}
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full px-4 py-4 bg-white/10 backdrop-blur-sm border border-gray/20 rounded-2xl focus:ring-2 focus:ring-cyan-400 focus:border-transparent text-gray-900 placeholder-white/50 transition-all duration-300 resize-none"
-              placeholder="Tell me about your project goals, timeline, budget range, and any specific requirements. The more details you provide, the better I can assist you."
-            />
-          </div>
-
-          {/* Status Message */}
-          {status.message && (
-            <div
-              className={`p-4 rounded-2xl border backdrop-blur-sm ${
-                status.type === 'success'
-                  ? 'bg-pattern/10 text-green-300 border-green-500/30'
-                  : 'bg-red-500/10 text-red-300 border-red-500/30'
-              }`}
-            >
-              {status.message}
-            </div>
-          )}
-
-          {/* Submit Button */}
-          <Button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full bg-primary/95 text-primary px-8 py-4 rounded-2xl font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 text-lg shadow-lg hover:shadow-2xl transform hover:-translate-y-0.5"
-            variant="outline"
-          >
-            {isSubmitting ? (
-              <>
-                <svg
-                  className="animate-spin h-5 w-5 text-pattern"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  ></circle>
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  ></path>
-                </svg>
-                <span>Sending your message...</span>
-              </>
-            ) : (
-              <>
-                <FiSend className="w-5 h-5 text-pattern" />
-                <span>Send Message</span>
-              </>
-            )}
-          </Button>
-
-          <p className="text-sm text-gray-900/60 text-center leading-relaxed">
-            I'll review your project details and get back to you within 24 hours with next steps.
-            <br />
-            <span className="text-gray-900/40">By submitting, you agree to be contacted regarding your inquiry.</span>
-          </p>
-        </form>
+          <option value="" style={{ background: '#0b0e1b' }}>Select project type…</option>
+          {PROJECT_TYPES.map((t) => (
+            <option key={t} value={t} style={{ background: '#0b0e1b' }}>{t}</option>
+          ))}
+        </select>
       </div>
-    </div>
+
+      <div>
+        <label htmlFor="cf-message" className="dim-label">Message *</label>
+        <textarea
+          id="cf-message"
+          name="message"
+          required
+          rows={5}
+          value={formData.message}
+          onChange={handleChange}
+          className="dim-input"
+          placeholder="Tell me about your project goals, timeline, and requirements…"
+          style={{ resize: 'vertical', minHeight: 130, lineHeight: 1.7 }}
+        />
+      </div>
+
+      {/* Status — announced to assistive tech as it changes */}
+      <div role="status" aria-live="polite">
+        {status.message && (
+          <div
+            style={{
+              display: 'flex', alignItems: 'flex-start', gap: '0.625rem',
+              padding: '0.875rem 1rem',
+              borderRadius: 'var(--r-sm)',
+              fontSize: '0.8375rem',
+              lineHeight: 1.6,
+              background: status.type === 'success' ? 'var(--pulse-06)' : 'rgba(239,68,68,0.08)',
+              color: status.type === 'success' ? 'var(--pulse)' : '#ff8080',
+              border: `1px solid ${status.type === 'success' ? 'var(--pulse-22)' : 'rgba(239,68,68,0.28)'}`,
+            }}
+          >
+            {status.type === 'success'
+              ? <FiCheck size={15} style={{ flexShrink: 0, marginTop: 2 }} />
+              : <FiAlertCircle size={15} style={{ flexShrink: 0, marginTop: 2 }} />}
+            <span>{status.message}</span>
+          </div>
+        )}
+      </div>
+
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="dim-btn dim-btn--pulse"
+        style={{
+          width: '100%',
+          justifyContent: 'center',
+          opacity: isSubmitting ? 0.7 : 1,
+          cursor: isSubmitting ? 'wait' : 'pointer',
+        }}
+      >
+        {isSubmitting ? (
+          <>
+            <svg
+              width="15" height="15" viewBox="0 0 24 24" fill="none"
+              style={{ animation: 'spin 0.9s linear infinite' }}
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" opacity="0.25" />
+              <path
+                d="M4 12a8 8 0 018-8"
+                stroke="currentColor" strokeWidth="3" strokeLinecap="round"
+              />
+            </svg>
+            Transmitting…
+          </>
+        ) : (
+          <>
+            <FiSend size={14} />
+            Send Message
+          </>
+        )}
+      </button>
+    </form>
   );
 }

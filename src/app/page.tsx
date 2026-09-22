@@ -1,400 +1,245 @@
 import Link from 'next/link';
-import { Button } from '@/components/ui/Button';
-import { CTASection } from '@/components/CTASection';
-import { FiCode, FiServer, FiLayout, FiCloud, FiCheckCircle, FiArrowRight, FiExternalLink } from 'react-icons/fi';
-import { HeroParticles } from '@/components/animations/HeroParticles';
-import { TypewriterHero } from '@/components/animations/TypewriterHero';
-import { CountUp } from '@/components/animations/CountUp';
-import { FadeUp } from '@/components/animations/FadeUp';
-import { StaggerContainer, StaggerItem } from '@/components/animations/StaggerContainer';
+import { FiCode, FiServer, FiLayout, FiCloud, FiArrowRight, FiCheckCircle } from 'react-icons/fi';
+import { HoloPanel } from '@/components/dimension/HoloPanel';
+import { HeroStage } from '@/components/gl/HeroStage';
+import { Prompt, Glitch, StatLine, AsciiArt } from '@/components/terminal/Terminal';
+import {
+  SpatialSection, Stagger, StaggerItem, ParallaxLayer, TiltPanel, Reveal,
+} from '@/components/dimension/Spatial';
 
 export const metadata = {
-  title: 'Senior Full Stack Developer Building Scalable Web Applications | Umesh Gajjar',
+  title: 'Umesh Gajjar – Full-Stack Lead Building Scalable Web Applications',
   description:
-    'Umesh Gajjar - Senior Full Stack Developer with 8+ years of experience in React.js, Next.js, Vue.js, Node.js, Laravel, and WordPress. Specializing in building high-performance, scalable web applications for startups, agencies, and SaaS companies.',
+    'Umesh Gajjar – Full-Stack Lead with 7+ years of experience in Next.js, React, Vue.js, Node.js, Laravel, and WordPress. Building fast, secure, scalable web applications for startups, agencies, and SaaS companies.',
   keywords: 'Full Stack Developer, React Developer, Next.js Expert, Vue.js Developer, Node.js Developer, Laravel Developer, WordPress Developer, Pune Developer, Senior Developer, Freelance Developer',
 };
 
-const expertiseAreas = [
+const services = [
   {
     icon: FiCode,
     title: 'Frontend Development',
-    description:
-      'Building modern, performant React/Next.js and Vue.js/Nuxt.js applications with focus on user experience, accessibility, and Core Web Vitals.',
-    features: ['React/Next.js', 'Vue.js/Nuxt.js', 'TypeScript', 'Responsive Design'],
+    slug: 'frontend',
+    description: 'Modern, performant applications built with Next.js, React, Vue.js, Nuxt.js, TypeScript, and Tailwind CSS.',
+    features: ['Next.js / React', 'Vue.js / Nuxt.js', 'TypeScript', 'Tailwind CSS'],
   },
   {
     icon: FiServer,
     title: 'Backend Architecture',
-    description:
-      'Designing and implementing scalable Node.js and PHP solutions for enterprise needs. Experience with APIs, microservices, and real-time applications.',
-    features: ['Node.js/Express', 'Laravel/PHP', 'RESTful APIs', 'Microservices'],
+    slug: 'backend',
+    description: 'Scalable Node.js, Laravel, and PHP solutions with RESTful APIs for enterprise and SaaS needs.',
+    features: ['Node.js', 'Laravel / PHP', 'RESTful APIs', 'Prisma'],
   },
   {
     icon: FiLayout,
     title: 'WordPress & CMS',
-    description:
-      'Custom WordPress development, plugin creation, WooCommerce customizations, and headless CMS implementations for content management.',
-    features: ['Custom Themes', 'Plugin Development', 'WooCommerce', 'Headless CMS'],
+    slug: 'cms',
+    description: 'Custom WordPress development, plugin creation, and CMS implementations for content publishing.',
+    features: ['Custom Themes', 'Plugin Development', 'WordPress'],
   },
   {
     icon: FiCloud,
-    title: 'Cloud & DevOps',
-    description:
-      'AWS infrastructure management, Docker containerization, CI/CD pipelines, ensuring reliable deployments and system monitoring.',
-    features: ['AWS Services', 'Docker', 'CI/CD Pipelines', 'System Monitoring'],
-  },
-];
-
-const featuredProjects = [
-  {
-    title: 'Enterprise SaaS Platform',
-    description:
-      'Multi-tenant SaaS application with role-based access control, subscription management, and real-time analytics.',
-    tech: ['Next.js', 'Node.js', 'PostgreSQL', 'AWS'],
-    highlight: '10,000+ Active Users',
-  },
-  {
-    title: 'E-Commerce Solution',
-    description:
-      'High-performance e-commerce platform with advanced filtering, payment gateway integration, and inventory management.',
-    tech: ['React', 'Laravel', 'MySQL', 'Redis'],
-    highlight: '₹50L+ Monthly Revenue',
-  },
-  {
-    title: 'Custom Admin Dashboard',
-    description:
-      'Data visualization and analytics dashboard for enterprise clients with real-time updates and custom reporting.',
-    tech: ['Vue.js', 'Node.js', 'MongoDB', 'Socket.io'],
-    highlight: '500+ Organizations',
+    title: 'DevOps & Tools',
+    slug: 'devops',
+    description: 'Docker containerization, CI/CD pipelines, and deployments on Vercel and Netlify.',
+    features: ['Git', 'Docker', 'CI/CD', 'Vercel / Netlify'],
   },
 ];
 
 const stats = [
-  { label: 'Years Experience', value: '8+' },
-  { label: 'Projects Completed', value: '100+' },
-  { label: 'Happy Clients', value: '50+' },
-  { label: 'Technologies', value: '20+' },
+  { value: '7+',  label: 'Years Experience' },
+  { value: '6',   label: 'Companies' },
+  { value: '40%', label: 'Faster Load Times' },
+  { value: '25%', label: 'Fewer Checkout Errors' },
+];
+
+const stack = [
+  'Next.js', 'React', 'Vue.js', 'Node.js', 'Laravel', 'TypeScript', 'PostgreSQL', 'Docker',
 ];
 
 export default function HomePage() {
   return (
     <>
-      {/* MODERN HERO SECTION */}
-      <section className="relative min-h-[70vh] bg-primary py-20 md:py-32 overflow-hidden">
-        {/* Grid background */}
-        <div className="absolute inset-0 hero-grid-bg opacity-40"></div>
+      {/* ═══ HERO ═══ */}
+      <SpatialSection as="header" className="dim-section" depth={200}>
+        <div className="hero-grid" style={{
+          display: 'grid',
+          gridTemplateColumns: 'minmax(0, 1.25fr) minmax(0, 1fr)',
+          gap: '3rem',
+          alignItems: 'center',
+        }}>
 
-        {/* Simple Background Pattern */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-pattern/10 rounded-full"></div>
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/20 rounded-full"></div>
-        </div>
-        
-        {/* Floating Particles - hydration-safe */}
-        <HeroParticles />
-        
-        <div className="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 text-center z-10">
-          {/* Typewriter hero badge */}
-          <TypewriterHero />
-          
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
-            Building Amazing Web Experiences
-          </h1>
-          
-          <p className="text-lg md:text-xl lg:text-2xl text-white/85 max-w-4xl mx-auto leading-relaxed mb-16 font-light">
-            8+ years of expertise in creating scalable, user-focused web applications 
-            that drive business growth and deliver exceptional results.
-          </p>
-          
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm px-5 py-3 rounded-full text-white/90 border border-white/25 text-sm font-medium">
-              <FiCheckCircle className="w-4 h-4 text-green-400" />
-              <span>100+ Projects</span>
+          <div>
+            <Prompt path="~" command="init --profile" />
+
+            <h1 className="dim-h1" style={{ marginTop: '1rem' }}>
+              Umesh{' '}
+              <Glitch className="dim-beam-text">Gajjar</Glitch>
+            </h1>
+
+            <div className="dim-tagline" style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', marginBottom: '1.5rem' }}>
+              <span style={{
+                width: 34, height: 2, borderRadius: 2, flexShrink: 0,
+                background: 'linear-gradient(90deg, var(--pulse), var(--beam))',
+                boxShadow: '0 0 12px var(--pulse-40)',
+              }} />
+              <p style={{
+                fontFamily: 'var(--font-mono)', fontSize: '0.8125rem',
+                color: 'var(--lum-55)', letterSpacing: '0.04em', margin: 0,
+              }}>
+                Full-Stack Lead · Infosys · Pune, India
+              </p>
             </div>
-            <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm px-5 py-3 rounded-full text-white/90 border border-white/25 text-sm font-medium">
-              <FiCheckCircle className="w-4 h-4 text-green-400" />
-              <span>Enterprise Level</span>
+
+            <p className="dim-lede" style={{ marginBottom: '2rem' }}>
+              7+ years building fast, secure, and scalable web applications for startups,
+              agencies, and enterprise clients. Specialising in Next.js, React, Node.js,
+              and Laravel.
+            </p>
+
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
+              <Link href="/contact" className="dim-btn dim-btn--pulse">
+                Hire Me <FiArrowRight size={14} />
+              </Link>
+              <Link href="/projects" className="dim-btn dim-btn--ghost">
+                View Work <FiArrowRight size={14} />
+              </Link>
             </div>
-            <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm px-5 py-3 rounded-full text-white/90 border border-white/25 text-sm font-medium">
-              <FiCheckCircle className="w-4 h-4 text-green-400" />
-              <span>Modern Tech Stack</span>
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+              {stack.map((s) => (
+                <span key={s} className="dim-chip">{s}</span>
+              ))}
             </div>
           </div>
-          
-          <div className="flex flex-wrap justify-center gap-6 mb-16">
-            {stats.map((stat) => (
-              <div key={stat.label} className="inline-flex flex-col items-center bg-white/15 backdrop-blur-sm px-8 py-6 rounded-2xl text-white border border-white/25 shadow-lg animate-glow">
-                <span className="text-3xl font-bold text-secondary-200 mb-1">
-                  <CountUp value={stat.value} />
-                </span>
-                <span className="text-sm text-white/75 font-medium">{stat.label}</span>
+
+          {/* WebGL core — lazy-loaded, Canvas 2D fallback */}
+          <ParallaxLayer depth={0.4}>
+            <TiltPanel max={6}>
+              <HoloPanel variant="bracket" style={{ padding: '1rem' }}>
+                <HeroStage height={300} />
+                <div style={{
+                  display: 'flex', justifyContent: 'space-between',
+                  alignItems: 'center', marginTop: '0.875rem',
+                  fontFamily: 'var(--font-mono)', fontSize: '0.6875rem',
+                  color: 'var(--lum-38)', letterSpacing: '0.1em',
+                }}>
+                  <span>CORE / RENDERING</span>
+                  <span className="dim-glow">7Y · 6 ORGS</span>
+                </div>
+              </HoloPanel>
+            </TiltPanel>
+          </ParallaxLayer>
+        </div>
+      </SpatialSection>
+
+      {/* ═══ STATS ═══ */}
+      <Stagger className="dim-grid-4 dim-section" gap={0.07}>
+        {stats.map((s) => (
+          <StaggerItem key={s.label}>
+            <HoloPanel variant="flat" className="term-ticks" style={{ textAlign: 'center', position: 'relative' }}>
+              <div className="dim-beam-text" style={{
+                fontSize: '2rem', fontWeight: 700, lineHeight: 1, marginBottom: '0.4rem',
+              }}>
+                {s.value}
               </div>
-            ))}
-          </div>
-          
-          <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Link href="/contact">
-              <Button className="bg-pattern text-white hover:bg-pattern hover:text-white px-10 py-5 rounded-2xl font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center gap-3 border-2 border-white hover:border-pattern" variant="custom">
-                <span>Start Your Project</span>
-                <FiArrowRight className="w-5 h-5" />
-              </Button>
-            </Link>
-            <Link href="/projects">
-              <Button className="bg-transparent text-white hover:bg-white hover:text-primary px-10 py-5 rounded-2xl font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center gap-3 border-2 border-white">
-                <span>View Portfolio</span>
-                <FiExternalLink className="w-5 h-5" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+              <div style={{
+                fontFamily: 'var(--font-mono)', fontSize: '0.6875rem',
+                color: 'var(--lum-38)', textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+              }}>
+                {s.label}
+              </div>
+              <div className="dim-meter" style={{ marginTop: '0.875rem' }}>
+                <div className="dim-meter__fill" style={{ width: '100%' }} />
+              </div>
+            </HoloPanel>
+          </StaggerItem>
+        ))}
+      </Stagger>
 
-      {/* ENHANCED EXPERTISE SECTION */}
-      <section className="bg-background py-24 md:py-32">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-          <FadeUp>
-            <div className="text-center mb-20">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-fontColor mb-6 leading-tight">
-                Technical Expertise
-              </h2>
-              <p className="text-lg md:text-xl text-fontColor/70 max-w-3xl mx-auto leading-relaxed">
-                Full-stack development services focused on building scalable, maintainable applications that drive business success
-              </p>
-            </div>
-          </FadeUp>
+      {/* ═══ SERVICES ═══ */}
+      <SpatialSection className="dim-section">
+        <Prompt path="~/services" command="ls --capabilities" />
+        <h2 className="dim-h2" style={{ marginTop: '0.875rem' }}>What I Build</h2>
+        <div className="dim-rule" />
 
-          <StaggerContainer className="grid md:grid-cols-2 gap-8 lg:gap-10">
-            {expertiseAreas.map((area, index) => {
-              const Icon = area.icon;
-              return (
-                <StaggerItem key={index}>
-                  <div 
-                    className="group bg-white rounded-3xl p-10 shadow-sm border border-secondary/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full"
-                  >
-                    <div className="flex items-center mb-6">
-                      <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                        <Icon className="w-8 h-8 text-white" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-fontColor">
-                        {area.title}
-                      </h3>
+        <Stagger className="dim-grid-2" gap={0.09}>
+          {services.map((svc) => {
+            const Icon = svc.icon;
+            return (
+              <StaggerItem key={svc.title}>
+                <TiltPanel max={5} style={{ height: '100%' }}>
+                  <HoloPanel style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                    <div style={{
+                      display: 'flex', alignItems: 'flex-start',
+                      justifyContent: 'space-between', marginBottom: '1.125rem',
+                    }}>
+                      <div className="dim-glyph"><Icon size={20} /></div>
+                      <span style={{
+                        fontFamily: 'var(--font-mono)', fontSize: '0.625rem',
+                        color: 'var(--lum-38)', letterSpacing: '0.1em',
+                      }}>
+                        /{svc.slug}
+                      </span>
                     </div>
-                    
-                    <p className="text-fontColor/75 leading-relaxed text-lg mb-8">
-                      {area.description}
+
+                    <h3 className="dim-h3" style={{ marginBottom: '0.5rem' }}>{svc.title}</h3>
+
+                    <p className="dim-body" style={{ marginBottom: '1.125rem', flex: 1 }}>
+                      {svc.description}
                     </p>
-                    
-                    <div className="grid grid-cols-2 gap-3">
-                      {area.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-pattern rounded-full flex-shrink-0"></div>
-                          <span className="text-fontColor/80 text-sm font-medium">{feature}</span>
-                        </div>
+
+                    <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.25rem' }}>
+                      {svc.features.map((f) => (
+                        <li key={f} style={{
+                          display: 'flex', alignItems: 'center', gap: '0.5rem',
+                          fontSize: '0.8125rem', color: 'var(--lum-55)',
+                        }}>
+                          <FiCheckCircle size={12} style={{ color: 'var(--pulse)', flexShrink: 0 }} />
+                          {f}
+                        </li>
                       ))}
-                    </div>
-                  </div>
-                </StaggerItem>
-              );
-            })}
-          </StaggerContainer>
-        </div>
-      </section>
+                    </ul>
 
-      {/* ENHANCED PROJECTS SECTION */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeUp>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-fontColor mb-6">
-                Featured Projects
-              </h2>
-              <p className="text-xl text-fontColor/80 max-w-2xl mx-auto">
-                Recent projects showcasing expertise in modern web development and innovative solutions
-              </p>
-            </div>
-          </FadeUp>
-
-          <StaggerContainer className="grid gap-8">
-            {featuredProjects.map((project, index) => (
-              <StaggerItem key={index}>
-                <div
-                  className="group relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200/50 hover:border-primary/20 transition-all duration-500 hover:shadow-2xl transform hover:-translate-y-1"
-                >
-                  {/* Background pattern */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-                  
-                  <div className="relative flex flex-col md:flex-row gap-8 items-start">
-                    {/* Left: Project number and visual */}
-                    <div className="flex-shrink-0 flex items-center gap-4">
-                      <div className="relative">
-                        {/* Main number circle */}
-                        <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-600 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
-                          <span className="text-2xl font-bold text-white">{String(index + 1).padStart(2, '0')}</span>
-                        </div>
-                        {/* Animated ring */}
-                        <div className="absolute inset-0 w-20 h-20 border-2 border-pattern/50 rounded-2xl animate-pulse group-hover:scale-125 transition-transform duration-500"></div>
-                      </div>
-                      
-                      {/* Progress line for desktop */}
-                      <div className="hidden md:block w-16 h-px bg-gradient-to-r from-pattern/50 to-transparent"></div>
+                    <div style={{ borderTop: '1px solid var(--lum-08)', paddingTop: '1rem' }}>
+                      <Link href="/contact" style={{
+                        display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+                        fontSize: '0.8125rem', fontWeight: 600, color: 'var(--pulse)',
+                      }}>
+                        Get Started <FiArrowRight size={12} />
+                      </Link>
                     </div>
-
-                    {/* Right: Content */}
-                    <div className="flex-1 space-y-4">
-                      <div className="flex items-start justify-between">
-                        <h3 className="text-2xl md:text-3xl font-bold text-primary/80 group-hover:text-primary transition-colors duration-300">
-                          {project.title}
-                        </h3>
-                        <svg className="w-6 h-6 text-pattern/50 group-hover:text-pattern group-hover:rotate-45 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                      </div>
-                      
-                      <p className="text-lg text-primary/70 leading-relaxed group-hover:text-primary/80 transition-colors duration-300">
-                        {project.description}
-                      </p>
-                      
-                      {/* Tech stack with enhanced styling */}
-                      <div className="flex flex-wrap gap-3 pt-2">
-                        {project.tech.map((tech, techIndex) => (
-                          <span
-                            key={tech}
-                            className="inline-flex items-center px-4 py-2 text-sm font-semibold bg-white text-primary rounded-xl border-2 border-gray-200/50 shadow-sm hover:border-primary/30 hover:text-primary transition-all duration-300 transform hover:-translate-y-0.5"
-                            style={{
-                              animationDelay: `${techIndex * 100}ms`
-                            }}
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  </HoloPanel>
+                </TiltPanel>
               </StaggerItem>
-            ))}
-          </StaggerContainer>
+            );
+          })}
+        </Stagger>
+      </SpatialSection>
 
-          {/* Enhanced CTA */}
-          <FadeUp delay={0.2}>
-            <div className="text-center mt-16">
-              <Link
-                href="/projects"
-                className="group inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white hover:text-secondary-50 px-10 py-5 rounded-2xl font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-              >
-                <span>Explore All Projects</span>
-                <svg className="w-6 h-6 text-pattern/80 group-hover:translate-x-1 transition-transform group-hover:text-pattern" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* NEW JOURNEY - Timeline style on the side */}
-      <section className="bg-gray-50 py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeUp>
-            <div className="mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-fontColor mb-4">
-                Professional Journey
-              </h2>
-              <p className="text-xl text-fontColor/80">
-                Building scalable solutions and leading teams at top organizations
-              </p>
-            </div>
-          </FadeUp>
-
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-primary"></div>
-
-            {/* Timeline items */}
-            <StaggerContainer className="space-y-8">
-              {/* Item 1 */}
-              <StaggerItem>
-                <div className="relative pl-12 md:pl-20">
-                  <div className="absolute left-0 md:left-4 w-8 h-8 bg-pattern rounded-full flex items-center justify-center">
-                    <div className="w-3 h-3 bg-white rounded-full"></div>
-                  </div>
-                  <div className="bg-white p-6 rounded-lg">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                      <h3 className="text-xl font-bold text-primary/80">Senior Associate Consultant</h3>
-                      <span className="text-sm text-primary/70">Sep 2025 - Present</span>
-                    </div>
-                    <p className="text-lg text-primary font-semibold mb-2">Infosys</p>
-                    <p className="text-primary/90 leading-relaxed">
-                      Leading enterprise application development, architecting scalable solutions for global clients, and driving technical excellence across development teams.
-                    </p>
-                  </div>
-                </div>
-              </StaggerItem>
-
-              {/* Item 2 */}
-              <StaggerItem>
-                <div className="relative pl-12 md:pl-20">
-                  <div className="absolute left-0 md:left-4 w-8 h-8 bg-pattern rounded-full flex items-center justify-center">
-                    <div className="w-3 h-3 bg-white rounded-full"></div>
-                  </div>
-                  <div className="bg-white p-6 rounded-lg">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                      <h3 className="text-xl font-bold text-primary/80">Freelance Full Stack Developer</h3>
-                      <span className="text-sm text-primary/70">Oct 2024 - Present</span>
-                    </div>
-                    <p className="text-lg text-primary font-semibold mb-2">Self-Employed</p>
-                    <p className="text-primary/90 leading-relaxed">
-                      Delivering custom web applications for diverse clients. Specializing in Next.js, React, and WordPress solutions with end-to-end project ownership.
-                    </p>
-                  </div>
-                </div>
-              </StaggerItem>
-
-              {/* Item 3 */}
-              <StaggerItem>
-                <div className="relative pl-12 md:pl-20">
-                  <div className="absolute left-0 md:left-4 w-8 h-8 bg-pattern rounded-full flex items-center justify-center">
-                    <div className="w-3 h-3 bg-white rounded-full"></div>
-                  </div>
-                  <div className="bg-white p-6 rounded-lg">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                      <h3 className="text-xl font-bold text-primary/80">Team Lead</h3>
-                      <span className="text-sm text-primary/70">6+ Years Leadership</span>
-                    </div>
-                    <p className="text-lg text-primary font-semibold mb-2">Acespritech Solutions</p>
-                    <p className="text-primary/90 leading-relaxed">
-                      Led development teams on multiple projects, managed client relationships, conducted code reviews, and made technical architecture decisions.
-                    </p>
-                  </div>
-                </div>
-              </StaggerItem>
-            </StaggerContainer>
-          </div>
-
-          {/* Enhanced CTA */}
-          <FadeUp delay={0.2}>
-            <div className="text-center mt-16">
-              <Link
-                href="/experience"
-                className="group inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white hover:text-secondary-50 px-10 py-5 rounded-2xl font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-              >
-                <span>View Full Experience</span>
-                <svg className="w-6 h-6 text-pattern/80 group-hover:translate-x-1 transition-transform group-hover:text-pattern" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
-          </FadeUp>
-        </div>
-      </section>
-
-      <CTASection 
-        title="Let's Build Something Amazing Together"
-        subtitle="Ready to transform your ideas into powerful web applications? I'm here to help you succeed with cutting-edge technologies and proven expertise."
-        primaryButtonText="Start Your Project"
-        primaryButtonHref="/contact"
-      />
+      {/* ═══ CTA ═══ */}
+      <SpatialSection>
+        <Reveal>
+          <HoloPanel variant="pulse" className="term-scan" style={{ padding: '3rem 2rem', textAlign: 'center', position: 'relative' }}>
+            <AsciiArt
+              motif="wave"
+              pulse
+              style={{ position: 'absolute', top: 14, left: 18, opacity: 0.5 }}
+            />
+            <Prompt path="~" command="connect --start" caret={false} />
+            <h2 className="dim-h2" style={{ margin: '1rem 0 0.75rem' }}>
+              Let&apos;s make your project <span className="dim-glow">brilliant</span>
+            </h2>
+            <p className="dim-body" style={{ maxWidth: 440, margin: '0 auto 1.75rem' }}>
+              Ready to bring your ideas to life? Let&apos;s collaborate and build
+              something worth shipping.
+            </p>
+            <Link href="/contact" className="dim-btn dim-btn--pulse">
+              Start a Project <FiArrowRight size={14} />
+            </Link>
+          </HoloPanel>
+        </Reveal>
+      </SpatialSection>
     </>
   );
 }

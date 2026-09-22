@@ -1,16 +1,17 @@
 import './globals.css';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
-import ScrollToTop from '@/components/ScrollToTop';
-import { ScrollProgress } from '@/components/animations/ScrollProgress';
+import { Sidebar } from '@/components/Sidebar';
+import { DimensionField } from '@/components/dimension/DimensionField';
+import { SpatialShell } from '@/components/dimension/SpatialShell';
+import { BootSequence } from '@/components/terminal/Terminal';
 import { Analytics } from '@vercel/analytics/next';
 import { generatePageMetadata, generatePersonSchema, generateWebsiteSchema, injectStructuredData } from '@/lib/seo';
-import { Outfit } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 
-const outfit = Outfit({ 
+const poppins = Poppins({
   subsets: ['latin'],
-  variable: '--font-outfit',
-  display: 'swap'
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-poppins',
+  display: 'swap',
 });
 
 export const metadata = {
@@ -29,7 +30,7 @@ export default function RootLayout({
   const websiteSchema = generateWebsiteSchema();
 
   return (
-    <html lang="en" className={outfit.variable}>
+    <html lang="en" className={poppins.variable}>
       <head>
         <script
           type="application/ld+json"
@@ -40,14 +41,21 @@ export default function RootLayout({
           dangerouslySetInnerHTML={injectStructuredData(websiteSchema)}
         />
       </head>
-      <body className="bg-white text-secondary min-h-screen antialiased">
-        <ScrollProgress />
-        <div className="relative">
-          <Header />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-          <ScrollToTop />
+      <body className="antialiased">
+        {/* Boot log — once per session, skipped on reduced-motion */}
+        <BootSequence />
+
+        {/* The field: procedural, fixed, behind everything */}
+        <DimensionField />
+
+        {/* The stage: rail + camera viewport */}
+        <div className="dim-stage">
+          <Sidebar />
+          <main className="dim-viewport">
+            <SpatialShell>{children}</SpatialShell>
+          </main>
         </div>
+
         <Analytics />
       </body>
     </html>
